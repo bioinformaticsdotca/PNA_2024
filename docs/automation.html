@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 3 Lab: (Bonus) Automation | Pathway and Network Analysis 2024</title>
+  <meta name="description" content="Workshop website for the 2024 Pathway and Network Analysis Canadian Bioinformatics Workshop" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 3 Lab: (Bonus) Automation | Pathway and Network Analysis 2024" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bioinformaticsdotca.github.io/PNA_2024/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="Workshop website for the 2024 Pathway and Network Analysis Canadian Bioinformatics Workshop" />
+  <meta name="github-repo" content="bioinformaticsdotca/PNA_2024" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 3 Lab: (Bonus) Automation | Pathway and Network Analysis 2024" />
+  
+  <meta name="twitter:description" content="Workshop website for the 2024 Pathway and Network Analysis Canadian Bioinformatics Workshop" />
+  <meta name="twitter:image" content="https://bioinformaticsdotca.github.io/PNA_2024/img/bioinformatics_logo.png" />
+
+<meta name="author" content="Faculty: Veronique Voisin, Ruth Isserlin, Gary Bader, Lincoln Stein, Gregory Schwartz" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="module-3.html"/>
+<link rel="next" href="module-4.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Pathway and Network Analysis",
+  "description": "The complete set of tutorials, slides, and practical exercises for the Pathway and Network Analysis 2024 Canadian Bioinformatics Workshop, hosted on GitHub Pages.",
+  "url": "https://bioinformaticsdotca.github.io/PNA_2024",
+  "learningResourceType": ["tutorial", "slides", "exercise"],
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bioinformatics.ca",
+    "url": "https://bioinformatics.ca"
+  },
+  "keywords": "",
+  "isPartOf": {
+    "@type": "Course",
+    "@id": "https://bioinformatics.ca/workshops-all/2024-pathway-and-network-analysis-toronto/"
+  }
+}
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+<li><center><strong><a href="./"><br>Pathway and Network Analysis<br><br></a></strong></center></li>
+<a href="./">
+ <img src="img/PNA_icon.png" width="70%" alt="Pathway and Network Analysis logo" style="display:block; margin-left:auto; margin-right:auto; ">
+ </a>
+<br>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Info</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-work"><i class="fa fa-check"></i>Pre-work</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#class-photo"><i class="fa fa-check"></i>Class Photo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i>Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html"><i class="fa fa-check"></i>Module 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html"><i class="fa fa-check"></i>Module 2</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#lecture-1"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#lab"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#goal-of-the-exercise-1"><i class="fa fa-check"></i>Goal of the exercise 1</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#exercise-1"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-1---launch-gprofiler."><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-2---input-query"><i class="fa fa-check"></i>Step 2 - input query</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-3---adjust-parameters."><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-4---run-query"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-5---explore-the-results."><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-7-save-the-results"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-8-optional-but-recommended"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-9-optional-by-recommended"><i class="fa fa-check"></i>Step 9 (Optional by recommended)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i>Exercise 2: Load and use a custom .gmt file and run the query</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#optional-steps"><i class="fa fa-check"></i>Optional steps</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#optional-1"><i class="fa fa-check"></i><strong>Optional 1</strong>:</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#option-2"><i class="fa fa-check"></i><strong>Option 2</strong>:</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#option-3"><i class="fa fa-check"></i><strong>Option 3</strong> :</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#bonus---automation."><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#goal-of-the-exercise"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#data-1"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#background"><i class="fa fa-check"></i>Background</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#how-to-generate-a-rank-file."><i class="fa fa-check"></i>How to generate a rank file.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#start-the-exercise"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step1."><i class="fa fa-check"></i>Step1.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-2."><i class="fa fa-check"></i>Step 2.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step3."><i class="fa fa-check"></i>Step3.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-4."><i class="fa fa-check"></i>Step 4.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-5."><i class="fa fa-check"></i>Step 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#additional_information"><i class="fa fa-check"></i>Additional information</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#bonus---automation.-1"><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html"><i class="fa fa-check"></i>Module 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lecture-2"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lab-1"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-2"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#data-2"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#start-the-exercise-1"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1a---create-network-from-table"><i class="fa fa-check"></i>Exercise 1a - Create Network from table</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1b---load-node-attributes"><i class="fa fa-check"></i>Exercise 1b - Load node attributes</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1c---map-node-attributes-to-visual-style"><i class="fa fa-check"></i>Exercise 1c - Map node attributes to Visual Style</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-2---work-with-larger-networks"><i class="fa fa-check"></i>Exercise 2 - Work with larger networks</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-3---perform-basic-enrichment-analysis-using-enrichmenttable"><i class="fa fa-check"></i>Exercise 3 - Perform basic enrichment analysis using EnrichmentTable</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#enrichmenttabl-features"><i class="fa fa-check"></i>Exercise 3B - create Enrichment Map and Enhanced graphics nodes from EnrichmentTable</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-4---load-network-from-ndex"><i class="fa fa-check"></i>Exercise 4 - Load network from NDex</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-3"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#data-3"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#enrichmentmap"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#description-of-this-exercise"><i class="fa fa-check"></i>Description of this exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#start-the-exercise-2"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1a---compare-different-gprofiler-geneset-size-results"><i class="fa fa-check"></i>Exercise 1a - compare different gprofiler geneset size results</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-2"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step3-explore-the-results"><i class="fa fa-check"></i>Step3: Explore the results:</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#explore-detailed-results"><i class="fa fa-check"></i>Explore Detailed results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1b---is-specifying-the-gmt-file-important"><i class="fa fa-check"></i>Exercise 1b - Is specifying the gmt file important?</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1c---create-em-from-results-using-baderlab-genesets"><i class="fa fa-check"></i>Exercise 1c - create EM from results using Baderlab genesets</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1d-optional---investigate-individual-pathways-in-genemania-or-string"><i class="fa fa-check"></i>Exercise 1d (optional) - investigate individual pathways in GeneMANIA or String</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#genemania"><i class="fa fa-check"></i>GeneMANIA</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#string"><i class="fa fa-check"></i>String</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#bonus---automation.-2"><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-4"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#data-4"><i class="fa fa-check"></i>Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#enrichmentmap-1"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1---gsea-output-and-enrichmentmap"><i class="fa fa-check"></i>Exercise 1 - GSEA output and EnrichmentMap</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-1-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-2-1"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-3"><i class="fa fa-check"></i>Step 3</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-4"><i class="fa fa-check"></i>Step 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-2---post-analysis-add-drug-target-gene-sets-to-the-network"><i class="fa fa-check"></i>Exercise 2 - Post analysis (add drug target gene-sets to the network)</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-5"><i class="fa fa-check"></i>Step 5</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-3---autoannotate-the-network"><i class="fa fa-check"></i>Exercise 3 - Autoannotate the Network</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-6"><i class="fa fa-check"></i>Step 6</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-4-optional---explore-results-in-genemania-or-string"><i class="fa fa-check"></i>Exercise 4 (Optional) - Explore results in GeneMANIA or STRING</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-7"><i class="fa fa-check"></i>Step 7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#bonus---automation.-3"><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html"><i class="fa fa-check"></i>Module 3 Lab: (Bonus) Automation</a>
+<ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#goal-of-the-exercise-5"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#set-up---option-1---install-rrstudio"><i class="fa fa-check"></i>Set Up - Option 1 - Install R/Rstudio</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#set-up---option-2---docker-image-with-rrstudio"><i class="fa fa-check"></i>Set Up - Option 2 - Docker image with R/Rstudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#what-is-docker"><i class="fa fa-check"></i>What is docker?</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#docker---basic-term-definition"><i class="fa fa-check"></i>Docker - Basic term definition</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#container"><i class="fa fa-check"></i>Container</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#image"><i class="fa fa-check"></i>Image</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#docker-volumes"><i class="fa fa-check"></i>Docker Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#r_docker"><i class="fa fa-check"></i>Install Docker</a>
+<ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#macos-linux"><i class="fa fa-check"></i>MacOS / Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#create-your-first-notebook-using-docker"><i class="fa fa-check"></i>Create your first notebook using Docker</a>
+<ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#start-coding"><i class="fa fa-check"></i>Start coding!</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#start-using-automation"><i class="fa fa-check"></i>Start using automation</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#running-example-notebooks-in-local-rstudio"><i class="fa fa-check"></i>Running example notebooks in local RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-1---launch-rstudio"><i class="fa fa-check"></i>Step 1 - launch RStudio</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-2---create-a-new-project"><i class="fa fa-check"></i>Step 2 - create a new project</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-3---open-example-rnotebook"><i class="fa fa-check"></i>Step 3 - Open example RNotebook</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#step-4---step-through-notebook-to-run-the-analysis"><i class="fa fa-check"></i>Step 4 - Step through notebook to run the analysis</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="automation.html"><a href="automation.html#additional-resources"><i class="fa fa-check"></i>Additional resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html"><i class="fa fa-check"></i>Module 4</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#lecture-3"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#lab-2"><i class="fa fa-check"></i>Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html"><i class="fa fa-check"></i>Module 5</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lecture-4"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lab-3"><i class="fa fa-check"></i>Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html"><i class="fa fa-check"></i>Module 6</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lecture-5"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-4"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-slides"><i class="fa fa-check"></i>Lab slides</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+<center>
+<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="55" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+<a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="55" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
+<br><br>
+<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=35% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo."><br>
+<a href="https://computationalgenomics.ca/"><img src="img/sponsors/c3g-logo.png" width=90% style="padding-bottom: 20px" alt="Canadian Centre for Computational Genomics logo."></a><br>
+<a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=90% style="padding-bottom: 20px" alt="HPC4Health logo."></a>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway and Network Analysis 2024</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="automation" class="section level1 hasAnchor">
+<h1>Module 3 Lab: (Bonus) Automation<a href="automation.html#automation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This means that you are able to copy, share and modify the work, as long as the result is distributed under the same license.</strong></p>
+<p><em><font color="#827e9c">By Ruth Isserlin</font></em></p>
+<p>Although a lot of what we have demonstrated in Cytoscape up until now has been manual most of the features we use can be automated through multiple access points including:</p>
+<ul>
+<li>R/Rstudio using <a href="https://bioconductor.org/packages/release/bioc/html/RCy3.html">RCy3</a> - a bioconductor package that makes communicating with cytoscape as simple as calling a method.</li>
+<li>Python using <a href="https://py2cytoscape.readthedocs.io/en/latest/">py2cytoscape</a>.</li>
+<li>directly through cyrest using rest calls - you can use any programming language with the rest API. See <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1758-4">Cytoscape Automation</a></li>
+</ul>
+<p>Automation becomes helpful when performing pipelines multiple times on similiar datasets or integrating cytoscape data into your other pipelines.</p>
+<p>Below we demonstrate how to perform the enrichment map pipeline from R but automation is not limited to this access point. You can automate it from any flavour of programming.</p>
+<p>Check out all the ways you can interact with Cytoscape <a href="http://manual.cytoscape.org/en/stable/Programmatic_Access_to_Cytoscape_Features_Scripting.html">here</a> including directly through the cytoscape command window.</p>
+<div id="goal-of-the-exercise-5" class="section level2 hasAnchor">
+<h2>Goal of the exercise:<a href="automation.html#goal-of-the-exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Run an enrichment analysis and Create an enrichment map automatically from R/Rstudio</strong></p>
+<p>During this exercise, you will apply what you have learnt in Module 2 labs and Module 3 labs but instead of performing them manually you will automate the process using R/Rstudio. We will use all the same data and programs we used in the previous labs but we will control them from R.</p>
+<p>Before starting this exercise you need to set up R/Rstudio. You can do that directly on your machine or through docker.</p>
+</div>
+<div id="set-up---option-1---install-rrstudio" class="section level2 hasAnchor">
+<h2>Set Up - Option 1 - Install R/Rstudio<a href="automation.html#set-up---option-1---install-rrstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: lower-alpha">
+<li>Install R.</li>
+</ol>
+<ul>
+<li>Go to: <a href="https://cran.rstudio.com/" class="uri">https://cran.rstudio.com/</a></li>
+</ul>
+<p><img src="./Module3/automation/images/downloadR.png" alt="Load data" /></p>
+<ul>
+<li>If installing on Windows select “install R for the first time” to get to the required package.</li>
+</ul>
+<p><img src="./Module3/automation/images/downloadR_win.png" alt="Load data" /></p>
+<p><a href="https://rstudio.com/">RStudio</a> is a free IDE (Integrated Development Environment) for <strong>R</strong>. RStudio is a wrapper<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> for <strong>R</strong> and as far as basic R is concerned, all the underlying functions are the same, only the user interface is different (and there are a few additional functions that are very useful e.g. for managing projects).</p>
+<p>Here is a small list of differences between <strong>R</strong> and RStudio.</p>
+<p><strong>pros (some pretty significant ones actually):</strong></p>
+<ul>
+<li>Integrated version control.</li>
+<li>Support for “projects” that package scripts and other assets.</li>
+<li>Syntax-aware code colouring.</li>
+<li>A consistent interface across all supported platforms. (Base R GUIs are not all the same for e.g. Mac OS X and Windows.)</li>
+<li>Code autocompletion in the script editor. (Depending on your point of view this can be a help or an annoyance. I used to hate it. After using it for a while I find it useful.)</li>
+<li>“Function signaturtes” (a list of named parameters) displayed when you hover over a function name.</li>
+<li>The ability to set breakpoints for debugging in the script editor.</li>
+<li>Support for knitr, and rmarkdown; also support for R notebooks … (This supports “literate programming” and is actually a big advance in software development)</li>
+<li>Support for R notebooks.</li>
+</ul>
+<p><strong>cons (all minor actually):</strong></p>
+<ul>
+<li>The tiled interface uses more desktop space than the windows of the R GUI.</li>
+<li>There are sometimes (rarely) situations where R functions do not behave in exactly the same way in RStudio.</li>
+<li>The supported R version is not always immediately the most recent release.</li>
+</ul>
+<div class="rmd-note">
+<ul>
+<li>
+Navigate to the <a
+href="https://rstudio.com/products/rstudio/download/">RStudio
+download</a> Website.
+</li>
+<li>
+Find the right version of the RStudio Desktop installer for your
+computer, download it and install the software.
+</li>
+<li>
+Open RStudio.
+</li>
+<li>
+Focus on the bottom left pane of the window, this is the “console”
+pane.
+<p align="center">
+<img src="./Module3/automation/images/Rstudio_start.png" alt="R startup" width="75%" align="center" />
+</p>
+</li>
+<li>
+Type getwd().
+</li>
+<li>
+This prints out the path of the current working directory. Make a
+(mental) note where this is. We usually always need to change this
+“default directory” to a project directory.
+</li>
+</ul>
+</div>
+</div>
+<div id="set-up---option-2---docker-image-with-rrstudio" class="section level2 hasAnchor">
+<h2>Set Up - Option 2 - Docker image with R/Rstudio<a href="automation.html#set-up---option-2---docker-image-with-rrstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Changing versions and environments are a continuing struggle with bioinformatics pipelines and computational pipelines in general. An analysis written and performed a year ago might not run or produce the same results when it is run today. Recording package and system versions or not updating certain packages rarely work in the long run.</p>
+<p>One the best solutions to reproducibility issues is containing your workflow or pipeline in its own coding environment where everything from the operating system, programs and packages are defined and can be built from a set of given instructions. There are many systems that offer this type of control including:</p>
+<ul>
+<li><a href="https://www.docker.com/">Docker</a>.</li>
+<li><a href="https://sylabs.io/">Singularity</a></li>
+</ul>
+<p>“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.” <span class="citation">(<a href="#ref-docker"><strong>docker?</strong></a>)</span></p>
+<p><strong>Why are containers great for Bioiformatics?</strong></p>
+<ul>
+<li>allows you to create environments to run bioinformatis pipelines.</li>
+<li>create a consistent environment to use for your pipelines.</li>
+<li>test modifications to the pipeline without disrupting your current set up.</li>
+<li>Coming back to an analysis years later and there is no need to install older versions of packages or programming languages. Simply create a container and re-run.</li>
+</ul>
+<div id="what-is-docker" class="section level3 hasAnchor">
+<h3>What is docker?<a href="automation.html#what-is-docker" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Docker is a container platform, similar to a virtual machine but better.</li>
+<li>We can run multiple <strong>containers</strong> on our docker server. A <strong>container</strong> is an instance of an <strong>image</strong>. The <strong>image</strong> is built based on a set of instructions but consists of an operating system, installed programs and packages. (When backing up your computer you might taken an image of it and restored your machine from this image. It the same concept but the image is built based on a set of elementary commands found in your Dockerfile.) - for overview see <a href="https://docs.docker.com/get-started/overview/">here</a></li>
+<li>Often images are built off of previous images with specific additions you need for you pipeline. (For example, for this course we use a base image supplied by bioconductor<a href="https://hub.docker.com/r/bioconductor/bioconductor_docker/tags?page=1&amp;ordering=last_updated">release 3.11</a> and comes by default with basic Bioconductor packages but it builds on the base R-docker images called <a href="https://www.rocker-project.org/">rocker</a>.)</li>
+</ul>
+</div>
+<div id="docker---basic-term-definition" class="section level3 hasAnchor">
+<h3>Docker - Basic term definition<a href="automation.html#docker---basic-term-definition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="container" class="section level3 hasAnchor">
+<h3>Container<a href="automation.html#container" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>An instance of an image.</li>
+<li>the self-contained running system.<br />
+</li>
+<li>There can be multiple containers derived from the same image.</li>
+</ul>
+</div>
+<div id="image" class="section level3 hasAnchor">
+<h3>Image<a href="automation.html#image" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>An image contains the blueprint of a container.</li>
+<li>In docker, the image is built from a Dockerfile</li>
+</ul>
+</div>
+<div id="docker-volumes" class="section level3 hasAnchor">
+<h3>Docker Volumes<a href="automation.html#docker-volumes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Anything written on a container will be erased when the container is erased ( or crashes) but anything written on a filesystem that is separate from the contain will persist even after a container is turned off.<br />
+</li>
+<li>A <a href="https://docs.docker.com/storage/volumes/">volume</a> is a way to assocaited data with a container that will persist even after the container. * maps a drive on the host system to a drive on the container.</li>
+<li>In the above docker run command (that creates our container) the statement:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="automation.html#cb2-1" tabindex="-1"></a><span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects</span></code></pre></div>
+<ul>
+<li>maps the directory ${PWD} to the directory /home/rstudio/projects on the container. Anything saved in /home/rstudio/projects will actually be saved in ${PWD}</li>
+<li>An example:
+<ul>
+<li>I use the following commmand to create my docker container:</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="automation.html#cb3-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb3-2"><a href="automation.html#cb3-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>risserlin<span class="sc">/</span>code<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects \</span>
+<span id="cb3-3"><a href="automation.html#cb3-3" tabindex="-1"></a>  <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb3-4"><a href="automation.html#cb3-4" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
+<ul>
+<li>I create a notebook called task3.Rmd and save it in /home/rstudio/projects.
+<div class="rmd-caution">
+<p>
+Note: Do not save it in /home/rstudio/ which is the default directory
+RStudio will start in
+</p>
+</div></li>
+<li>On my host computer, if I go to /Users/risserlin/code I will find the file task3.Rmd</li>
+</ul>
+</div>
+</div>
+<div id="r_docker" class="section level2 hasAnchor">
+<h2>Install Docker<a href="automation.html#r_docker" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-note">
+<ol style="list-style-type: decimal">
+<li>
+Download and install <a
+href="https://www.docker.com/products/docker-desktop">docker
+desktop</a>.
+</li>
+<li>
+Follow slightly different instructions for Windows or
+MacOS/Linux
+</li>
+</ol>
+</div>
+<div id="windows" class="section level3 hasAnchor">
+<h3>Windows<a href="automation.html#windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>it might prompt you to install additional updates (for example - <a href="https://docs.Microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package" class="uri">https://docs.Microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package</a>) and require multiple restarts of your system or docker.</li>
+<li>launch docker desktop app.</li>
+<li>Open windows Power shell</li>
+<li>navigate to directory on your system where you plan on keeping all your code. For example: C:\USERS\risserlin\code</li>
+<li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="automation.html#cb4-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb4-2"><a href="automation.html#cb4-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb4-3"><a href="automation.html#cb4-3" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
+<p align="center">
+<img src="./Module3/automation/images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
+</p>
+<ul>
+<li>Windows defender firewall might pop up with warning. Click on <em>Allow access</em>.</li>
+<li>In docker desktop you see all containers you are running and easily manage them.
+<p align="center">
+<img src="./Module3/automation/images/docker_windows_desktop.png" alt="R startup" width="75%" align="center" />
+</p></li>
+</ul>
+</div>
+<div id="macos-linux" class="section level3 hasAnchor">
+<h3>MacOS / Linux<a href="automation.html#macos-linux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Open Terminal</li>
+<li>navigate to directory on your system where you plan on keeping all your code. For example: /Users/risserlin/code</li>
+<li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="automation.html#cb5-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb5-2"><a href="automation.html#cb5-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="st">&quot;$(pwd)&quot;</span><span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb5-3"><a href="automation.html#cb5-3" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
+<p align="center">
+<img src="./Module3/automation/images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
+</p>
+</div>
+</div>
+<div id="create-your-first-notebook-using-docker" class="section level2 hasAnchor">
+<h2>Create your first notebook using Docker<a href="automation.html#create-your-first-notebook-using-docker" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="start-coding" class="section level3 hasAnchor">
+<h3>Start coding!<a href="automation.html#start-coding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Open a web browser to localhost:8787
+<p align="center">
+<img src="./Module3/automation/images/docker_rstudio_initial.png" alt="R startup" width="75%" align="center" />
+</p></li>
+<li>enter username: rstudio</li>
+<li>enter password: changeit</li>
+<li>changing the parameter <em>-e PASSWORD=changeit</em> in the above docker command will change the password you need to specify</li>
+</ul>
+<div class="rmd-troubleshooting">
+When you go to localhost:8787 all you get is:
+<p align="center">
+<img src="./Module3/automation/images/no_site.png" alt="no prompt" width="75%" align="center" />
+</p>
+<ul>
+<li>
+Make sure your docker container is running. (If you rebooted your
+machine you will need to restart the container on reboot.)
+</li>
+<li>
+Make sure you got the right port.
+</li>
+</ul>
+</div>
+<p>After logging in, you will see an Rstudio window just like when you install it directly on your computer. This RStudio will be running in your docker container and will be a completely separate instance from the one you have installed on your machine (with a different set of packages and potentially versions installed).</p>
+<p align="center">
+<img src="./Module3/automation/images/docker_rstudio.png" alt="R startup" width="75%" align="center" />
+</p>
+<div class="rmd-caution">
+<p>
+Make sure that you have mapped a volume on your computer to a volume
+in your container so that files you create are also saved on your
+computer. That way, turning off or deleting your container or image will
+not effect your files.<br>
+</p>
+<ul>
+<li>
+The parameter <strong>-v ${PWD}:/home/rstudio/projects</strong> maps
+your current directory (i.e. the directory you are in when launching the
+container) to the directory /home/rstudio/projects on your
+container.
+</li>
+<li>
+You do not need to use the ${PWD} convention. You can also specify
+the exact path of the directory you want to map to your container.
+</li>
+<li>
+Make sure to save all your scripts and notebooks in the projects
+directory.
+</li>
+</ul>
+</div>
+<ol style="list-style-type: decimal">
+<li>Create your first notebook in your docker Rstudio.</li>
+<li>Save it.</li>
+<li>Find your newly created file on your computer.</li>
+</ol>
+</div>
+</div>
+<div id="start-using-automation" class="section level2 hasAnchor">
+<h2>Start using automation<a href="automation.html#start-using-automation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol start="2" style="list-style-type: decimal">
+<li>Download example R notebooks from <a href="https://github.com/risserlin/CBW_pathways_workshop_R_notebooks" class="uri">https://github.com/risserlin/CBW_pathways_workshop_R_notebooks</a>.</li>
+</ol>
+<ul>
+<li><p>This repository contains example R Notebooks that automate the CBW pipeline.<br />
+</p></li>
+<li><p>There are two ways you can download this collection:</p>
+<ol style="list-style-type: lower-alpha">
+<li>If you are familiar with git then we recommend you fork the repo and use it like you would use any github repo.</li>
+</ol>
+<p><img src="./Module3/automation/images/git_fork.png" alt="Load data" /></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>download the collection as a zip file - unzip folder and place in CBW working directory</li>
+</ol>
+<p><img src="./Module3/automation/images/git_download.png" alt="Load data" /></p></li>
+</ul>
+<div class="rmd-tip">
+<p>
+If you are new to git and want to learn more about code versioning
+then we recommend you read the following <a
+href="https://guides.github.com/introduction/git-handbook/">tutorial</a>
+And check out <a href="https://desktop.github.com/">Github Desktop</a> -
+a desktop application to communicate with github.
+</p>
+</div>
+</div>
+<div id="running-example-notebooks-in-local-rstudio" class="section level2 hasAnchor">
+<h2>Running example notebooks in local RStudio<a href="automation.html#running-example-notebooks-in-local-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-caution">
+<p>
+Highly recommended to use docker instead of local RStudio. If you are
+using local RStudio, versions of R and associated packages may be
+different than the ones used in the example notebooks and might require
+installing updated versions and additional packages.
+</p>
+</div>
+<div id="step-1---launch-rstudio" class="section level3 hasAnchor">
+<h3>Step 1 - launch RStudio<a href="automation.html#step-1---launch-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Launch RStudio by double clicking on the installed program icon.</li>
+</ul>
+</div>
+<div id="step-2---create-a-new-project" class="section level3 hasAnchor">
+<h3>Step 2 - create a new project<a href="automation.html#step-2---create-a-new-project" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Create a new project - File -&gt; New R Project …</li>
+</ul>
+<p><img src="./Module3/automation/images/Rproject_new.png" alt="new project" width="50%"/></p>
+<ul>
+<li>Select Create project from - “Existing Directory”</li>
+</ul>
+<p><img src="./Module3/automation/images/Rproject_existing_dir.png" alt="existing dir" width="50%"/></p>
+<ul>
+<li>Click on the Browse button</li>
+</ul>
+<p><img src="./Module3/automation/images/Rproject_browse.png" alt="browse" width="50%" /></p>
+<ul>
+<li>Navigate to the CBW_pathways_workshop_R_notebooks directory that is found in the directory you downloaded and unzipped from github. (for example, if it is still in your downloads directory go to ~/Downloads/Cytoscape_workflows/CBW_pathways_workshop_R_notebooks)</li>
+</ul>
+<p><img src="./Module3/automation/images/Rproject_open_proj.png" alt="open project" width="50%"/></p>
+</div>
+<div id="step-3---open-example-rnotebook" class="section level3 hasAnchor">
+<h3>Step 3 - Open example RNotebook<a href="automation.html#step-3---open-example-rnotebook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Open the RNotebook <strong>07-Create_EM_from_GSEA_results.Rmd</strong></p>
+<ul>
+<li><p>Go to File –&gt; Open File …</p>
+<p><img src="./Module3/automation/images/Rproject_openfile.png" alt="open project" width="50%"/></p></li>
+<li><p>Click on <strong>07-Create_EM_from_GSEA_results.Rmd</strong></p></li>
+</ul></li>
+</ul>
+<div class="rmd-tip">
+<p>
+If the file is not found in the first directory that RStudio opens up
+then go back and make sure that you created an Rproject from an
+“Existing directory” in the previous step.
+</p>
+</div>
+</div>
+<div id="step-4---step-through-notebook-to-run-the-analysis" class="section level3 hasAnchor">
+<h3>Step 4 - Step through notebook to run the analysis<a href="automation.html#step-4---step-through-notebook-to-run-the-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The RNotebook is a mixture of markdown text and code blocks.</p>
+<p>Read through the notebook to understand what each section is doing and sequentially run the code blocks by clicking on the play button at the top right of each code block.</p>
+<p><img src="./Module3/automation/images/rnotebook_play.png" alt="play" width="50%"/></p>
+<p>Run analysis directly from R for easy integration into existing pipelines.</p>
+<p>Instead of creating an Enrichment map manually through the user interface you can create an enrichment map directly using the <a href="https://www.bioconductor.org/packages/release/bioc/html/RCy3.html">RCy3 bioconductor package</a> or through direct rest calls with <a href="https://apps.cytoscape.org/apps/cyrest">Cytoscape cyrest</a>.</p>
+<p>Follow the step by step instructions on how to run from R here - <a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gsea-results.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gsea-results.html</a></p>
+<p>First, make sure your environment is set up correctly by following there instructions - <a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html</a></p>
+</div>
+<div id="exercises" class="section level3 hasAnchor">
+<h3>Exercises<a href="automation.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once you have run through the notebook and created your enrichment map automatically try the following:</p>
+<ol style="list-style-type: decimal">
+<li>change the fdr threshold and create a new network (<strong>without rerunning the whole notebook</strong>) with the lower FDR threshold.</li>
+<li>change the similarity coeffecient and create a new network (<strong>without rerunning the whole notebook</strong>) with the lower FDR threshold.</li>
+<li>re-run the notebook using the GSEA results you created on the first run without running GSEA.</li>
+<li>Modify notebook to run with a different gmt file. (Downloaded from somewhere else or a different file found on <a href="http://download.baderlab.org/EM_Genesets/current_release/">baderlab genesets download site</a>)</li>
+<li>Open the notebook Supplementary_Protocol5_Multi_dataset_theme_analysis.Rmd and run through it to create a multi dataset enrichment map.</li>
+</ol>
+</div>
+<div id="additional-resources" class="section level3 hasAnchor">
+<h3>Additional resources<a href="automation.html#additional-resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Check out all the different notebooks available <a href="https://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/">here</a></p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>A “wrapper” program uses another program’s functionality in its own context. RStudio is a wrapper for <strong>R</strong> since it does not duplicate <strong>R</strong>’s functions, it runs the actual R in the background.<a href="automation.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/bioinformaticsdotca/PNA_2024/blob/main/030-module-3.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,2258 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 3 | Pathway and Network Analysis 2024</title>
+  <meta name="description" content="Workshop website for the 2024 Pathway and Network Analysis Canadian Bioinformatics Workshop" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 3 | Pathway and Network Analysis 2024" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bioinformaticsdotca.github.io/PNA_2024/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="Workshop website for the 2024 Pathway and Network Analysis Canadian Bioinformatics Workshop" />
+  <meta name="github-repo" content="bioinformaticsdotca/PNA_2024" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 3 | Pathway and Network Analysis 2024" />
+  
+  <meta name="twitter:description" content="Workshop website for the 2024 Pathway and Network Analysis Canadian Bioinformatics Workshop" />
+  <meta name="twitter:image" content="https://bioinformaticsdotca.github.io/PNA_2024/img/bioinformatics_logo.png" />
+
+<meta name="author" content="Faculty: Veronique Voisin, Ruth Isserlin, Gary Bader, Lincoln Stein, Gregory Schwartz" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="module-2.html"/>
+<link rel="next" href="module-4.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Pathway and Network Analysis",
+  "description": "The complete set of tutorials, slides, and practical exercises for the Pathway and Network Analysis 2024 Canadian Bioinformatics Workshop, hosted on GitHub Pages.",
+  "url": "https://bioinformaticsdotca.github.io/PNA_2024",
+  "learningResourceType": ["tutorial", "slides", "exercise"],
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bioinformatics.ca",
+    "url": "https://bioinformatics.ca"
+  },
+  "keywords": "",
+  "isPartOf": {
+    "@type": "Course",
+    "@id": "https://bioinformatics.ca/workshops-all/2024-pathway-and-network-analysis-toronto/"
+  }
+}
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+<li><center><strong><a href="./"><br>Pathway and Network Analysis<br><br></a></strong></center></li>
+<a href="./">
+ <img src="img/PNA_icon.png" width="70%" alt="Pathway and Network Analysis logo" style="display:block; margin-left:auto; margin-right:auto; ">
+ </a>
+<br>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Info</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-work"><i class="fa fa-check"></i>Pre-work</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#class-photo"><i class="fa fa-check"></i>Class Photo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i>Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html"><i class="fa fa-check"></i>Module 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html"><i class="fa fa-check"></i>Module 2</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#lecture-1"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#lab"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#goal-of-the-exercise-1"><i class="fa fa-check"></i>Goal of the exercise 1</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#exercise-1"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-1---launch-gprofiler."><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-2---input-query"><i class="fa fa-check"></i>Step 2 - input query</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-3---adjust-parameters."><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-4---run-query"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-5---explore-the-results."><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-7-save-the-results"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-8-optional-but-recommended"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-9-optional-by-recommended"><i class="fa fa-check"></i>Step 9 (Optional by recommended)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i>Exercise 2: Load and use a custom .gmt file and run the query</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#optional-steps"><i class="fa fa-check"></i>Optional steps</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#optional-1"><i class="fa fa-check"></i><strong>Optional 1</strong>:</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#option-2"><i class="fa fa-check"></i><strong>Option 2</strong>:</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#option-3"><i class="fa fa-check"></i><strong>Option 3</strong> :</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#bonus---automation."><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#goal-of-the-exercise"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#data-1"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#background"><i class="fa fa-check"></i>Background</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#how-to-generate-a-rank-file."><i class="fa fa-check"></i>How to generate a rank file.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#start-the-exercise"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step1."><i class="fa fa-check"></i>Step1.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-2."><i class="fa fa-check"></i>Step 2.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step3."><i class="fa fa-check"></i>Step3.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-4."><i class="fa fa-check"></i>Step 4.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-5."><i class="fa fa-check"></i>Step 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#additional_information"><i class="fa fa-check"></i>Additional information</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#bonus---automation.-1"><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html"><i class="fa fa-check"></i>Module 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lecture-2"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lab-cytoscape-primer"><i class="fa fa-check"></i>Lab: Cytoscape primer</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-2"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#data-2"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#start-the-exercise-1"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1a---create-network-from-table"><i class="fa fa-check"></i>Exercise 1a - Create Network from table</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1b---load-node-attributes"><i class="fa fa-check"></i>Exercise 1b - Load node attributes</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1c---map-node-attributes-to-visual-style"><i class="fa fa-check"></i>Exercise 1c - Map node attributes to Visual Style</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-2---work-with-larger-networks"><i class="fa fa-check"></i>Exercise 2 - Work with larger networks</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-3---perform-basic-enrichment-analysis-using-enrichmenttable"><i class="fa fa-check"></i>Exercise 3 - Perform basic enrichment analysis using EnrichmentTable</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#enrichmenttabl-features"><i class="fa fa-check"></i>Exercise 3B - create Enrichment Map and Enhanced graphics nodes from EnrichmentTable</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-4---load-network-from-ndex"><i class="fa fa-check"></i>Exercise 4 - Load network from NDex</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lab-gprofiler-visualization"><i class="fa fa-check"></i>Lab: g:profiler Visualization</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-3"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#data-3"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#enrichmentmap"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#description-of-this-exercise"><i class="fa fa-check"></i>Description of this exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#start-the-exercise-2"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1a---compare-different-gprofiler-geneset-size-results"><i class="fa fa-check"></i>Exercise 1a - compare different gprofiler geneset size results</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-2"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step3-explore-the-results"><i class="fa fa-check"></i>Step3: Explore the results:</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#explore-detailed-results"><i class="fa fa-check"></i>Explore Detailed results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1b---is-specifying-the-gmt-file-important"><i class="fa fa-check"></i>Exercise 1b - Is specifying the gmt file important?</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1c---create-em-from-results-using-baderlab-genesets"><i class="fa fa-check"></i>Exercise 1c - create EM from results using Baderlab genesets</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1d-optional---investigate-individual-pathways-in-genemania-or-string"><i class="fa fa-check"></i>Exercise 1d (optional) - investigate individual pathways in GeneMANIA or String</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#genemania"><i class="fa fa-check"></i>GeneMANIA</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#string"><i class="fa fa-check"></i>String</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#bonus---automation.-2"><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lab-gsea-visualization"><i class="fa fa-check"></i>Lab: GSEA Visualization</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-4"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#data-4"><i class="fa fa-check"></i>Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#enrichmentmap-1"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1---gsea-output-and-enrichmentmap"><i class="fa fa-check"></i>Exercise 1 - GSEA output and EnrichmentMap</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-1-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-2-1"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-3"><i class="fa fa-check"></i>Step 3</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-4"><i class="fa fa-check"></i>Step 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-2---post-analysis-add-drug-target-gene-sets-to-the-network"><i class="fa fa-check"></i>Exercise 2 - Post analysis (add drug target gene-sets to the network)</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-5"><i class="fa fa-check"></i>Step 5</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-3---autoannotate-the-network"><i class="fa fa-check"></i>Exercise 3 - Autoannotate the Network</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-6"><i class="fa fa-check"></i>Step 6</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-4-optional---explore-results-in-genemania-or-string"><i class="fa fa-check"></i>Exercise 4 (Optional) - Explore results in GeneMANIA or STRING</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-7"><i class="fa fa-check"></i>Step 7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#bonus---automation.-3"><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#automation"><i class="fa fa-check"></i>Module 3 Lab: (Bonus) Automation</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-5"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#set-up---option-1---install-rrstudio"><i class="fa fa-check"></i>Set Up - Option 1 - Install R/Rstudio</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#set-up---option-2---docker-image-with-rrstudio"><i class="fa fa-check"></i>Set Up - Option 2 - Docker image with R/Rstudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#what-is-docker"><i class="fa fa-check"></i>What is docker?</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#docker---basic-term-definition"><i class="fa fa-check"></i>Docker - Basic term definition</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#container"><i class="fa fa-check"></i>Container</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#image"><i class="fa fa-check"></i>Image</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#docker-volumes"><i class="fa fa-check"></i>Docker Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#r_docker"><i class="fa fa-check"></i>Install Docker</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#macos-linux"><i class="fa fa-check"></i>MacOS / Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#create-your-first-notebook-using-docker"><i class="fa fa-check"></i>Create your first notebook using Docker</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#start-coding"><i class="fa fa-check"></i>Start coding!</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#start-using-automation"><i class="fa fa-check"></i>Start using automation</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#running-example-notebooks-in-local-rstudio"><i class="fa fa-check"></i>Running example notebooks in local RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-1---launch-rstudio"><i class="fa fa-check"></i>Step 1 - launch RStudio</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-2---create-a-new-project"><i class="fa fa-check"></i>Step 2 - create a new project</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-3---open-example-rnotebook"><i class="fa fa-check"></i>Step 3 - Open example RNotebook</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-4---step-through-notebook-to-run-the-analysis"><i class="fa fa-check"></i>Step 4 - Step through notebook to run the analysis</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#additional-resources"><i class="fa fa-check"></i>Additional resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html"><i class="fa fa-check"></i>Module 4</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#lecture-3"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#lab-1"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#goal-of-this-practical-lab"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#data-download-the-following-files-on-your-computer-before-starting-the-practical-lab."><i class="fa fa-check"></i>Data: download the following files on your computer before starting the practical lab.</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#exercise-1-use-the-reactome-functional-interaction-fi-network"><i class="fa fa-check"></i>Exercise 1: Use the Reactome Functional Interaction (FI) Network</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#question-1-describe-the-size-and-composition-of-the-network"><i class="fa fa-check"></i>Question 1: Describe the size and composition of the network?</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#question-2-after-clustering-how-many-modules-are-there"><i class="fa fa-check"></i>Question 2: After clustering, how many modules are there?</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#query-information-about-the-interaction-between-2-genes"><i class="fa fa-check"></i>Query information about the interaction between 2 genes:</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#question-3-what-are-the-most-significant-pathways-in-each-module"><i class="fa fa-check"></i>Question 3: What are the most significant pathways in each module?</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#set-the-size-of-the-nodes-proportional-to-the-mutation-frequencies-in-each-cancer"><i class="fa fa-check"></i>Set the size of the nodes proportional to the mutation frequencies in each cancer</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#play-around-with-the-styles-change-transparency-and-colors"><i class="fa fa-check"></i>Play around with the styles: change transparency and colors</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#create-a-pie-chart"><i class="fa fa-check"></i>Create a pie chart</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#create-a-subnetwork"><i class="fa fa-check"></i>Create a subnetwork</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#fetch-cancer-drugs-on-the-created-subnetwork"><i class="fa fa-check"></i>Fetch Cancer drugs on the created subnetwork</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#save-the-network-as-an-image-for-publication"><i class="fa fa-check"></i>Save the network as an image for publication</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#exercise-2a-explore-reactome-pathways"><i class="fa fa-check"></i>Exercise 2a: Explore Reactome Pathways</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#exercise-2b-pathway-enrichment-analysis-using-a-simple-gene-list"><i class="fa fa-check"></i>Exercise 2b: Pathway enrichment analysis using a simple gene list</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#question-1-what-are-the-most-significant-biological-pathways-based-on-the-fdr"><i class="fa fa-check"></i>Question 1: What are the most significant biological pathways based on the FDR?</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#answer-to-question-1"><i class="fa fa-check"></i>Answer to Question 1</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#exercise-2c-pathway-based-analysis-using-a-rank-gene-list-gsea"><i class="fa fa-check"></i>Exercise 2c: Pathway-based analysis using a rank gene list (GSEA)</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#automation-for-advanced-users"><i class="fa fa-check"></i>Automation ( for advanced users)</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#reference-guide-bonus-exercises"><i class="fa fa-check"></i>Reference guide /bonus exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html"><i class="fa fa-check"></i>Module 5</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lecture-4"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lab-genemania-cytoscape-version"><i class="fa fa-check"></i>Lab: GeneMANIA (Cytoscape version)</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#goal-of-this-practical-lab-1"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1-searching-genemania-with-single-gene"><i class="fa fa-check"></i>EXERCISE 1: Searching GeneMANIA with single gene</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#answers"><i class="fa fa-check"></i>ANSWERS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2-searching-genemania-with-gene-list"><i class="fa fa-check"></i>EXERCISE 2: Searching GeneMANIA with gene list</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3-searching-genemania-with-mixed-gene-list"><i class="fa fa-check"></i>EXERCISE 3: Searching GeneMANIA with mixed gene list</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#genemania-definitions"><i class="fa fa-check"></i>GeneMANIA DEFINITIONS:</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-4-optional-discover-the-stringapp"><i class="fa fa-check"></i>EXERCISE 4 (OPTIONAL): Discover the stringApp</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#more-string-information-and-tutorials"><i class="fa fa-check"></i>More STRING information and tutorials:</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lab-genemania-web-version"><i class="fa fa-check"></i>Lab (GeneMANIA web version)</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#goal-of-this-practical-lab-2"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1-answers-detailed-explanation-and-screenshots"><i class="fa fa-check"></i>EXERCISE 1 ANSWERS: DETAILED EXPLANATION AND SCREENSHOTS</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---steps-1-4"><i class="fa fa-check"></i>EXERCISE 1 - STEPS 1-4</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-5"><i class="fa fa-check"></i>EXERCISE 1 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-6"><i class="fa fa-check"></i>EXERCISE 1 - STEP 6</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-7"><i class="fa fa-check"></i>Exercise 1 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-8"><i class="fa fa-check"></i>Exercise 1 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-9"><i class="fa fa-check"></i>Exercise 1 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-10-layouts"><i class="fa fa-check"></i>Exercise 1 - STEP 10 (layouts)</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-11-save-an-image"><i class="fa fa-check"></i>Exercise 1 - STEP 11 (save an image)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2-answers-detailed-steps-and-screenshots"><i class="fa fa-check"></i>EXERCISE 2 ANSWERS: DETAILED STEPS AND SCREENSHOTS</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---steps-1-to-4"><i class="fa fa-check"></i>Exercise 2 - STEPS 1 to 4</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-5"><i class="fa fa-check"></i>Exercise 2 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-6."><i class="fa fa-check"></i>Exercise 2 - STEP 6.</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-7"><i class="fa fa-check"></i>Exercise 2 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-8"><i class="fa fa-check"></i>Exercise 2 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-9"><i class="fa fa-check"></i>Exercise 2 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-10"><i class="fa fa-check"></i>Exercise 2 - STEP 10</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-11"><i class="fa fa-check"></i>Exercise 2 - STEP 11</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-12"><i class="fa fa-check"></i>Exercise 2 - STEP 12</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-13."><i class="fa fa-check"></i>Exercise 2 - STEP 13.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3-more-details-and-screenshots"><i class="fa fa-check"></i>Exercise 3: MORE DETAILS AND SCREENSHOTS</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---steps-1---3"><i class="fa fa-check"></i>Exercise 3 - STEPS 1 - 3</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---step-4-step5"><i class="fa fa-check"></i>Exercise 3 - STEP 4/ STEP5</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---steps-6"><i class="fa fa-check"></i>Exercise 3 - STEPS 6</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---step-7"><i class="fa fa-check"></i>Exercise 3 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---step-8"><i class="fa fa-check"></i>Exercise 3 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---step-9"><i class="fa fa-check"></i>Exercise 3 - STEP 9</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#some-definitions"><i class="fa fa-check"></i>SOME DEFINITIONS:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html"><i class="fa fa-check"></i>Module 6</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lecture-5"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#scrna-lab-praticals"><i class="fa fa-check"></i>scRNA lab praticals</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-1-pmbc"><i class="fa fa-check"></i>Lab 1: PMBC</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#pmbc3k-seurat-pipeline"><i class="fa fa-check"></i>Pmbc3k Seurat Pipeline</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#load-libraries"><i class="fa fa-check"></i>load libraries</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#load-the-pbmc-dataset"><i class="fa fa-check"></i>Load the PBMC dataset</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#process-the-dataset"><i class="fa fa-check"></i>Process the dataset</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#assign-cell-type-identity-to-clusters"><i class="fa fa-check"></i>Assign cell type identity to clusters</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#find-differentially-expressed-features-cluster-biomarkers"><i class="fa fa-check"></i>Find differentially expressed features (cluster biomarkers)</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#create-gene-list-for-each-cluster-to-use-with-gprofiler"><i class="fa fa-check"></i>Create Gene list for each cluster to use with g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#tutorial_start"><i class="fa fa-check"></i>Data (gene lists for each cluster)</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#run-pathway-enrichment-analysis-using-gprofiler"><i class="fa fa-check"></i>Run pathway enrichment analysis using g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#create-an-enrichment-map-in-cytoscape"><i class="fa fa-check"></i>Create an enrichment map in Cytoscape</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#gsea-from-pseudobulk"><i class="fa fa-check"></i>GSEA from pseudobulk</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#pseudobulk-creation-differential-expression-and-rank-file"><i class="fa fa-check"></i>pseudobulk creation, differential expression and rank file</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#run-gsea"><i class="fa fa-check"></i>run GSEA:</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#create-an-enrichmentmap"><i class="fa fa-check"></i>Create an EnrichmentMap:</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-2-glioblastoma"><i class="fa fa-check"></i>Lab 2: Glioblastoma</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#goal"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#data-5"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#can-module8-exercise-1"><i class="fa fa-check"></i>Part 1 - run g:Profiler [OPTIONAL]</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-1---launch-gprofiler.-1"><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-2---input-query-1"><i class="fa fa-check"></i>Step 2 - input query</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-3---adjust-parameters.-1"><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-4---run-query-1"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-5---explore-the-results.-1"><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-6-expand-the-stats-tab-1"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-7-save-the-results-1"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-8-optional-but-recommended-1"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#exercise-2"><i class="fa fa-check"></i>Part 2 - Cytoscape/EnrichmentMap [OPTIONAL]</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#goal-of-the-exercise-6"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#data-6"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#enrichmentmap-2"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#description-of-this-exercise-1"><i class="fa fa-check"></i>Description of this exercise</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#start-the-exercise-3"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-1-2"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-2-2"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-3-explore-detailed-results"><i class="fa fa-check"></i>Step 3: Explore Detailed results</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-4-optional-autoannotate-the-enrichment-map"><i class="fa fa-check"></i>Step 4 [OPTIONAL]: AutoAnnotate the enrichment map</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#exercise-3"><i class="fa fa-check"></i>Part 3 - Master map using multiple datasets</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#goal-1"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#data-7"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#start-the-exercise-4"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-1-3"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-2-3"><i class="fa fa-check"></i>Step 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-3-cellphonedb"><i class="fa fa-check"></i>Lab 3: cellPhoneDB</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#presentation"><i class="fa fa-check"></i>Presentation</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#method"><i class="fa fa-check"></i>Method</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#examining-the-results"><i class="fa fa-check"></i>Examining the results</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#visualization-using-cytoscape"><i class="fa fa-check"></i>Visualization using Cytoscape</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#dataset-and-references"><i class="fa fa-check"></i>Dataset and references</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#dataset_prep"><i class="fa fa-check"></i>Dataset preprocessing and running CellPhoneDB</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-4-nest"><i class="fa fa-check"></i>Lab 4: NEST</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#nest-neural-network-on-spatial-transcriptomics"><i class="fa fa-check"></i>NEST (NEural network on Spatial Transcriptomics)</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#how-to-run-nest"><i class="fa fa-check"></i>How to run NEST</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#practical-lab-pancreatic-ductal-adenocarcinoma-pdac"><i class="fa fa-check"></i>Practical lab : Pancreatic Ductal Adenocarcinoma (PDAC)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html"><i class="fa fa-check"></i>Module 7</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#lecture-slides"><i class="fa fa-check"></i>Lecture slides</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#lab-integrated-assignment"><i class="fa fa-check"></i>Lab: Integrated Assignment</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#goal-2"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#dataset-1"><i class="fa fa-check"></i>DATASET 1</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#background-1"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#data-processing"><i class="fa fa-check"></i>Data processing</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-1-run-gprofiler"><i class="fa fa-check"></i>PART 1: run g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-2-save-as-generic-enrichment-map-output-be"><i class="fa fa-check"></i>PART 2: save as Generic Enrichment Map output (BE)</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-3-save-as-generic-enrichment-map-output-ne"><i class="fa fa-check"></i>PART 3: save as Generic Enrichment Map output (NE)</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-4-create-an-enrichment-map"><i class="fa fa-check"></i>PART 4: create an enrichment map</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#answers-gprofiler"><i class="fa fa-check"></i>Answers g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-5-gsea-run-and-create-an-enrichment-map"><i class="fa fa-check"></i>PART 5: GSEA (run and create an enrichment map)</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-6-iregulon"><i class="fa fa-check"></i>PART 6: iRegulon</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#dataset-2"><i class="fa fa-check"></i>DATASET 2</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-1-reactomefi"><i class="fa fa-check"></i>PART 1: ReactomeFI</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#answers-reactome-fi"><i class="fa fa-check"></i>Answers REACTOME FI</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-2-genemania"><i class="fa fa-check"></i>PART 2: GeneMANIA</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#answers-genemania"><i class="fa fa-check"></i>Answers GeneMANIA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#integrated-assignment-bonus---automation"><i class="fa fa-check"></i>Integrated Assignment Bonus - Automation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html"><i class="fa fa-check"></i>Module 8</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#lecture-6"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#practical-lab-1-chip_seq-data---great-and-meme-chip"><i class="fa fa-check"></i>Practical lab 1: chIP_seq data - GREAT and MEME-chIP</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#practical-lab-2-gene-list---iregulon-and-enrichrenrichmentmap"><i class="fa fa-check"></i>Practical lab 2: gene list - iREgulon and enrichr/EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#additional-slides-about-the-tools-segway-and-behst-presented-during-the-lecture"><i class="fa fa-check"></i>Additional slides about the tools Segway and BEHST presented during the lecture</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#optional-module-8-lab-1-gene-regulation-and-motif-analysis-practical-lab-chip-seq"><i class="fa fa-check"></i>Optional Module 8 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#dataset-used-during-this-practical-lab"><i class="fa fa-check"></i>Dataset used during this practical lab</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-1---run-pathway-analysis-using-great"><i class="fa fa-check"></i>Exercise 1 - Run pathway analysis using GREAT</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#perform-pathway-enrichment"><i class="fa fa-check"></i>Perform pathway enrichment</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#explore-the-results."><i class="fa fa-check"></i>Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#perform-pathway-enrichment---proximal-approach"><i class="fa fa-check"></i>Perform pathway enrichment - Proximal approach</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#explore-the-results.---proximal-analysis"><i class="fa fa-check"></i>Explore the results. - proximal analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-2---build-an-enrichment-map-to-visualize-great-results"><i class="fa fa-check"></i>Exercise 2 - Build an enrichment map to visualize GREAT results</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-3-optional-practice-building-enrichment-maps-and-auto-annotation"><i class="fa fa-check"></i>Exercise 3 (optional): Practice building enrichment maps and auto-annotation</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#optional-exercise-3a-autoannotate-the-enrichment-map"><i class="fa fa-check"></i>Optional exercise 3a: AutoAnnotate the enrichment map:</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#optional-exercise-3b-repeat-the-process-of-building-an-enrichment-map-using-the-proximal-data-proximal_gobp_greatexportall.tsv."><i class="fa fa-check"></i>Optional exercise 3b: Repeat the process of building an enrichment map using the proximal data (Proximal_GOBP_greatExportAll.tsv).</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#optional-exercise-3c-repeat-the-process-by-building-both-the-proximal-and-distal-enrichment-maps-at-the-same-time."><i class="fa fa-check"></i>Optional exercise 3c: Repeat the process by building both the Proximal and Distal enrichment maps at the same time.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-4-add-runx1-targets-and-runx1-ko-genes-on-the-distal-enrichment-map."><i class="fa fa-check"></i>Exercise 4: Add RUNX1 targets and RUNX1 KO genes on the distal enrichment map.</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#step-4a-post-analysis"><i class="fa fa-check"></i>step 4a: post analysis:</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#step-4b-optional-change-the-edge-style-of-the-signature-gene-sets"><i class="fa fa-check"></i>Step 4b Optional: Change the edge style of the signature gene-sets:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip"><i class="fa fa-check"></i>Exercise 5: Learning how to run MEME-chip from the MEME suite (https://meme-suite.org/meme/tools/meme-chip)</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#format-the-data"><i class="fa fa-check"></i>Format the Data</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-5a-download-sequences-from-.bed-coordinates"><i class="fa fa-check"></i>Exercise 5a: Download sequences from .bed coordinates</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-5b-run-meme-chip"><i class="fa fa-check"></i>Exercise 5b: Run MEME-chIP</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+<center>
+<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="55" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+<a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="55" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
+<br><br>
+<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=35% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo."><br>
+<a href="https://computationalgenomics.ca/"><img src="img/sponsors/c3g-logo.png" width=90% style="padding-bottom: 20px" alt="Canadian Centre for Computational Genomics logo."></a><br>
+<a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=90% style="padding-bottom: 20px" alt="HPC4Health logo."></a>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway and Network Analysis 2024</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="module-3" class="section level1 hasAnchor">
+<h1>Module 3<a href="module-3.html#module-3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lecture-2" class="section level2 hasAnchor">
+<h2>Lecture<a href="module-3.html#lecture-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="section" class="section level4 hasAnchor">
+<h4>3.1<a href="module-3.html#section" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/lYLwu6yOF2o?si=FGjmiFAW65iCTv5J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<iframe src="https://drive.google.com/file/d/1yphXPw5x-5xoAXTF_0vIgLjKAr8282oM/preview" frameborder="0" width="640" height="480" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+</iframe>
+</div>
+<div id="section-1" class="section level4 hasAnchor">
+<h4>3.2<a href="module-3.html#section-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/cc5AAzLllGw?si=X6cZ6nXzoRdd4Q0p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<iframe src="https://docs.google.com/presentation/d/10R6BtNl8EJFilewU2QtUIruTHtLBlnBe/preview" width="640" height="480" allow="autoplay">
+</iframe>
+</div>
+</div>
+<div id="lab-cytoscape-primer" class="section level2 hasAnchor">
+<h2>Lab: Cytoscape primer<a href="module-3.html#lab-cytoscape-primer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe src="https://docs.google.com/presentation/d/1Gbb-L4n0a8p9PtCwgQsrbKK1cp4Exdbl/preview" width="640" height="480" allow="autoplay">
+</iframe>
+</div>
+<div id="goal-of-the-exercise-2" class="section level2 hasAnchor">
+<h2>Goal of the exercise<a href="module-3.html#goal-of-the-exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Create a network and customize it.</strong></p>
+<p>The goal of this exercise is to learn how to create a network in Cytoscape and customize id. In this example, the proteins are the entities represented as nodes in the network and known physical interactions are the connections between the proteins that are represented as edges. We will overlay 2 additional pieces of information about these proteins, mutation information per protein as node color and mutation expression as node size.</p>
+</div>
+<div id="data-2" class="section level2 hasAnchor">
+<h2>Data<a href="module-3.html#data-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>The data used in this exercise is a set of protein - protein interactions and associated attributes.</li>
+</ul>
+</div>
+<div id="start-the-exercise-1" class="section level2 hasAnchor">
+<h2>Start the exercise<a href="module-3.html#start-the-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To start the lab practical section, first create a cytoscape_primer_files directoty on your computer and download the files below.</p>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in the corresponding module directory of your CBW work
+directory.
+</p>
+</div>
+<p><br>
+<br>
+Two files are needed for this exercise:</p>
+<ul>
+<li><a href="./Module3/cytoscape_primer/data/network_table.txt">networktable.txt</a></li>
+<li><a href="./Module3/cytoscape_primer/data/node_attribute.txt">nodeattribute.txt</a></li>
+</ul>
+</div>
+<div id="exercise-1a---create-network-from-table" class="section level2 hasAnchor">
+<h2>Exercise 1a - Create Network from table<a href="module-3.html#exercise-1a---create-network-from-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Launch Cytoscape</li>
+<li>Locate the top menu bar and select <strong>File</strong>,–&gt; <strong>Import</strong>, –&gt; <strong>Network from File…</strong>.</li>
+</ol>
+<p><img src="Module3/cytoscape_primer/images/cyto_menu_import.png" width="75%" /></p>
+<ol start=3 type="1">
+<li>
+Browse your computer and select the file <a href="./Module3/cytoscape_primer/data/network_table.txt">networktable.txt</a>
+</ol>
+<ol start=4 type="1">
+<li>
+An <strong>Import Network from Table</strong> dialog box opens. The 3 columns of the table should be set as “source”, “interaction” and “target” respectively.
+</ol>
+<p><img src="Module3/cytoscape_primer/images/cyto_table_import.png" width="75%" /></p>
+<div class="rmd-tip">
+<p>
+Cytoscape will assume, by default, will look for the column names
+that start with “source”, “interaction” and “target”. It will assume
+that any other column is an interaction attribute (edge attribute)
+</p>
+<ul>
+<li>
+This is just an example file. You can import files with any number
+of additional columns and choose to ignore all columns except for the
+ones that you want to import or import all of them. Although Cytoscape
+tries to guess the data type of each column and the type (ie. is it an
+attribute associated with source node, target nodes or the interaction)
+you are able to fine tune everything.
+</li>
+</ul>
+<p>
+<img src="Module3/cytoscape_primer/images/cyto_table_import_options.png"  width="75%"/>
+</p>
+</div>
+<br>
+<br>
+<ol start=5 type="1">
+<li>
+Click “Ok”.
+</ol>
+<p><img src="Module3/cytoscape_primer/images/cyto_basic_network.png"  width="75%"/></p>
+<ul>
+<li>A network containing the proteins as blue square nodes and interaction as edges should be displayed in the main Cytoscape window.</li>
+</ul>
+</div>
+<div id="exercise-1b---load-node-attributes" class="section level2 hasAnchor">
+<h2>Exercise 1b - Load node attributes<a href="module-3.html#exercise-1b---load-node-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>Locate the Cytoscape top menu bar and select <strong>File</strong>,–&gt; <strong>Import</strong>,–&gt; <strong>Table from File…</strong>.
+<img src="Module3/cytoscape_primer/images/cyto_menu_import_table.png" width="75%" /></p></li>
+<li><p>Browse your computer and select the file <a href="./Module3/cytoscape_primer/data/node_attribute.txt">nodeattribute.txt</a></p></li>
+<li><p>click “Open”.</p></li>
+<li><p>An “Import Table from Columns” dialog appears.
+<img src="Module3/cytoscape_primer/images/cyto_import_attribute_table.png" width="75%" /></p></li>
+<li><p>Click on “OK”.</p></li>
+<li><p>You should be able to see the imported attributes in the node table.
+<img src="Module3/cytoscape_primer/images/cyto_import_attribute_loaded.png" width="75%" /></p></li>
+</ol>
+<br>
+<br>
+<div class="rmd-note">
+<ol style="list-style-type: lower-roman">
+<li>
+The key column is assumed to be the first column in your
+table.<br />
+</li>
+<li>
+The key is the column in the loaded attribute file used to match
+your attributes to your network.
+</li>
+<li>
+<strong>key colum for Network</strong> is the column in the Network
+that the key is matched to. (In this network there isn’t the ability to
+set this value because that is the only attribute associated with the
+nodes in our network but normally this drop box will be selectable)
+</li>
+<li>
+The key and matching column need to match perfectly (unless you have
+specifid that case does not matter).
+</li>
+</ol>
+<p>
+<img src="Module3/cytoscape_primer/images/cyto_import_attribute_table_key.png" width="75%" />
+</p>
+</div>
+<p><br>
+<br></p>
+<div class="rmd-tip">
+<p>
+Similiar to the <strong>Import Network from Table</strong>,
+everything about the import is customizable. Cytoscape does its best to
+guess the datatypes of each column but you are able to fine tune it.
+</p>
+<p>
+<img src="Module3/cytoscape_primer/images/cyto_import_attribute_table_options.png" width="75%" />
+</p>
+<p>
+There are also advanced options if you want to:
+</p>
+<ul>
+<li>
+change the file delimiter
+</li>
+<li>
+skip lines
+</li>
+<li>
+specify the header column
+</li>
+</ul>
+<p>
+<img src="Module3/cytoscape_primer/images/cyto_import_attribute_table_advanced.png" width="75%" />
+</p>
+</div>
+</div>
+<div id="exercise-1c---map-node-attributes-to-visual-style" class="section level2 hasAnchor">
+<h2>Exercise 1c - Map node attributes to Visual Style<a href="module-3.html#exercise-1c---map-node-attributes-to-visual-style" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>Go to “Control Panel” on the left side and select the “Style” tab. Make sure that you are in the “Node” tab.<br>
+<img src="Module3/cytoscape_primer/images/cyto_style_panel.png" width="75%" /></p></li>
+<li><p>Select the “Fill Color” field</p></li>
+<li><p>expand it by clicking on the right arrow.
+<img src="Module3/cytoscape_primer/images/cyto_fill_colour.png" width="75%" /></p></li>
+<li><p>Set “Column” to “expression” and “Mapping Type” to “Continuous Mapping”.
+<img src="Module3/cytoscape_primer/images/cyto_fill_colour_expanded.png" width="75%" /></p></li>
+<li><p>This will change the colours of the nodes to the default colour coding.
+<img src="Module3/cytoscape_primer/images/cyto_fill_colour_network_default.png" width="75%" /></p></li>
+<li><p>Double click on the continuos mapping colour box to manually adjust the colour and other settings.</p></li>
+<li><p>At the bottom of the “Style” tab, check the box “Lock node width and height”.
+<img src="Module3/cytoscape_primer/images/cyto_lock_nodes.png" width="75%" /></p></li>
+<li><p>Select the “Size” field and</p></li>
+<li><p>expand it by clicking on the right arrow.</p></li>
+<li><p>Set “Column” to “mutation” and “Mapping Type” to “Continuous Mapping”.
+<img src="Module3/cytoscape_primer/images/cyto_size_nodes.png" width="75%" /></p></li>
+<li><p>Your resulting network maps expression to the colour of the node and the size of the node to the number of mutations.
+<br>
+<br></p>
+<div class="rmd-bonus">
+<ol style="list-style-type: decimal">
+<li>
+Adjust the setting on the colour mapping. Change the colour scheme.
+Change the maximum and minimum values.
+</li>
+<li>
+Adjust the setting on the size mapping. Make the nodes bigger with
+higher values.
+</li>
+<li>
+Eventhough the network is small, play around with the layouts.
+</li>
+</ol>
+</div></li>
+</ol>
+</div>
+<div id="exercise-2---work-with-larger-networks" class="section level2 hasAnchor">
+<h2>Exercise 2 - Work with larger networks<a href="module-3.html#exercise-2---work-with-larger-networks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Cytoscape supplies a few demo networks that you can play around with. When you open cytoscape you are presented with a Start Panel where you can choose to reload a previous session or load in one of the sample networks.</p>
+<p><img src="Module3/cytoscape_primer/images/cyto_starter_panel.png" width="75%" /></p>
+<ol style="list-style-type: decimal">
+<li><p>You do not need to re-open cytoscape to open the starter panel. Locate the Cytoscape top menu bar and select <strong>View</strong>,–&gt; <strong>Show Starter panel</strong>.
+<img src="Module3/cytoscape_primer/images/launch_starter_panel.png" width="75%" /></p></li>
+<li><p>Double click on the <strong>Affinity Purification Network</strong> to open it.</p></li>
+<li><p>If you already have a session open then you will recieve a warning that the current session will be lost. Before proceeding make sure your current session is saved. (Click on cancel. Then, <strong>File</strong> –&gt; <strong>Save as</strong>)<br>
+<img src="Module3/cytoscape_primer/images/session_overwrite_warning.png" width="75%" /></p></li>
+<li><p>Once the network has loaded you will see a network of protein interactions derived from an affinity purification experiment. Bait proteins are reprsented as pink hexagons and their corresponing prey proteins blue boxes.
+<img src="Module3/cytoscape_primer/images/affinity_purification_network.png" width="75%" /></p></li>
+<li><p>Using this larger network play around with the different layouts
+<br>
+<br></p>
+<div class="rmd-bonus">
+<ol style="list-style-type: decimal">
+<li>
+Search for the node “VPR”
+</li>
+<li>
+select all of the prey proteins associated with “VPR”
+</li>
+</ol>
+</div></li>
+</ol>
+</div>
+<div id="exercise-3---perform-basic-enrichment-analysis-using-enrichmenttable" class="section level2 hasAnchor">
+<h2>Exercise 3 - Perform basic enrichment analysis using EnrichmentTable<a href="module-3.html#exercise-3---perform-basic-enrichment-analysis-using-enrichmenttable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In Module 2 we performed detailed enrichment analysis with g:profiler and GSEA. We supplied gene lists and ranked expression sets in order to perform the analysis. What if you want to run a quick enrichment analysis with a given network or a given subset of the network? The easiest way to do this is to use the cytoscape app EnrichmentTable. EnrichmentTable will query g:profiler directly with the given network or subnetwork. Not all of the parameters that are available in the web version can be tweaked from the enrichmentmap table app but it can be an easy way to quickly see enrichment results.</p>
+We will select the bait protein VPR and all its associated prey proteins to use for an enrichment analysis.
+<br>
+<br>
+<div class="rmd-note">
+<p>
+<strong>Bait Protein</strong> - Is the labelled protein in an
+affinity purification experiment that is pulled down.<br><br />
+<strong>Prey Protein</strong> - are the proteins that are associated
+with the bait protein when it is pulled down and are assumed to interact
+with the bait protein.<br> <strong>First neighbor</strong> - are all the
+nodes that are directly connected to the given node
+</p>
+</div>
+<p><br>
+<br>
+1. In the search bar enter “VPR”. Press enter.
+<img src="Module3/cytoscape_primer/images/affinity_purification_vpr_search.png" width="75%" /></p>
+<ol style="list-style-type: decimal">
+<li>VPR is now the only highlighted node in the network. In order to select all its associated preys we need to select all the nodes that are connected to VPR, all of VPR’s first neighbours. There are two ways to select the first neighbours:</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>In the top menu bar click on <strong>Select</strong> –&gt; <strong>Nodes</strong> –&gt; <strong>First neighbors of selected nodes</strong> –&gt; <strong>undirected</strong></li>
+<li>Click on the <strong>first neighbor</strong> button, <img src="Module3/cytoscape_primer/images/first_neighbour.png" width="5%"/>, in the quick links button set.</li>
+</ol>
+<ol start="3" type="1">
+<li>
+Click on the “Enrichment Table” in the Table Panel.
+</li>
+</ol>
+<ol start="4" type="1">
+<li>
+Click on the cog icon in the top right hand corner of the Enrichment Table panel
+<img src="Module3/cytoscape_primer/images/enrichment_table_panel.png" width="75%" />
+</li>
+</ol>
+<ol start="5" type="1">
+<li>
+This will bring up a panel with the adjustable settings. There are only 5 adjustable parameters-
+</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li><strong>Organism</strong> - This shows a list of organisms that are available on the g:Profiler site.<br />
+</li>
+<li><strong>Gene ID column</strong> - the column in the current network that you want to use to search g:Profiler with. Ideally this should be a column specifying the Gene Name or other identifier.</li>
+<li><strong>Multiple testing correction</strong> - change to fdr.</li>
+<li><strong>Adjusted p-value threshold (min 0 max 1)</strong> - leave as 0.05. If you are getting too many results you can make this value smaller.</li>
+<li><strong>Include inferred GO annotations (IEA)</strong> - by default the search will exclude inferred from electonic annotation GO terms. If you want to include them, select this option. <br>
+<img src="Module3/cytoscape_primer/images/enrichment_table_params.png" width="75%" /></li>
+</ol>
+<br>
+<br>
+<div class="rmd-tip">
+<p>
+By default, EnrichmentTable automatically uses all the databases
+available on the g:Profiler site. There is no way to filter prior to
+running the analysis. You need to filter the results after the analysis
+has been run. This <strong>will</strong> change the results because you
+end up filtering the results after the multiple correction and the
+multiple correction is dependent on the number of genesets you are
+testing with.
+</p>
+</div>
+<p><br>
+<br></p>
+<ol start="6" type="1">
+<li>
+Filter the EnrichmentTable results to show only GO:BP, Reactome and Wikipathway, similiar to what we used in Module 2.
+</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>Click on the filter icon in the top left hand corner of the enrichment table results. <br> <img src="Module3/cytoscape_primer/images/enrichment_table_filter.png" width="75%" /></li>
+<li>Next to <strong>Select Categories</strong> select <em>Gene Ontology Biological Process</em>, <em>Reactome</em>, <em>Wikipathways</em>. To select multiple options click and hold <em>command</em> key on Mac or <em>Shift</em> on Windows. <br> <img src="Module3/cytoscape_primer/images/enrichment_table_filter_options.png" width="75%" /></li>
+<li>click on <strong>OK</strong></li>
+<li>The EnrichmentTable will update to only include the sets from <em>Gene Ontology Biological Process</em>, <em>Reactome</em>, <em>Wikipathways</em>.<br> <img src="Module3/cytoscape_primer/images/enrichment_table_filter_results.png" width="75%" /></li>
+</ol>
+</div>
+<div id="enrichmenttabl-features" class="section level2 hasAnchor">
+<h2>Exercise 3B - create Enrichment Map and Enhanced graphics nodes from EnrichmentTable<a href="module-3.html#enrichmenttabl-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol start="1" type="1">
+<li>
+To create an Enrichment Map from the EnrichmentTable results, Click on the EM logo in the top left hand bar in the ErichmentTable Panel.<br> <img src="Module3/cytoscape_primer/images/enrichment_table_em_button.png" width="75%" />
+</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>This will bring up an EM options panel with very limited parameter adjustments. You can only change the name of the network and the connectivity threshold. You have already specified the p-value threshold when you originally performed the analysis. If you want to create your network with a more permissive q-value you need to go back to the EnrichmentTable search panel. Click on <strong>OK</strong><br> <img src="Module3/cytoscape_primer/images/enrichment_table_em_params.png" width="75%" /></li>
+<li>This will create an Enrichment Map in a new network and represents all the <em>Gene Ontology Biological Process</em>, <em>Reactome</em>, <em>Wikipathways</em> terms enriched for the VPR and its prey protein set. <br> <img src="Module3/cytoscape_primer/images/enrichment_table_em.png" width="75%" /></li>
+</ol>
+</div>
+<div id="exercise-4---load-network-from-ndex" class="section level2 hasAnchor">
+<h2>Exercise 4 - Load network from NDex<a href="module-3.html#exercise-4---load-network-from-ndex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://www.ndexbio.org/">NDex</a> is an open-source repository where scientists can store, share, manipulate and publish biological network data. Networks are viewable on the web through their webapp but can also be downloaded directly into cytoscape so you can search, manipulate, integrate and analyze the given network for yourselves.</p>
+<p>For the purpose of this exercise we are going to load in a network from the publication <a href="https://www.science.org/doi/10.1126/science.abf3066?url_ver=Z39.88-2003&amp;rfr_id=ori:rid:crossref.org&amp;rfr_dat=cr_pub%20%200pubmed">A protein landscape of Breast Cancer</a>. This publication is associated with multiple networks the the authors of this paper created and shared in NDex - <a href="https://www.ndexbio.org/index.html#/networkset/4423340d-e8e3-11eb-b666-0ac135e8bacf" class="uri">https://www.ndexbio.org/index.html#/networkset/4423340d-e8e3-11eb-b666-0ac135e8bacf</a></p>
+<ol style="list-style-type: decimal">
+<li>Start a new session. <strong>File</strong> –&gt; <strong>Close</strong></li>
+<li>In the Network Search bar (located at the top of the control panel) make sure that the search provider is set to NDex. <br> <img src="Module3/cytoscape_primer/images/ndex_db_choice.png" width="75%" /></li>
+</ol>
+<br>
+<br>
+<div class="rmd-tip">
+<p>
+It should be set to NDex by default but click on down arrow to see
+the different data sources you can search for. Later in the workshop we
+will be using this bar to query GeneMania.
+</p>
+</div>
+<br>
+<br>
+<ol start="3" type="1">
+<li>
+Enter <em>MCF7_All_PPI&gt;=0.9</em> into the search box, Click on the search icon. <br> <img src="Module3/cytoscape_primer/images/ndex_search_term.png" width="75%" />
+</li>
+</ol>
+<ol start="4" type="1">
+<li>
+A search results box will appear. The <em>MCF7_All_PPI&gt;=0.9</em> network is just one of the networks associated with this publication. Eventhough you are searching for this specific network, other networks associated with the original paper will also show up in the search results as well as others.<br> <img src="Module3/cytoscape_primer/images/ndex_search_results.png" width="75%" />
+</li>
+</ol>
+<ol start="5" type="1">
+<li>
+Click on the green down arrow next to <em>MCF7_All_PPI&gt;=0.9</em>, the network will start to import.
+</li>
+</ol>
+<ol start="6" type="1">
+<li>
+Once the network has been loaded, click on <strong>Close Dialog</strong>
+</li>
+</ol>
+<ol start="7" type="1">
+<li>
+Resulting network loaded into cytoccape.<br> <img src="Module3/cytoscape_primer/images/ndex_resulting_network.png" width="75%" />
+</li>
+</ol>
+<br>
+<br>
+<div class="rmd-note">
+<p>
+<strong>Description taken from <a
+href="https://www.ndexbio.org/viewer/networks/84e36f91-ecb7-11eb-b666-0ac135e8bacf">NDex
+record</a></strong><br>
+</p>
+<ul>
+<li>
+Baits are shown as yellow box, and
+</li>
+<li>
+preys as grey circle.
+</li>
+<li>
+Size of each node represents number of patients with alterations in
+each protein.
+</li>
+<li>
+Dotted line represents the physical protein-protein association
+(validated in other studies) with high Integrated Association Stringency
+score.
+</li>
+</ul>
+</div>
+<br>
+<br>
+<div class="rmd-bonus">
+<ol style="list-style-type: decimal">
+<li>
+Change the edge width to reflect the number of patients the
+associations is found in instead of the PPI score.
+</li>
+<li>
+Change the default node colour to blue.
+</li>
+</ol>
+</div>
+</div>
+<div id="lab-gprofiler-visualization" class="section level2 hasAnchor">
+<h2>Lab: g:profiler Visualization<a href="module-3.html#lab-gprofiler-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe src="https://docs.google.com/presentation/d/1dH4oCeJ4BvGTO-Z3Lr3GAPg0N3yanzXz/preview" width="640" height="480" allow="autoplay">
+</iframe>
+</div>
+<div id="goal-of-the-exercise-3" class="section level2 hasAnchor">
+<h2>Goal of the exercise<a href="module-3.html#goal-of-the-exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Create an enrichment map and navigate through the network</strong></p>
+<p>During this exercise, you will learn how to create an enrichment map from gene-set enrichment results. The enrichment results chosen for this exercise are generated using <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> but an enrichment map can be created directly from output from <a href="http://software.broadinstitute.org/gsea/index.jsp">GSEA</a>,
+<a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>,
+<a href="http://great.stanford.edu/public/html/">GREAT</a>,
+<a href="http://apps.cytoscape.org/apps/bingo">BinGo</a>, <a href="https://amp.pharm.mssm.edu/Enrichr/">Enrichr</a> or alternately from any gene-set tool using the generic enrichment results (GEM) format.</p>
+</div>
+<div id="data-3" class="section level2 hasAnchor">
+<h2>Data<a href="module-3.html#data-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The data used in this exercise is a list of frequently mutated genes that we used in <a href="#gprofiler-lab">previous exercise</a>.
+Pathway enrichment analysis has been run using g:Profiler and the results have been downloaded as a GEM format.</p>
+</div>
+<div id="enrichmentmap" class="section level2 hasAnchor">
+<h2>EnrichmentMap<a href="module-3.html#enrichmentmap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>A circle (node) is a gene-set (pathway) enriched in genes that we used as input in g:Profiler (frequently mutated genes).</p></li>
+<li><p>edges (lines) represent genes in common between 2 pathways (nodes).</p></li>
+<li><p>A cluster of nodes represent overlapping and related pathways and may represent a common biological process.</p></li>
+<li><p>Clicking on a node will display the genes included in each pathway.</p></li>
+</ul>
+<p><img src="Module3/gprofiler/images/example_cluster.png"  /></p>
+</div>
+<div id="description-of-this-exercise" class="section level2 hasAnchor">
+<h2>Description of this exercise<a href="module-3.html#description-of-this-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will run the saved g:Profiler results (from <a href="#gprofiler-lab">Module 2 - gprofiler lab</a>) using different parameters.
+An enrichment map represents the result of enrichment analysis as a network where significantly enriched gene-sets that share a lot of genes in common will form identifiable clusters. The visualization of the results as these biological themes will ease the interpretation of the results.</p>
+<p>The goal of this exercise is to learn how to:</p>
+<ol style="list-style-type: decimal">
+<li>Upload g:Profiler results into Cytoscape EnrichmentMap to create a map.</li>
+<li>Upload several g:Profiler results at the same time to create one map and learn how to distinguish and compare the results.</li>
+<li>To compare the differences resulting from the use of different g:Profiler parameters at the enrichment map level.</li>
+</ol>
+</div>
+<div id="start-the-exercise-2" class="section level2 hasAnchor">
+<h2>Start the exercise<a href="module-3.html#start-the-exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To start the lab practical section, first create a gprofiler_files directory on your computer and download the files below.</p>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in the corresponding module directory of your CBW work
+directory.
+</p>
+</div>
+<p>Five files are needed for this exercise:</p>
+<ol style="list-style-type: decimal">
+<li>Enrichment result 1: <a href="./Module3/gprofiler/data/gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000.gem.txt">gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000.gem.txt</a></li>
+</ol>
+<ul>
+<li>In g:Profiler, the parameters that we used to generate this file were:
+<ul>
+<li>GO_BP no electronic annotation,</li>
+<li>Reactome,</li>
+<li>WikiPathways,</li>
+<li>Benjamini-Hochberg FDR 0.05</li>
+<li>The results were filtered using the <em>Term size</em> slidebar. Only the enriched gene-sets containing more than 3 and less than or equal to 10000 genes per gene-set were included in the result file.</li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Enrichment result 2: <a href="./Module3/gprofiler/data/gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt">gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt</a></li>
+</ol>
+<ul>
+<li>In g:Profiler, the parameters that we used were:
+<ul>
+<li>GO_BP no electronic annotation,</li>
+<li>Reactome,</li>
+<li>WikiPathways,</li>
+<li>Benjamini-HochBerg FDR 0.05.</li>
+<li>The results were filtered using the <em>Term size</em> slidebar. Only the enriched gene-sets that contain more than 3 and less than or equal to 250 genes per gene-set were included in the result file.</li>
+</ul></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Enrichment result 3: <a href="./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250.gem.txt">gProfiler_hsapiens_Baderlab_max250.gem.txt</a></li>
+<li>Pathway database 1: <a href="./Module3/gprofiler/data/gprofiler_full_hsapiens.name.gmt">gprofiler_full_hsapiens.name.gmt</a></li>
+</ol>
+<ul>
+<li>This file can be downloaded directly or can be been created by concatenating the hsapiens.GO/BP.name.gmt, hsapiens.WP.namt.gmt and the hsapiens.REAC.name.gmt files contained in the g:Profiler gprofiler_hsapiens.name folder.</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Pathway database 2: <a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt</a></li>
+</ol>
+</div>
+<div id="exercise-1a---compare-different-gprofiler-geneset-size-results" class="section level2 hasAnchor">
+<h2>Exercise 1a - compare different gprofiler geneset size results<a href="module-3.html#exercise-1a---compare-different-gprofiler-geneset-size-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="step-1" class="section level3 hasAnchor">
+<h3>Step 1<a href="module-3.html#step-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Launch Cytoscape and open the EnrichmentMap App</p>
+<p>1a. Double click on Cytoscape icon</p>
+<p>1b. Open EnrichmentMap App</p>
+<ul>
+<li><p>In the Cytoscape top menu bar:</p></li>
+<li><p>Click on Apps -&gt; EnrichmentMap</p></li>
+</ul>
+<p><img src="Module3/gprofiler/images/EM1.png"  /></p>
+<ul>
+<li>A ‘Create Enrichment Map’ window is now opened.</li>
+</ul>
+</div>
+<div id="step-2" class="section level3 hasAnchor">
+<h3>Step 2<a href="module-3.html#step-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create an enrichment map from 2 datasets and with a gmt file.</p>
+<p>2a. In the ‘<strong>Create Enrichment Map</strong>’ window, drag and drop the 2 enrichment files <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000.gem.txt</em> and
+<em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem.txt</em>.</p>
+<p><img src="Module3/gprofiler/images/gem0.png" alt="workflow" width="100%" /></p>
+<p>2b. In the white box, click on “<em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max250 (Generic/gProfiler)</em>”</p>
+<p>2c. On the right side, go to the <strong>GMT</strong> field, click on the 3 radio button (…) and locate the file <em>gprofiler_full_hsapiens.name.gmt</em> that you have saved on your computer to upload it.</p>
+<p><img src="Module3/gprofiler/images/gem1.png" alt="workflow" width="100%" /></p>
+<p>2d. In the white box, click on “<em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000 (Generic/gProfiler)</em>”</p>
+<p>2e. On the right side, go to the <strong>GMT</strong> field, click on the 3 radio button (…) and locate the file <em>gprofiler_full_hsapiens.name.gmt</em> that you have saved on your computer to upload it.</p>
+<p>2f. Locate the <strong>FDR q-value cutoff</strong> field and set the value to 0.001</p>
+<p>2g. Select the <strong>Connectivity</strong> slide bar to <strong>sparse</strong>.</p>
+<p><img src="Module3/gprofiler/images/gem2.png" alt="workflow" width="100%" /></p>
+<div class="rmd-tip">
+<p>
+Intstead of specifying the gmt file for each dataset separately, if
+all the dataasets in your analysis use the same gmt file, you can
+specify a common gmt file to be used by all datasets.
+</p>
+<ul>
+<li>
+Click <em>+Add…</em> and select <em>Add Common Files</em>
+<img src="Module3/gprofiler/images/common_gmt1.png" alt="workflow" width="100%" />
+</li>
+<li>
+On the right side, go to the <em>GMT file</em> field, click on the 3
+radio button (…) and locate the file
+<em>gprofiler_full_hsapiens.name.gmt</em> that you have saved on your
+computer to upload it.
+</li>
+</ul>
+<p>
+<img src="Module3/gprofiler/images/common_gmt.png" alt="workflow" width="100%" />
+</p>
+<p>
+This can also be done for a shared expression file.
+</p>
+</div>
+<p>2h. Click on <em>Build</em>.</p>
+<div class="rmd-tip">
+<p>
+If you have specified common files this info box will appear
+</p>
+<p>
+<img src="Module3/gprofiler/images/common_gmt_msg.png" alt="workflow" width="100%" />
+* Click on <em>Continue to build</em>
+</p>
+</div>
+<ul>
+<li>A status bar should pop up showing progress of the Enrichment map build.</li>
+</ul>
+<p align="center">
+<img src="Module3/gprofiler/images/gem3.png" alt="workflow" width="60%"/>
+</p>
+<div class="rmd-tip">
+<p>
+There might be multiple messages that appear when you first create an
+enrichment map. You can choose to silence them if you want (Although the
+yfiles message will continue to appear every two weeks).
+</p>
+<p>
+<img src="Module3/gprofiler/images/aa_msg.png" alt="workflow" width="100%" />
+* Click on <em>OK</em>
+</p>
+<p>
+<img src="Module3/gprofiler/images/yfiles_msg.png" alt="workflow" width="100%" />
+* Click on <em>OK</em>
+</p>
+</div>
+</div>
+<div id="step3-explore-the-results" class="section level3 hasAnchor">
+<h3>Step3: Explore the results:<a href="module-3.html#step3-explore-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the EnrichmentMap control panel located at the left:</p>
+<ul>
+<li>Select the 2 Data Sets (checked by default)</li>
+<li>Set Chart Data o <em>Color by Data Set</em></li>
+<li>Select <em>Publication Ready</em> to remove gene-set label to have a global view of the map.</li>
+</ul>
+<div class="rmd-tip">
+<p>
+un-select <em>Publication Ready</em> when you explore the map in more
+detail to see the gene-set names.
+</p>
+</div>
+<p align="center">
+<img src="Module3/gprofiler/images/gem3a.png" alt="workflow" width="70%" />
+</p>
+<p>On the map, a node that is coloured both green and blue is a gene-set that is found in the both of the 2 gProfiler result sets that we have been uploaded.</p>
+<ul>
+<li>A node that is blue is a gene-set that is found only in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000</em> .</li>
+<li>A node that is green is a gene-set that is found only in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max250</em> .</li>
+<li>A blue edge represents genes that overlap between gene-sets found in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000</em>.</li>
+<li>A green edge represents genes that overlap between gene-sets found in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem</em>.</li>
+</ul>
+<p><img src="Module3/gprofiler/images/gem6.png" alt="workflow" width="100%" /></p>
+<p>We can see clusters of blue nodes. All these nodes contain gene-sets that have more than 250 genes. Explore the detailed view (see below) to see if this cluster corresponds to informative terms.</p>
+<div class="rmd-question">
+<p>
+Would you have lost information by filtering gene-sets larger than
+250 genes?
+</p>
+</div>
+</div>
+<div id="explore-detailed-results" class="section level3 hasAnchor">
+<h3>Explore Detailed results<a href="module-3.html#explore-detailed-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>In the Cytoscape menu bar, select ‘View” and ’Show Graphic Details’ to display node labels.</li>
+</ul>
+<div class="rmd-caution">
+<p>
+Make sure you have unselected “Publication Ready” in the
+EnrichmentMap control panel.
+</p>
+</div>
+<ul>
+<li><p>Zoom in to be able to read the labels and navigate the network using the bird eye view (blue rectangle).</p></li>
+<li><p>Select a node and visualize the <em>Table Panel</em></p>
+<ul>
+<li><p>Click on a node</p></li>
+<li><p>For this example the node <em>“Signaling by Notch”</em> has been selected.</p></li>
+</ul></li>
+</ul>
+<div class="rmd-tip">
+<p>
+you can type it in the search bar, quotes are important.
+</p>
+</div>
+<p><img src="Module3/gprofiler/images/gem8.png" alt="workflow" width="50%" /></p>
+<p>When the node is selected, it is highlighted in <font color="yellow">yellow</font>.</p>
+<p>In table panel, we can see the genes included in the gene-set.</p>
+<p>A green colored box indicates that the gene is in the gene-set(pathway) and in our gene list.</p>
+<p>A gray colored box indicated that the gene is in the gene-set but not in our gene list.</p>
+<p><img src="Module3/gprofiler/images/gem8a.png" alt="workflow" width="100%" /></p>
+</div>
+</div>
+<div id="exercise-1b---is-specifying-the-gmt-file-important" class="section level2 hasAnchor">
+<h2>Exercise 1b - Is specifying the gmt file important?<a href="module-3.html#exercise-1b---is-specifying-the-gmt-file-important" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create an enrichment map without a gmt file to compare the results with Exercise 1a.</p>
+<ul>
+<li>Go to Control Panel and select the EnrichmentMap tab.</li>
+<li>Click on the “+” sign to re-open the <em>Create Enrichment Map</em> window.
+<p align="center">
+<img src="Module3/gprofiler/images/gem7.png" alt="workflow" width="50%" />
+</p></li>
+<li>In the white box, select the “<em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem (Generic/gProfiler)</em>” file</li>
+<li>Locate the GMT field and delete the file name, leaving it blank.</li>
+<li>In the white box, select the “<em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000 (Generic/gProfiler)</em>” file</li>
+<li>Locate the GMT field and delete the file name , leaving it blank.</li>
+<li>Use same parameters as in <a href="#exercise-1a">exercise 1a</a>: FDR q-value cutoff of 0.001 and Connectivity to sparse.</li>
+<li>Click on <em>Build</em></li>
+</ul>
+<p><img src="Module3/gprofiler/images/gem5.png" alt="workflow" width="100%" /></p>
+<p>Explore the results:</p>
+<p>In the EnrichmentMap control panel located at the left:</p>
+<ul>
+<li>Select the 2 Data Sets (selecteded by default)</li>
+<li>Set Chart Data o <em>Color by Data Set</em></li>
+<li>Select <em>Publication Ready</em> to remove gene-set label to have a global view of the map.</li>
+</ul>
+<div class="rmd-tip">
+<p>
+Uncheck this box when you explore the map in details to see the
+gene-set names.
+</p>
+</div>
+<p align="center">
+<img src="Module3/gprofiler/images/gem3a.png" alt="workflow" width="70%" />
+</p>
+<p>On the map, a node that is coloured both green and blue is a gene-set that is found in the both of the 2 gProfiler result sets that we have been uploaded.</p>
+<ul>
+<li>A node that is blue is a gene-set that is found only in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000</em> .
+<ul>
+<li>A node that is green is a gene-set that is found only in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max250</em> .</li>
+</ul></li>
+<li>A blue edge represents genes that overlap between gene-sets found in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max10000</em>.</li>
+<li>A green edge represents genes that overlap between gene-sets found in the file <em>gProfiler_hsapiens_lab2_results_GEM_termmin3_max250.gem</em>.</li>
+</ul>
+<p><img src="Module3/gprofiler/images/gem4.png" alt="workflow" width="100%" /></p>
+<p><strong>Conclusion of exercises 1 a and 1b:</strong></p>
+<p>Loading a gmt file to create an enrichment map from g:Profiler result is optional. However, there are 2 main beneficial aspects to uploading a gmt file:</p>
+<ol style="list-style-type: decimal">
+<li>The map will be less condensed and easier to read and interpret.<br />
+</li>
+<li>Clicking on a node will display all genes in the gene-set and not only genes included in our query list.</li>
+</ol>
+</div>
+<div id="exercise-1c---create-em-from-results-using-baderlab-genesets" class="section level2 hasAnchor">
+<h2>Exercise 1c - create EM from results using Baderlab genesets<a href="module-3.html#exercise-1c---create-em-from-results-using-baderlab-genesets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create an enrichment map from the results of g:Profiler generated using the custom Baderlab gene-set file. <br>
+To get a map that is easy to read and that does not display too many gene-sets, one option is to focus the analysis on gene-sets (pathways) that contain 250 genes or less. We prefiltered our pathway database prior to upload it into g:Profiler so that FDR is calculated only on these gene-sets (as opposed to exercise 1a where the FDR was calculated on all gene-sets and then some gene-sets &gt; 250 genes were excluded from the result file). For this exercise, we will use:</p>
+<ul>
+<li><p>Filtered gmt file: <a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt</a>.</p></li>
+<li><p>We have uploaded this file as a custom gmt file in g:Profiler and run the query. (in Module 2 lab)</p></li>
+<li><p>To create an enrichment map of these results:</p></li>
+<li><p>Go to Control Panel and select the EnrichmentMap tab.</p></li>
+<li><p>Click on the “+” sign to re-open the <em>Create Enrichment Map</em> window.</p>
+<p align="center">
+<p><img src="Module3/gprofiler/images/gem7.png" alt="workflow" width="50%" /></p>
+</p></li>
+<li><p>Click on <em>Reset</em> to reset the Enrichment map panel</p></li>
+<li><p>Drag the file that we created in Module 2 lab <a href="./Module3/gprofiler/data/gProfiler_hsapiens_Baderlab_max250.gem.txt">gProfiler_hsapiens_Baderlab_max250.gem.txt</a> and the filtered gmt file (<a href="./Module3/gprofiler/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt</a> into the Datasets box on Enrichment map panel.</p></li>
+<li><p>In the white box, select the “<em>gProfiler_hsapiens_Baderlab_max250.gem.txt (Generic/gProfiler)</em>” file</p></li>
+<li><p>Locate the GMT field and upload the file “<em>Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol_max250.gmt</em>”.</p></li>
+<li><p>Set the <strong>FDR q-value cutoff</strong> to 0.001 and set the <strong>Connectivity</strong> slide bar to second level.</p></li>
+</ul>
+<p><img src="Module3/gprofiler/images/gem9.png" alt="workflow" width="100%" /></p>
+<p>Explore the results:</p>
+<p><img src="Module3/gprofiler/images/gem10.png" alt="workflow" width="100%" /></p>
+<div class="rmd-caution">
+<p>
+SAVE YOUR CYTOSCAPE SESSION (.cys) FILE !
+</p>
+</div>
+</div>
+<div id="exercise-1d-optional---investigate-individual-pathways-in-genemania-or-string" class="section level2 hasAnchor">
+<h2>Exercise 1d (optional) - investigate individual pathways in GeneMANIA or String<a href="module-3.html#exercise-1d-optional---investigate-individual-pathways-in-genemania-or-string" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Each node in the Enrichment map represents a biological process or pathway. It consists of a collection of genes. Often we want to know how the genes in that group interact. There are many different ways you can investigate the underlying interactions for the given group. Some involve searching online databases and others are directly integrated into cytoscape.</p>
+<ul>
+<li><a href="https://genemania.org/">GeneMANIA</a> - an integrative database of gene connections including co-expression, protein interactions, genetic interactions, pathways and more. <strong>Cytoscape App</strong></li>
+<li><a href="https://string-db.org/">String</a> - an integrative database of gene connections including co-expression, protein interactions, genetic interactions, pathways and more. <strong>Cytoscape App</strong></li>
+<li><a href="https://www.pathwaycommons.org/">Pathway Commons</a> - a intergrative database of pathways. (There is a beta feature in EM to show your pathway in the painter app, a pathway common web page that overlays your expression data on the given pathway. Still in beta testing and requires expression data to work correctly so won’t work for this example)</li>
+</ul>
+<div id="genemania" class="section level3 hasAnchor">
+<h3>GeneMANIA<a href="module-3.html#genemania" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Navigate to the enrichment map that you created using the Baderlab genesets
+<ul>
+<li>Click on Network Tab and navigate to the third network (it should be the third network if you followed the above examples - name: gProfiler_hsapiens_Baderlab_max250_gem)</li>
+<li>or in the Enrichment map panel in the top drop down select the network named gProfiler_hsapiens_Baderlab_max250_gem</li>
+</ul></li>
+<li>In the cytoscape search bar enter <em>“Signaling by Notch”</em></li>
+</ul>
+<div class="rmd-tip">
+<p>
+If you can’t see the selected nodes, click on “Fit Selected” to focus
+on the selected node.<br>
+<img src="Module3/gprofiler/images/gem11a.png" alt="workflow" width="50%" />
+</p>
+</div>
+<ul>
+<li><p>Right click on the node <em>“Signaling by Notch”</em> and Select <em>Apps</em> –&gt; <em>Enrichmemt Map - Show in GeneMANIA</em></p>
+<p><img src="Module3/gprofiler/images/gem11.png" alt="workflow" width="75%" /></p></li>
+<li><p>A GeneMANIA Query Panel will pop up.</p></li>
+<li><p>Select <em>Select genes with expression</em> to reduce the query set to just the genes in the given pathway that was in your original dataset (for example we search for a set of 127 genes in g:profiler but the given pathway has 233 genes associated with it of which only 10 genes are found in our original query set )</p></li>
+<li><p>Click on <em>OK</em></p>
+<p><img src="Module3/gprofiler/images/gem12.png" alt="workflow" width="75%" /></p></li>
+<li><p>A GeneMANIA network will show up with the connections between the genes found in your query set and the pathway “Signaling by Notch”</p>
+<p><img src="Module3/gprofiler/images/gem13.png" alt="workflow" width="75%" /></p></li>
+<li><p>We will go more in depth into <a href="#genemania_cytoscape">GeneMANIA in module 5</a></p></li>
+</ul>
+</div>
+<div id="string" class="section level3 hasAnchor">
+<h3>String<a href="module-3.html#string" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Navigate to the enrichment map that you created using the Baderlab genesets
+<ul>
+<li>Click on Network Tab and navigate to the third network (it should be the third network if you followed the above examples - name: gProfiler_hsapiens_Baderlab_max250_gem)</li>
+<li>or in the Enrichment map panel in the top drop down select the network named gProfiler_hsapiens_Baderlab_max250_gem</li>
+</ul></li>
+<li>In the cytoscape search bar enter <em>“Signaling by Notch”</em></li>
+</ul>
+<div class="rmd-tip">
+<p>
+If you can’t see the selected nodes, click on “Fit Selected” to focus
+on the selected node.<br>
+<img src="Module3/gprofiler/images/gem11a.png" alt="workflow" width="50%" />
+</p>
+</div>
+<ul>
+<li><p>Right click on the node <em>“Signaling by Notch”</em> and Select <em>Apps</em> –&gt; <em>Enrichmemt Map - Show in String</em></p>
+<p><img src="Module3/gprofiler/images/gem14.png" alt="workflow" width="100%" /></p></li>
+<li><p>A String Query Panel will pop up.</p></li>
+<li><p>Select <em>Select genes with expression</em> to reduce the query set to just the genes in the given that pathway that was in your original dataset (for example we search for a set of 127 genes in g:profiler but the given pathway has 233 genes associated with it of which only 10 genes are found in our original query set )</p></li>
+<li><p>Click on <em>OK</em></p>
+<p><img src="Module3/gprofiler/images/gem15.png" alt="workflow" width="75%" /></p></li>
+<li><p>A String network will show up with the connections between the genes found in your query set and the pathway “Signaling by Notch”</p>
+<p><img src="Module3/gprofiler/images/gem16.png" alt="workflow" width="75%" /></p></li>
+</ul>
+<div class="rmd-question">
+<p>
+Explore the features and data of each Cytoscape app.<br>What sort of
+information does each tell you? <br> What is the main difference between
+the two resulting networks?
+</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="bonus---automation.-2" class="section level2 hasAnchor">
+<h2>Bonus - Automation.<a href="module-3.html#bonus---automation.-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Run analysis directly from R for easy integration into existing pipelines.</p>
+<div class="rmd-bonus">
+<p>
+Instead of creating an Enrichment map manually through the user
+interface you can create an enrichment map directly using the <a
+href="https://www.bioconductor.org/packages/release/bioc/html/RCy3.html">RCy3
+bioconductor package</a> or through direct rest calls with <a
+href="https://apps.cytoscape.org/apps/cyrest">Cytoscape cyrest</a>.
+</p>
+<p>
+Follow the step by step instructions on how to run from R here -
+<a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gprofiler-results.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gprofiler-results.html</a>
+</p>
+<p>
+First, make sure your environment is set up correctly by following
+there instructions -
+<a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html</a>
+</p>
+</div>
+</div>
+<div id="lab-gsea-visualization" class="section level2 hasAnchor">
+<h2>Lab: GSEA Visualization<a href="module-3.html#lab-gsea-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="goal-of-the-exercise-4" class="section level2 hasAnchor">
+<h2>Goal of the exercise<a href="module-3.html#goal-of-the-exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Exercise 1 - Create an enrichment map and navigate through the network</strong></p>
+<p>During this exercise, you will learn how to create an EnrichmentMap from gene-set enrichment results. The enrichment tool chosen for this exercise is <a href="http://software.broadinstitute.org/gsea/index.jsp">GSEA</a> but an enrichment map can be created from output from <a href="http://software.broadinstitute.org/gsea/index.jsp">GSEA</a>,
+<a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>,
+<a href="http://great.stanford.edu/public/html/">GREAT</a>,
+<a href="http://apps.cytoscape.org/apps/bingo">BinGo</a>, <a href="https://amp.pharm.mssm.edu/Enrichr/">Enrichr</a> or alternately from any gene-set tool using the generic enrichment results format.</p>
+<p><strong>Exercise 2 - Post analysis (add drug target gene-sets to the network)</strong></p>
+<p>As second part of the exercise, you will learn how to expand the network by adding an extra layer of information.</p>
+<p><strong>Exercise 3 - Autoannotate</strong></p>
+<p>A last optional exercise guides you through the creation of automatically generated cluster labels to the network.</p>
+</div>
+<div id="data-4" class="section level2 hasAnchor">
+<h2>Data<a href="module-3.html#data-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The data used in this exercise is gene expression data obtained from high throughput RNA sequencing.
+The data correspond to Pancreatic Ductal Adenocarcinoma samples (TCGA-PAAD). We use precomputed results of the GSEA analysis <a href="#gsea-lab">Module 2 lab - gsea</a> to create an enrichment map with the aim to transform the tabular format to a network so we can better visualize the relationships between the significant gene-sets:</p>
+<p><img src="Module3/gsea/images/workflow.png" alt="workflow" width="750" /></p>
+<p>GSEA outpus an entire directory of files and results. For the purpose of this analysis we only need two tables found in the output directory. The output result tables are:</p>
+<ul>
+<li><p>One table (<em>pos</em>) contains all pathways with an enrichment score (significant or not) related to enrichment of the basal category (positive score). (By default called - gsea_report_for_na_pos_#############.tsv)</p></li>
+<li><p>One table (<em>neg</em>) contains all pathways with an enrichment score (significant or not) related to enrichment of the classical category (negative score). (By default called - gsea_report_for_na_neg_#############.tsv)</p></li>
+<li><p>These 2 tables are uploaded using the EnrichmentMap App which will create a network of basal and classical pathways that have a significant score (FDR &lt;= 0.05) for clearer visualization of the results.</p></li>
+</ul>
+<div id="enrichmentmap-1" class="section level3 hasAnchor">
+<h3>EnrichmentMap<a href="module-3.html#enrichmentmap-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>A <font color="red">red circle (node)</font> is a pathway specific of the mesenchymal type. (or pathway with mostly positively ranked genes)</p></li>
+<li><p>A <font color="blue">blue circle (node)</font> is a pathway specific of the immunoreactive type. (or pathway with mostly negatively ranked genes)</p></li>
+<li><p>An edge represents genes in common between 2 pathways (nodes).</p></li>
+<li><p>A cluster of nodes represent overlapping and related pathways and may represent a common biological process or theme.</p></li>
+<li><p>Clicking on a node will display the genes included in each pathway.</p></li>
+</ul>
+</div>
+</div>
+<div id="exercise-1---gsea-output-and-enrichmentmap" class="section level2 hasAnchor">
+<h2>Exercise 1 - GSEA output and EnrichmentMap<a href="module-3.html#exercise-1---gsea-output-and-enrichmentmap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To start the lab practical section, first download the files.</p>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in the corresponding module directory of your CBW work
+directory.
+</p>
+</div>
+<p>7 Files are needed to create the enrichment map for this exercise (please download these files on your computer or alternately use the GSEA directory created in <a href="#gsea-lab">module 2 lab - gsea</a> for files 1,2,3) :</p>
+<ol style="list-style-type: decimal">
+<li><p>GMT (file containing all pathways and corresponding genes) - <a href="./Module3/gsea/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</a></p></li>
+<li><p>Enrichments 1 (GSEA results for the “pos” basal subtype) - <a href="./Module3/gsea/data/gsea_report_for_na_pos_1717773429384.tsv">gsea_report_for_na_pos_1717773429384.tsv</a></p></li>
+<li><p>Enrichments 2 (GSEA results for the “neg” Classical subtype) - <a href="./Module3/gsea/data/gsea_report_for_na_neg_1717773429384.tsv">gsea_report_for_na_neg_1717773429384.tsv</a></p></li>
+<li><p>Expression (file containing the RNAseq data for all samples and all genes) - <a href="./Module3/gsea/data/TCGA-PAAD_GDC_BasalvsClassical_normalized_rnaseq.txt">TCGA-PAAD_GDC_BasalvsClassical_normalized_rnaseq.txt</a></p></li>
+<li><p>Rank file (file that has been used as input to GSEA) - <a href="./Module3/gsea/data/TCGA-PAAD_GDC_Subtype_Moffitt_BasalvsClassical_ranks.rnk">TCGA-PAAD_GDC_Subtype_Moffitt_BasalvsClassical_ranks.rnk</a></p></li>
+<li><p>Classes (define which samples are basal and which samples are classical) - <a href="./Module3/gsea/data/TCGA-PAAD_Subtype_Moffitt_BasalvsClassical_RNAseq_classes.cls">TCGA-PAAD_Subtype_Moffitt_BasalvsClassical_RNAseq_classes.cls</a></p></li>
+<li><p>Drug target database (preselection of 7 drugs and their target genes in the post analysis exercise, <a href="http://www.drugbank.ca/" class="uri">http://www.drugbank.ca/</a>) - <a href="./Module3/gsea/data/Human_DrugBank_all_symbol_June_01_2024_selected.gmt">Human_DrugBank_all_symbol_June_01_2024_selected.gmt</a></p></li>
+</ol>
+<p>Follow the steps described below at your own pace:</p>
+<div id="step-1-1" class="section level3 hasAnchor">
+<h3>Step 1<a href="module-3.html#step-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Launch Cytoscape and open EnrichmentMap App</p>
+<p><strong>1a</strong>. Double click on the Cytoscape icon</p>
+<p><strong>1b</strong>. Open EnrichmentMap App</p>
+<ul>
+<li><p>In the top menu bar:</p>
+<ul>
+<li>Click on Apps -&gt; EnrichmentMap</li>
+</ul></li>
+</ul>
+<p><img src="Module3/gsea/images/EM1.png"  /></p>
+<p>A ’Create EnrichmentMap window is now opened.</p>
+</div>
+<div id="step-2-1" class="section level3 hasAnchor">
+<h3>Step 2<a href="module-3.html#step-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create an enrichment map</p>
+<p><strong>2a</strong>. In the ‘Create EnrichmentMap’ window, add a dataset of the GSEA type by clicking on the ‘+ADD…’ –&gt; ‘+ add data set manually’.</p>
+<p><img src="Module3/gsea/images/EMinput.png" width="750" /></p>
+<p><strong>2b</strong>. Specify the following parameters and upload the specified files:</p>
+<ul>
+<li><p><em>Name</em>: leave default or a name of your choice like “GSEAmapPAAD_Basal_vs_Classical”</p></li>
+<li><p><em>Analysis Type</em>: GSEA</p></li>
+<li><p><em>Enrichments Pos</em>: gsea_report_for_na_pos_1717773429384.tsv</p></li>
+<li><p><em>Enrichments Neg</em>: gsea_report_for_na_neg_1717773429384.tsv</p></li>
+<li><p><em>GMT</em> : Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</p></li>
+<li><p><em>Ranks</em>: TCGA-PAAD_GDC_Subtype_Moffitt_BasalvsClassical_ranks.rnk</p></li>
+<li><p><em>Expressions</em> : TCGA-PAAD_GDC_BasalvsClassical_normalized_rnaseq.txt</p>
+<div class="rmd-tip">
+<p>
+This field is optional but recommended.
+</p>
+</div></li>
+<li><p><em>Classes</em>: TCGA-PAAD_Subtype_Moffitt_BasalvsClassical_RNAseq_classes.cls</p>
+<div class="rmd-tip">
+<p>
+This field is optional.
+</p>
+</div></li>
+<li><p><em>Phenotypes</em>: In the text boxes place <em>Basal</em> as the Positive phenotype <em>Classical</em> as the Negative phenotype. Basal will be associated with red nodes because it corresponds to the positive phenotype and Classical will be associated with the blue nodes because it corresponds to the negative phenotype.</p></li>
+<li><p>Set FDR q-value cutoff to 0.05 (= only gene-sets significantly enriched at a value of 0.05 or less will be displayed on the map).</p>
+<div class="rmd-tip">
+<p>
+If the cutoff is set to a very small number, for exaxmple 0.0001, it
+will be displayed as 1E-04 in the scientific notation.
+</p>
+</div></li>
+</ul>
+<p><strong>2c</strong>. Click on <em>Build</em></p>
+<p><img src="Module3/gsea/images/EMinput2.png" alt="EM" width="750" /></p>
+<div class="rmd-caution">
+<p>
+We populated the fields manually. If you work with your own data, a
+way to populate automatically the fields is to drag and drop your GSEA
+folder in the ‘Data Set’ window. You are encouraged to give it a try
+once you finished the lab with your own GSEA results.
+</p>
+</div>
+<p><strong>Unformatted results</strong>:</p>
+<div class="rmd-note">
+<p>
+layout will be different for each user (there is a random seed in the
+layout algorithm) but it does not change the results or interpretation
+(the connections are the same, only the display is different).
+</p>
+</div>
+<p><img src="Module3/gsea/images/EM3.png" alt="EM" width="750" /></p>
+</div>
+<div id="step-3" class="section level3 hasAnchor">
+<h3>Step 3<a href="module-3.html#step-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Navigate the enrichment map to gain a better understanding of a EnrichmentMap network.</p>
+<p>General layout of Cytoscape panel: In addition to the main window where the network is displayed, there are 2 panels: the Control Panel on the left side and the Table Panel at the bottom of the window.</p>
+<p>Steps:</p>
+<p><strong>3a</strong>. In the Cytocape menu bar, select <em>View</em> and <em>Always Show Graphic details</em>. It will turn the squared nodes into circles and the gene-set labels will be visible.</p>
+<p><img src="Module3/gsea/images/EM5.png" alt="EM" width="350" /></p>
+<p><strong>3b</strong>: Zoom in or out using + or - in toolbar or scroll button on mouse until you are able to read the labels comfortably.</p>
+<p><img src="Module3/gsea/images/EM6.png" alt="EM" width="350" /></p>
+<p><strong>3c</strong>: Use the bird’s eye view (located at the bottom of the control panel) to navigate around the network by moving the blue rectangle using the mouse or trackpad.</p>
+<p><img src="Module3/gsea/images/EM7.png" alt="EM" width="750" /></p>
+<p><strong>3d</strong>: Click on an individual node of interest.</p>
+<p>For this example, you could use <em>TGF-BETA RECEPTOR SIGNALING ACTIVATES SMADS</em>.</p>
+<div class="rmd-tip">
+<p>
+If you are unable to locate <em>TGF-BETA RECEPTOR SIGNALING ACTIVATES
+SMADS</em>, type “TGF-BETA RECEPTOR SIGNALING ACTIVATES SMADS” in the
+search box (quotes are important). Selected nodes appear yellow (or
+highlighted) in the network.
+</p>
+</div>
+<p><strong>3e</strong>. In the Table Panel in the <em>EM Heat map</em> tab change:</p>
+<ul>
+<li><p>Expressions: <em>Row Norm</em></p></li>
+<li><p>Compress: <em>-None-</em></p></li>
+</ul>
+<p><img src="Module3/gsea/images/EM8.png" alt="EM" width="750" /></p>
+<div class="rmd-tip">
+<p>
+Genes in the heatmap that are highlighted yellow (rank column)
+represent genes that are part of the leading edge for this gene set,
+i.e. contributed the most to the enriched phenotype.<br> Leading edge
+genes will only be highlighted if an individual node has been selected
+and the Enrichment Map was created from GSEA results.<br><br>
+<em>Troubleshooting</em>: if you don’t see the sort column highlighted
+in yellow, reselect the node of interest and click on the GSEARanking
+Data Set 1 text in the EM Heatmap tab.
+</p>
+</div>
+</div>
+<div id="step-4" class="section level3 hasAnchor">
+<h3>Step 4<a href="module-3.html#step-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Use Filters to automatically select nodes on the map: Move the blue nodes to the left side of the window and the red nodes to the right side of the window.</p>
+<p><strong>4a</strong>. Locate the <em>Filter</em> tab on the side bar of the <em>Control Panel</em>.</p>
+<p><strong>4b</strong>. Click on the + sign to view the menu and select <em>Column Filter</em>.</p>
+<p><strong>4c</strong>. From the <em>Choose column …</em> box, select <em>Node: NES(PAAD_Basal_vs_Classical)</em> and set filter values from -2.242 and 0 inclusive.</p>
+<p><strong>4d</strong>. The blue nodes are now automatically selected. Zoom out to be able to look at the entire network and drag all blue nodes to the left side of the screen.</p>
+<p><img src="Module3/gsea/images/EM9.png" alt="EM" width="750" /></p>
+<p><strong>4e</strong>. Optional. Change <em>is</em> to <em>is not</em> to select the red nodes.</p>
+<p><img src="Module3/gsea/images/EM10.png" alt="EM" width="750" /></p>
+<div class="rmd-note">
+<p>
+The red pathways (nodes) are specific to the Basal subtype. They were
+listed in the <em>pos</em> table of the GSEA results. The enrichment
+score (ES) values in this table are all positive values.<br>
+</p>
+<p>
+The blue pathways are specific to the Classical subtype and were
+listed in the <em>neg</em> table of the GSEA results. The ES values in
+this table are all negative values. <br><br>
+</p>
+<p>
+This is the information we used as the filtering criteria.
+</p>
+</div>
+</div>
+</div>
+<div id="exercise-2---post-analysis-add-drug-target-gene-sets-to-the-network" class="section level2 hasAnchor">
+<h2>Exercise 2 - Post analysis (add drug target gene-sets to the network)<a href="module-3.html#exercise-2---post-analysis-add-drug-target-gene-sets-to-the-network" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="step-5" class="section level3 hasAnchor">
+<h3>Step 5<a href="module-3.html#step-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Add drug target gene-sets to the network (Add Signature Gene-Sets…).</p>
+<p><strong>5a</strong>. In Control Panel, go to the EnrichmentMap tab and click on “Options…” located above the ‘Data Sets:’ box. Select “Add Signature Gene Sets…”. A window named “EnrichmentMap: Add Signature Gene Sets (Post-Analysis) is now opened.</p>
+<p><img src="Module3/gsea/images/drug1.png" alt="EM" width="750" /></p>
+<p><strong>5b</strong>. Using the ‘Load from File…’ button, select the <em>Human_DrugBank_approved_symbol_June_01_2024_selected.gmt</em> file that you saved on your computer.</p>
+<p><img src="Module3/gsea/images/drug2.png" alt="EM" width="75%" /></p>
+<p><img src="Module3/gsea/images/drug3.png" alt="EM" width="75%" /></p>
+<p><strong>5c</strong>. Click on “Finish”.</p>
+<div class="rmd-note">
+<p>
+Two additional nodes are now added to the network and visible as grey
+diamonds.
+</p>
+<p>
+Dotted orange edges represent their overlap with the nodes of our
+network.
+</p>
+<p>
+These additional nodes represent gene targets of some approved drugs
+and these genes are either specific of the basal type (dotted orange
+edges connected to red nodes) or specific of the classical type (dotted
+orange edges connected to blue nodes).
+</p>
+<p>
+The remaining five drugs that do not pass the threshold in this map
+are other drugs currently used in treatment of pancreatic cancer.
+</p>
+</div>
+<p><img src="Module3/gsea/images/drug4.png" alt="EM" width="750" /></p>
+<div class="rmd-tip">
+<p>
+more info using this link:
+<a href="https://enrichmentmap.readthedocs.io/en/latest/PostAnalysis.html" class="uri">https://enrichmentmap.readthedocs.io/en/latest/PostAnalysis.html</a>
+</p>
+</div>
+</div>
+</div>
+<div id="exercise-3---autoannotate-the-network" class="section level2 hasAnchor">
+<h2>Exercise 3 - Autoannotate the Network<a href="module-3.html#exercise-3---autoannotate-the-network" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="step-6" class="section level3 hasAnchor">
+<h3>Step 6<a href="module-3.html#step-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>By default, Enrichment map will Auto-annotate the network with cluster labels.</p>
+<div class="rmd-note">
+<p>
+The Apps WordCloud, ClusterMaker and Autoannotate have to be
+installed. (they should have been installed during the pre-workshop set
+up)
+</p>
+</div>
+<div class="rmd-note">
+<p>
+if you ran step 5, <br>
+</p>
+<p>
+<strong>delete the drug targets diamond nodes and associated edge
+before performing step 6</strong>:<br> * select the 4 nodes and
+associated dotted orange edges by browsing the mouse and <br> * click
+“delete” on your keyboard or<br> * in the Cytoscape menu, ‘Edit’,
+‘Delete Selected Nodes and Edges’.<br><br>
+</p>
+<p>
+<strong>Alternately, in the Enrichment Map Input Panel in the
+Datasets box, un-select
+“Human_Drugbank_approved_symbol_June_01_2024_selected” to hide the post
+analysis nodes.</strong>
+</p>
+</div>
+<p>The “annotations” are hidden but the node of each computed cluster that has the most significant FDR value is shown with a larger node label.</p>
+<p><img src="Module3/gsea/images/EM13.png" alt="EM" width="750" /></p>
+<p><strong>6a</strong>. To modify these precomputed annotations find the Auto annotate display panel on the right or Auto annotate input panel on the left. The right panel will contain all the different settings you can set for the annotations. By default the annotations and their labels are hidden. The left panel allows you to see all the different clusters and their labels. You can select one of many of them, change their labels or recompute the clusters with predefined clusters or one of many avaialble methods amoungst other settings. See the <a href="https://autoannotate.readthedocs.io/en/latest/">docs</a> for all the available features.</p>
+<p><img src="Module3/gsea/images/EM12.png" alt="EM" width="750" /></p>
+<p>Unhide labels and shapes to see the underlying annotation for the network.</p>
+<p><img src="Module3/gsea/images/EM14.png" alt="EM" width="750" /></p>
+<div class="rmd-note">
+<p>
+The network is now subdivided into clusters that are represented by
+ellipses. Each of these clusters are composed of pathways (nodes)
+interconnected by many common genes. These pathways represent similar
+biological processes. The app WordCloud take all the labels of the
+pathways in one cluster and summarize them as a unique cluster label
+displayed at the top of each ellipse.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+<strong>Tip 1</strong>: further editing and formatting can be
+performed on the AutoAnnote results using the <em>AutoAnnotate
+Display</em> in the <em>Results Panels</em> located at the right side of
+the window.<br> For example, it is possible to change Ellipse to
+Rectangle, uncheck <em>Scale font by cluster size</em> and increase the
+<em>Font Scale</em> using the scaling bar. It is also possible to reduce
+the length of the cluster label by checking the “Word Wrap” option.
+</p>
+<p>
+<strong>Tip 2</strong>: The AutoAnnotate window on the left side in
+Result Panel contains the list of all clusters. Clicking on a cluster
+label will highlight in yellow all nodes in this cluster. It is then
+easy to move the nodes using the mouse to avoid cluster overlaps.
+</p>
+</div>
+<p><img src="Module3/gsea/images/EM15.png" alt="EM" width="750" /></p>
+</div>
+</div>
+<div id="exercise-4-optional---explore-results-in-genemania-or-string" class="section level2 hasAnchor">
+<h2>Exercise 4 (Optional) - Explore results in GeneMANIA or STRING<a href="module-3.html#exercise-4-optional---explore-results-in-genemania-or-string" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Each node in the Enrichment map represents a biological process or pathway. It consists of a collection of genes. Often we want to know how the genes in that group interact. There are many different ways you can investigate the underlying interactions for the given group. Some involve searching online databases and others are directly integrated into cytoscape.</p>
+<ul>
+<li><a href="https://genemania.org/">GeneMANIA</a> - an integrative database of gene connections including co-expression, protein interactions, genetic interactions, pathways and more. <strong>Cytoscape App</strong></li>
+<li><a href="https://string-db.org/">String</a> - an integrative database of gene connections including co-expression, protein interactions, genetic interactions, pathways and more. <strong>Cytoscape App</strong></li>
+<li><a href="https://www.pathwaycommons.org/">Pathway Commons</a> - a intergrative database of pathways. (There is a beta feature in EM to show your pathway in the painter app, a pathway common web page that overlays your expression data on the given pathway. Still in beta testing and requires expression data to work correctly so won’t work for this example)</li>
+</ul>
+<div id="step-7" class="section level3 hasAnchor">
+<h3>Step 7<a href="module-3.html#step-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Visualize genes in a pathway/node of interest using the apps STRING and GeneMANIA. This will create a protein-protein interaction network using the genes included in the pathway. Note: We will go more in depth into <a href="#genemania_cytoscape">GeneMANIA in module 5</a></p>
+<p><strong>7a</strong>: Click on an individual node of interest.</p>
+<p>For this example, you could use <em>xenobiotic metabolic process</em>.</p>
+<div class="rmd-tip">
+<p>
+If you are unable to locate <em>xenobiotic metabolic process</em>,
+type “xenobiotic metabolic process” in the search box (quotes are
+important). The selected node appears yellow (or highlighted) in the
+network. If you have annotated your network, it should be included in
+the <em>response xenobiotic stimulus</em> cluster.
+</p>
+</div>
+<p><strong>7b</strong>: Right Click on the node of interest to diplay the option menu. Select <em>Apps</em>,–&gt; <em>EnrichmentMap - Show in STRING</em><br></p>
+<p><img src="Module3/gsea/images/Stringa.png" alt="workflow" width="500" /></p>
+<div class="rmd-tip">
+<p>
+Patience. :) . It might take a few seconds for the <em>String Protein
+Query</em> window to open.
+</p>
+</div>
+<ul>
+<li>A <em>STRING Protein Query</em> box appears.</li>
+<li>Select <em>Select genes with expression</em>.</li>
+<li>Click on <em>OK</em>.</li>
+</ul>
+<p><img src="Module3/gsea/images/Stringb.png" alt="workflow" width="500" /></p>
+<ul>
+<li>The resulting network will look something like this.</li>
+</ul>
+<p><img src="Module3/gsea/images/Stringc.png" alt="workflow" width="750" /></p>
+<div class="rmd-question">
+<p>
+Explore the features and data of each Cytoscape app.<br>What happens
+to the network if you change the initial parameters like <em>Confidence
+cutoff</em> or <em>Max Additional interactors</em> <br><br>
+</p>
+<p>
+<img src="Module3/gsea/images/String_additional_parameters.png" alt="workflow" width="750" />
+</p>
+</div>
+<p><strong>7c</strong>:Go back to enrichment map network.</p>
+<ul>
+<li>In Control Panel (left side of the window), select the “Network” tab and click on the Enrichment Map network as shown in below screenshot.</li>
+</ul>
+<p><img src="Module3/gsea/images/find_network.png" alt="workflow" width="500" /></p>
+<p><strong>7d</strong>: Search again for the node labelled <em>xenobiotic metabolic process</em> (if it is not still selected) as in Step 7a.</p>
+<ul>
+<li>Right Click on the node of interest to diplay the option menu. Select <em>Apps</em>,–&gt; <em>EnrichmentMap - Show in GeneMANIA</em><br></li>
+</ul>
+<p><img src="Module3/gsea/images/Stringa-genemania.png" alt="workflow" width="500" /></p>
+<ul>
+<li>A <em>GeneMANIA Query</em> box appears.</li>
+<li>select <em>Select genes with expression</em>.</li>
+<li>Click on <em>OK</em>.</li>
+</ul>
+<p><img src="Module3/gsea/images/Genemaniab.png" alt="workflow" width="500" /></p>
+<ul>
+<li>A pop up will appear indicating that it is currenlty querying GeneMANIA</li>
+</ul>
+<p><img src="Module3/gsea/images/genemaniaquery.png" alt="workflow" width="500" /></p>
+<ul>
+<li>The resulting network will look similiar to the below screenshot.</li>
+</ul>
+<p><img src="Module3/gsea/images/Genemaniac.png" alt="workflow" width="750" /></p>
+<div class="rmd-tip">
+<p>
+It is possible to view gene expression data for the nodes in the
+STRING network. See the section
+<a href="https://enrichmentmap.readthedocs.io/en/latest/Integration.html" class="uri">https://enrichmentmap.readthedocs.io/en/latest/Integration.html</a> and try
+it out after the workshop.
+</p>
+</div>
+<div class="rmd-caution">
+<p>
+SAVE YOUR SESSION FILE!
+</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="bonus---automation.-3" class="section level2 hasAnchor">
+<h2>Bonus - Automation.<a href="module-3.html#bonus---automation.-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Run analysis directly from R for easy integration into existing pipelines.</p>
+<div class="rmd-bonus">
+<p>
+Instead of creating an Enrichment map manually through the user
+interface you can create an enrichment map directly using the <a
+href="https://www.bioconductor.org/packages/release/bioc/html/RCy3.html">RCy3
+bioconductor package</a> or through direct rest calls with <a
+href="https://apps.cytoscape.org/apps/cyrest">Cytoscape cyrest</a>.
+</p>
+<p>
+Follow the step by step instructions on how to run from R here -
+<a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gsea-results.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gsea-results.html</a>
+</p>
+<p>
+First, make sure your environment is set up correctly by following
+there instructions -
+<a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html</a>
+</p>
+</div>
+</div>
+<div id="automation" class="section level2 hasAnchor">
+<h2>Module 3 Lab: (Bonus) Automation<a href="module-3.html#automation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Although a lot of what we have demonstrated in Cytoscape up until now has been manual most of the features we use can be automated through multiple access points including:</p>
+<ul>
+<li>R/Rstudio using <a href="https://bioconductor.org/packages/release/bioc/html/RCy3.html">RCy3</a> - a bioconductor package that makes communicating with cytoscape as simple as calling a method.</li>
+<li>Python using <a href="https://py2cytoscape.readthedocs.io/en/latest/">py2cytoscape</a>.</li>
+<li>directly through cyrest using rest calls - you can use any programming language with the rest API. See <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1758-4">Cytoscape Automation</a></li>
+</ul>
+<p>Automation becomes helpful when performing pipelines multiple times on similiar datasets or integrating cytoscape data into your other pipelines.</p>
+<p>Below we demonstrate how to perform the enrichment map pipeline from R but automation is not limited to this access point. You can automate it from any flavour of programming.</p>
+<p>Check out all the ways you can interact with Cytoscape <a href="http://manual.cytoscape.org/en/stable/Programmatic_Access_to_Cytoscape_Features_Scripting.html">here</a> including directly through the cytoscape command window.</p>
+</div>
+<div id="goal-of-the-exercise-5" class="section level2 hasAnchor">
+<h2>Goal of the exercise:<a href="module-3.html#goal-of-the-exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Run an enrichment analysis and Create an enrichment map automatically from R/Rstudio</strong></p>
+<p>During this exercise, you will apply what you have learnt in Module 2 labs and Module 3 labs but instead of performing them manually you will automate the process using R/Rstudio. We will use all the same data and programs we used in the previous labs but we will control them from R.</p>
+<p>Before starting this exercise you need to set up R/Rstudio. You can do that directly on your machine or through docker.</p>
+</div>
+<div id="set-up---option-1---install-rrstudio" class="section level2 hasAnchor">
+<h2>Set Up - Option 1 - Install R/Rstudio<a href="module-3.html#set-up---option-1---install-rrstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: lower-alpha">
+<li>Install R.</li>
+</ol>
+<ul>
+<li>Go to: <a href="https://cran.rstudio.com/" class="uri">https://cran.rstudio.com/</a></li>
+</ul>
+<p><img src="Module3/automation/images/downloadR.png" alt="Load data" /></p>
+<ul>
+<li>If installing on Windows select “install R for the first time” to get to the required package.</li>
+</ul>
+<p><img src="Module3/automation/images/downloadR_win.png" alt="Load data" /></p>
+<p><a href="https://rstudio.com/">RStudio</a> is a free IDE (Integrated Development Environment) for <strong>R</strong>. RStudio is a wrapper<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> for <strong>R</strong> and as far as basic R is concerned, all the underlying functions are the same, only the user interface is different (and there are a few additional functions that are very useful e.g. for managing projects).</p>
+<p>Here is a small list of differences between <strong>R</strong> and RStudio.</p>
+<p><strong>pros (some pretty significant ones actually):</strong></p>
+<ul>
+<li>Integrated version control.</li>
+<li>Support for “projects” that package scripts and other assets.</li>
+<li>Syntax-aware code colouring.</li>
+<li>A consistent interface across all supported platforms. (Base R GUIs are not all the same for e.g. Mac OS X and Windows.)</li>
+<li>Code autocompletion in the script editor. (Depending on your point of view this can be a help or an annoyance. I used to hate it. After using it for a while I find it useful.)</li>
+<li>“Function signaturtes” (a list of named parameters) displayed when you hover over a function name.</li>
+<li>The ability to set breakpoints for debugging in the script editor.</li>
+<li>Support for knitr, and rmarkdown; also support for R notebooks … (This supports “literate programming” and is actually a big advance in software development)</li>
+<li>Support for R notebooks.</li>
+</ul>
+<p><strong>cons (all minor actually):</strong></p>
+<ul>
+<li>The tiled interface uses more desktop space than the windows of the R GUI.</li>
+<li>There are sometimes (rarely) situations where R functions do not behave in exactly the same way in RStudio.</li>
+<li>The supported R version is not always immediately the most recent release.</li>
+</ul>
+<div class="rmd-note">
+<ul>
+<li>
+Navigate to the <a
+href="https://rstudio.com/products/rstudio/download/">RStudio
+download</a> Website.
+</li>
+<li>
+Find the right version of the RStudio Desktop installer for your
+computer, download it and install the software.
+</li>
+<li>
+Open RStudio.
+</li>
+<li>
+Focus on the bottom left pane of the window, this is the “console”
+pane.
+<p align="center">
+<img src="Module3/automation/images/Rstudio_start.png" alt="R startup" width="75%" align="center" />
+</p>
+</li>
+<li>
+Type getwd().
+</li>
+<li>
+This prints out the path of the current working directory. Make a
+(mental) note where this is. We usually always need to change this
+“default directory” to a project directory.
+</li>
+</ul>
+</div>
+</div>
+<div id="set-up---option-2---docker-image-with-rrstudio" class="section level2 hasAnchor">
+<h2>Set Up - Option 2 - Docker image with R/Rstudio<a href="module-3.html#set-up---option-2---docker-image-with-rrstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Changing versions and environments are a continuing struggle with bioinformatics pipelines and computational pipelines in general. An analysis written and performed a year ago might not run or produce the same results when it is run today. Recording package and system versions or not updating certain packages rarely work in the long run.</p>
+<p>One the best solutions to reproducibility issues is containing your workflow or pipeline in its own coding environment where everything from the operating system, programs and packages are defined and can be built from a set of given instructions. There are many systems that offer this type of control including:</p>
+<ul>
+<li><a href="https://www.docker.com/">Docker</a>.</li>
+<li><a href="https://sylabs.io/">Singularity</a></li>
+</ul>
+<p>“A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.” <span class="citation">(<a href="#ref-docker"><strong>docker?</strong></a>)</span></p>
+<p><strong>Why are containers great for Bioiformatics?</strong></p>
+<ul>
+<li>allows you to create environments to run bioinformatis pipelines.</li>
+<li>create a consistent environment to use for your pipelines.</li>
+<li>test modifications to the pipeline without disrupting your current set up.</li>
+<li>Coming back to an analysis years later and there is no need to install older versions of packages or programming languages. Simply create a container and re-run.</li>
+</ul>
+<div id="what-is-docker" class="section level3 hasAnchor">
+<h3>What is docker?<a href="module-3.html#what-is-docker" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Docker is a container platform, similar to a virtual machine but better.</li>
+<li>We can run multiple <strong>containers</strong> on our docker server. A <strong>container</strong> is an instance of an <strong>image</strong>. The <strong>image</strong> is built based on a set of instructions but consists of an operating system, installed programs and packages. (When backing up your computer you might taken an image of it and restored your machine from this image. It the same concept but the image is built based on a set of elementary commands found in your Dockerfile.) - for overview see <a href="https://docs.docker.com/get-started/overview/">here</a></li>
+<li>Often images are built off of previous images with specific additions you need for you pipeline. (For example, for this course we use a base image supplied by bioconductor<a href="https://hub.docker.com/r/bioconductor/bioconductor_docker/tags?page=1&amp;ordering=last_updated">release 3.11</a> and comes by default with basic Bioconductor packages but it builds on the base R-docker images called <a href="https://www.rocker-project.org/">rocker</a>.)</li>
+</ul>
+</div>
+<div id="docker---basic-term-definition" class="section level3 hasAnchor">
+<h3>Docker - Basic term definition<a href="module-3.html#docker---basic-term-definition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="container" class="section level3 hasAnchor">
+<h3>Container<a href="module-3.html#container" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>An instance of an image.</li>
+<li>the self-contained running system.<br />
+</li>
+<li>There can be multiple containers derived from the same image.</li>
+</ul>
+</div>
+<div id="image" class="section level3 hasAnchor">
+<h3>Image<a href="module-3.html#image" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>An image contains the blueprint of a container.</li>
+<li>In docker, the image is built from a Dockerfile</li>
+</ul>
+</div>
+<div id="docker-volumes" class="section level3 hasAnchor">
+<h3>Docker Volumes<a href="module-3.html#docker-volumes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Anything written on a container will be erased when the container is erased ( or crashes) but anything written on a filesystem that is separate from the contain will persist even after a container is turned off.<br />
+</li>
+<li>A <a href="https://docs.docker.com/storage/volumes/">volume</a> is a way to assocaited data with a container that will persist even after the container. * maps a drive on the host system to a drive on the container.</li>
+<li>In the above docker run command (that creates our container) the statement:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="module-3.html#cb2-1" tabindex="-1"></a><span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects</span></code></pre></div>
+<ul>
+<li>maps the directory ${PWD} to the directory /home/rstudio/projects on the container. Anything saved in /home/rstudio/projects will actually be saved in ${PWD}</li>
+<li>An example:
+<ul>
+<li>I use the following commmand to create my docker container:</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="module-3.html#cb3-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb3-2"><a href="module-3.html#cb3-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">/</span>Users<span class="sc">/</span>risserlin<span class="sc">/</span>code<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects \</span>
+<span id="cb3-3"><a href="module-3.html#cb3-3" tabindex="-1"></a>  <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb3-4"><a href="module-3.html#cb3-4" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
+<ul>
+<li>I create a notebook called task3.Rmd and save it in /home/rstudio/projects.
+<div class="rmd-caution">
+<p>
+Note: Do not save it in /home/rstudio/ which is the default directory
+RStudio will start in
+</p>
+</div></li>
+<li>On my host computer, if I go to /Users/risserlin/code I will find the file task3.Rmd</li>
+</ul>
+</div>
+</div>
+<div id="r_docker" class="section level2 hasAnchor">
+<h2>Install Docker<a href="module-3.html#r_docker" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-note">
+<ol style="list-style-type: decimal">
+<li>
+Download and install <a
+href="https://www.docker.com/products/docker-desktop">docker
+desktop</a>.
+</li>
+<li>
+Follow slightly different instructions for Windows or
+MacOS/Linux
+</li>
+</ol>
+</div>
+<div id="windows" class="section level3 hasAnchor">
+<h3>Windows<a href="module-3.html#windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>it might prompt you to install additional updates (for example - <a href="https://docs.Microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package" class="uri">https://docs.Microsoft.com/en-us/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package</a>) and require multiple restarts of your system or docker.</li>
+<li>launch docker desktop app.</li>
+<li>Open windows Power shell</li>
+<li>navigate to directory on your system where you plan on keeping all your code. For example: C:\USERS\risserlin\code</li>
+<li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="module-3.html#cb4-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb4-2"><a href="module-3.html#cb4-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="sc">$</span>{PWD}<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb4-3"><a href="module-3.html#cb4-3" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
+<p align="center">
+<img src="Module3/automation/images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
+</p>
+<ul>
+<li>Windows defender firewall might pop up with warning. Click on <em>Allow access</em>.</li>
+<li>In docker desktop you see all containers you are running and easily manage them.
+<p align="center">
+<img src="Module3/automation/images/docker_windows_desktop.png" alt="R startup" width="75%" align="center" />
+</p></li>
+</ul>
+</div>
+<div id="macos-linux" class="section level3 hasAnchor">
+<h3>MacOS / Linux<a href="module-3.html#macos-linux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Open Terminal</li>
+<li>navigate to directory on your system where you plan on keeping all your code. For example: /Users/risserlin/code</li>
+<li>Run the following command: (the only difference with the windows command is the way the current directory is written. ${PWD} instead of "$(pwd)")</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="module-3.html#cb5-1" tabindex="-1"></a>docker run <span class="sc">-</span>e PASSWORD<span class="ot">=</span>changeit <span class="sc">--</span>rm \</span>
+<span id="cb5-2"><a href="module-3.html#cb5-2" tabindex="-1"></a>  <span class="sc">-</span>v <span class="st">&quot;$(pwd)&quot;</span><span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio<span class="sc">/</span>projects <span class="sc">-</span>p <span class="dv">8787</span><span class="sc">:</span><span class="dv">8787</span> \</span>
+<span id="cb5-3"><a href="module-3.html#cb5-3" tabindex="-1"></a>  risserlin<span class="sc">/</span>workshop_base_image</span></code></pre></div>
+<p align="center">
+<img src="Module3/automation/images/docker_creation_output.png" alt="R startup" width="75%" align="center" />
+</p>
+</div>
+</div>
+<div id="create-your-first-notebook-using-docker" class="section level2 hasAnchor">
+<h2>Create your first notebook using Docker<a href="module-3.html#create-your-first-notebook-using-docker" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="start-coding" class="section level3 hasAnchor">
+<h3>Start coding!<a href="module-3.html#start-coding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Open a web browser to localhost:8787
+<p align="center">
+<img src="Module3/automation/images/docker_rstudio_initial.png" alt="R startup" width="75%" align="center" />
+</p></li>
+<li>enter username: rstudio</li>
+<li>enter password: changeit</li>
+<li>changing the parameter <em>-e PASSWORD=changeit</em> in the above docker command will change the password you need to specify</li>
+</ul>
+<div class="rmd-troubleshooting">
+When you go to localhost:8787 all you get is:
+<p align="center">
+<img src="Module3/automation/images/no_site.png" alt="no prompt" width="75%" align="center" />
+</p>
+<ul>
+<li>
+Make sure your docker container is running. (If you rebooted your
+machine you will need to restart the container on reboot.)
+</li>
+<li>
+Make sure you got the right port.
+</li>
+</ul>
+</div>
+<p>After logging in, you will see an Rstudio window just like when you install it directly on your computer. This RStudio will be running in your docker container and will be a completely separate instance from the one you have installed on your machine (with a different set of packages and potentially versions installed).</p>
+<p align="center">
+<img src="Module3/automation/images/docker_rstudio.png" alt="R startup" width="75%" align="center" />
+</p>
+<div class="rmd-caution">
+<p>
+Make sure that you have mapped a volume on your computer to a volume
+in your container so that files you create are also saved on your
+computer. That way, turning off or deleting your container or image will
+not effect your files.<br>
+</p>
+<ul>
+<li>
+The parameter <strong>-v ${PWD}:/home/rstudio/projects</strong> maps
+your current directory (i.e. the directory you are in when launching the
+container) to the directory /home/rstudio/projects on your
+container.
+</li>
+<li>
+You do not need to use the ${PWD} convention. You can also specify
+the exact path of the directory you want to map to your container.
+</li>
+<li>
+Make sure to save all your scripts and notebooks in the projects
+directory.
+</li>
+</ul>
+</div>
+<ol style="list-style-type: decimal">
+<li>Create your first notebook in your docker Rstudio.</li>
+<li>Save it.</li>
+<li>Find your newly created file on your computer.</li>
+</ol>
+</div>
+</div>
+<div id="start-using-automation" class="section level2 hasAnchor">
+<h2>Start using automation<a href="module-3.html#start-using-automation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol start="2" style="list-style-type: decimal">
+<li>Download example R notebooks from <a href="https://github.com/risserlin/CBW_pathways_workshop_R_notebooks" class="uri">https://github.com/risserlin/CBW_pathways_workshop_R_notebooks</a>.</li>
+</ol>
+<ul>
+<li><p>This repository contains example R Notebooks that automate the CBW pipeline.<br />
+</p></li>
+<li><p>There are two ways you can download this collection:</p>
+<ol style="list-style-type: lower-alpha">
+<li>If you are familiar with git then we recommend you fork the repo and use it like you would use any github repo.</li>
+</ol>
+<p><img src="Module3/automation/images/git_fork.png" alt="Load data" /></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>download the collection as a zip file - unzip folder and place in CBW working directory</li>
+</ol>
+<p><img src="Module3/automation/images/git_download.png" alt="Load data" /></p></li>
+</ul>
+<div class="rmd-tip">
+<p>
+If you are new to git and want to learn more about code versioning
+then we recommend you read the following <a
+href="https://guides.github.com/introduction/git-handbook/">tutorial</a>
+And check out <a href="https://desktop.github.com/">Github Desktop</a> -
+a desktop application to communicate with github.
+</p>
+</div>
+</div>
+<div id="running-example-notebooks-in-local-rstudio" class="section level2 hasAnchor">
+<h2>Running example notebooks in local RStudio<a href="module-3.html#running-example-notebooks-in-local-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-caution">
+<p>
+Highly recommended to use docker instead of local RStudio. If you are
+using local RStudio, versions of R and associated packages may be
+different than the ones used in the example notebooks and might require
+installing updated versions and additional packages.
+</p>
+</div>
+<div id="step-1---launch-rstudio" class="section level3 hasAnchor">
+<h3>Step 1 - launch RStudio<a href="module-3.html#step-1---launch-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Launch RStudio by double clicking on the installed program icon.</li>
+</ul>
+</div>
+<div id="step-2---create-a-new-project" class="section level3 hasAnchor">
+<h3>Step 2 - create a new project<a href="module-3.html#step-2---create-a-new-project" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Create a new project - File -&gt; New R Project …</li>
+</ul>
+<p><img src="Module3/automation/images/Rproject_new.png" alt="new project" width="50%"/></p>
+<ul>
+<li>Select Create project from - “Existing Directory”</li>
+</ul>
+<p><img src="Module3/automation/images/Rproject_existing_dir.png" alt="existing dir" width="50%"/></p>
+<ul>
+<li>Click on the Browse button</li>
+</ul>
+<p><img src="Module3/automation/images/Rproject_browse.png" alt="browse" width="50%" /></p>
+<ul>
+<li>Navigate to the CBW_pathways_workshop_R_notebooks directory that is found in the directory you downloaded and unzipped from github. (for example, if it is still in your downloads directory go to ~/Downloads/Cytoscape_workflows/CBW_pathways_workshop_R_notebooks)</li>
+</ul>
+<p><img src="Module3/automation/images/Rproject_open_proj.png" alt="open project" width="50%"/></p>
+</div>
+<div id="step-3---open-example-rnotebook" class="section level3 hasAnchor">
+<h3>Step 3 - Open example RNotebook<a href="module-3.html#step-3---open-example-rnotebook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Open the RNotebook <strong>07-Create_EM_from_GSEA_results.Rmd</strong></p>
+<ul>
+<li><p>Go to File –&gt; Open File …</p>
+<p><img src="Module3/automation/images/Rproject_openfile.png" alt="open project" width="50%"/></p></li>
+<li><p>Click on <strong>07-Create_EM_from_GSEA_results.Rmd</strong></p></li>
+</ul></li>
+</ul>
+<div class="rmd-tip">
+<p>
+If the file is not found in the first directory that RStudio opens up
+then go back and make sure that you created an Rproject from an
+“Existing directory” in the previous step.
+</p>
+</div>
+</div>
+<div id="step-4---step-through-notebook-to-run-the-analysis" class="section level3 hasAnchor">
+<h3>Step 4 - Step through notebook to run the analysis<a href="module-3.html#step-4---step-through-notebook-to-run-the-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The RNotebook is a mixture of markdown text and code blocks.</p>
+<p>Read through the notebook to understand what each section is doing and sequentially run the code blocks by clicking on the play button at the top right of each code block.</p>
+<p><img src="Module3/automation/images/rnotebook_play.png" alt="play" width="50%"/></p>
+<p>Run analysis directly from R for easy integration into existing pipelines.</p>
+<p>Instead of creating an Enrichment map manually through the user interface you can create an enrichment map directly using the <a href="https://www.bioconductor.org/packages/release/bioc/html/RCy3.html">RCy3 bioconductor package</a> or through direct rest calls with <a href="https://apps.cytoscape.org/apps/cyrest">Cytoscape cyrest</a>.</p>
+<p>Follow the step by step instructions on how to run from R here - <a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gsea-results.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/create-enrichment-map-from-r-with-gsea-results.html</a></p>
+<p>First, make sure your environment is set up correctly by following there instructions - <a href="https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html" class="uri">https://risserlin.github.io/CBW_pathways_workshop_R_notebooks/setup.html</a></p>
+</div>
+<div id="exercises" class="section level3 hasAnchor">
+<h3>Exercises<a href="module-3.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once you have run through the notebook and created your enrichment map automatically try the following:</p>
+<ol style="list-style-type: decimal">
+<li>change the fdr threshold and create a new network (<strong>without rerunning the whole notebook</strong>) with the lower FDR threshold.</li>
+<li>change the similarity coeffecient and create a new network (<strong>without rerunning the whole notebook</strong>) with the lower FDR threshold.</li>
+<li>re-run the notebook using the GSEA results you created on the first run without running GSEA.</li>
+<li>Modify notebook to run with a different gmt file. (Downloaded from somewhere else or a different file found on <a href="http://download.baderlab.org/EM_Genesets/current_release/">baderlab genesets download site</a>)</li>
+<li>Open the notebook Supplementary_Protocol5_Multi_dataset_theme_analysis.Rmd and run through it to create a multi dataset enrichment map.</li>
+</ol>
+</div>
+<div id="additional-resources" class="section level3 hasAnchor">
+<h3>Additional resources<a href="module-3.html#additional-resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Check out all the different notebooks available <a href="https://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/">here</a></p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>A “wrapper” program uses another program’s functionality in its own context. RStudio is a wrapper for <strong>R</strong> since it does not duplicate <strong>R</strong>’s functions, it runs the actual R in the background.<a href="module-3.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/bioinformaticsdotca/PNA_2024/blob/main/030-module-3.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

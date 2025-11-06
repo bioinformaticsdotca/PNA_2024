@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 6 | Pathway and Network Analysis 2024</title>
+  <meta name="description" content="Workshop website for the 2024 Pathway and Network Analysis Canadian Bioinformatics Workshop" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 6 | Pathway and Network Analysis 2024" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bioinformaticsdotca.github.io/PNA_2024/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="Workshop website for the 2024 Pathway and Network Analysis Canadian Bioinformatics Workshop" />
+  <meta name="github-repo" content="bioinformaticsdotca/PNA_2024" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 6 | Pathway and Network Analysis 2024" />
+  
+  <meta name="twitter:description" content="Workshop website for the 2024 Pathway and Network Analysis Canadian Bioinformatics Workshop" />
+  <meta name="twitter:image" content="https://bioinformaticsdotca.github.io/PNA_2024/img/bioinformatics_logo.png" />
+
+<meta name="author" content="Faculty: Veronique Voisin, Ruth Isserlin, Gary Bader, Lincoln Stein, Gregory Schwartz" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="module-5.html"/>
+<link rel="next" href="module-7.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Pathway and Network Analysis",
+  "description": "The complete set of tutorials, slides, and practical exercises for the Pathway and Network Analysis 2024 Canadian Bioinformatics Workshop, hosted on GitHub Pages.",
+  "url": "https://bioinformaticsdotca.github.io/PNA_2024",
+  "learningResourceType": ["tutorial", "slides", "exercise"],
+  "inLanguage": "en",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bioinformatics.ca",
+    "url": "https://bioinformatics.ca"
+  },
+  "keywords": "",
+  "isPartOf": {
+    "@type": "Course",
+    "@id": "https://bioinformatics.ca/workshops-all/2024-pathway-and-network-analysis-toronto/"
+  }
+}
+</script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+<li><center><strong><a href="./"><br>Pathway and Network Analysis<br><br></a></strong></center></li>
+<a href="./">
+ <img src="img/PNA_icon.png" width="70%" alt="Pathway and Network Analysis logo" style="display:block; margin-left:auto; margin-right:auto; ">
+ </a>
+<br>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Info</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-work"><i class="fa fa-check"></i>Pre-work</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#class-photo"><i class="fa fa-check"></i>Class Photo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i>Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html"><i class="fa fa-check"></i>Module 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1.html"><a href="module-1.html#lecture"><i class="fa fa-check"></i>Lecture</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html"><i class="fa fa-check"></i>Module 2</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#lecture-1"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#lab"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#goal-of-the-exercise-1"><i class="fa fa-check"></i>Goal of the exercise 1</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#exercise-1"><i class="fa fa-check"></i>Exercise 1 - run g:Profiler</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-1---launch-gprofiler."><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-2---input-query"><i class="fa fa-check"></i>Step 2 - input query</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-3---adjust-parameters."><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-4---run-query"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-5---explore-the-results."><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-6-expand-the-stats-tab"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-7-save-the-results"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-8-optional-but-recommended"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-9-optional-by-recommended"><i class="fa fa-check"></i>Step 9 (Optional by recommended)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#exercise-2-load-and-use-a-custom-.gmt-file-and-run-the-query"><i class="fa fa-check"></i>Exercise 2: Load and use a custom .gmt file and run the query</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#optional-steps"><i class="fa fa-check"></i>Optional steps</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#optional-1"><i class="fa fa-check"></i><strong>Optional 1</strong>:</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#option-2"><i class="fa fa-check"></i><strong>Option 2</strong>:</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#option-3"><i class="fa fa-check"></i><strong>Option 3</strong> :</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#bonus---automation."><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#goal-of-the-exercise"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#data-1"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#background"><i class="fa fa-check"></i>Background</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#how-to-generate-a-rank-file."><i class="fa fa-check"></i>How to generate a rank file.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#start-the-exercise"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step1."><i class="fa fa-check"></i>Step1.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-2."><i class="fa fa-check"></i>Step 2.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step3."><i class="fa fa-check"></i>Step3.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-4."><i class="fa fa-check"></i>Step 4.</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#step-5."><i class="fa fa-check"></i>Step 5.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#additional_information"><i class="fa fa-check"></i>Additional information</a></li>
+<li class="chapter" data-level="" data-path="module-2.html"><a href="module-2.html#bonus---automation.-1"><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html"><i class="fa fa-check"></i>Module 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lecture-2"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lab-cytoscape-primer"><i class="fa fa-check"></i>Lab: Cytoscape primer</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-2"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#data-2"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#start-the-exercise-1"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1a---create-network-from-table"><i class="fa fa-check"></i>Exercise 1a - Create Network from table</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1b---load-node-attributes"><i class="fa fa-check"></i>Exercise 1b - Load node attributes</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1c---map-node-attributes-to-visual-style"><i class="fa fa-check"></i>Exercise 1c - Map node attributes to Visual Style</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-2---work-with-larger-networks"><i class="fa fa-check"></i>Exercise 2 - Work with larger networks</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-3---perform-basic-enrichment-analysis-using-enrichmenttable"><i class="fa fa-check"></i>Exercise 3 - Perform basic enrichment analysis using EnrichmentTable</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#enrichmenttabl-features"><i class="fa fa-check"></i>Exercise 3B - create Enrichment Map and Enhanced graphics nodes from EnrichmentTable</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-4---load-network-from-ndex"><i class="fa fa-check"></i>Exercise 4 - Load network from NDex</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lab-gprofiler-visualization"><i class="fa fa-check"></i>Lab: g:profiler Visualization</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-3"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#data-3"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#enrichmentmap"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#description-of-this-exercise"><i class="fa fa-check"></i>Description of this exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#start-the-exercise-2"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1a---compare-different-gprofiler-geneset-size-results"><i class="fa fa-check"></i>Exercise 1a - compare different gprofiler geneset size results</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-2"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step3-explore-the-results"><i class="fa fa-check"></i>Step3: Explore the results:</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#explore-detailed-results"><i class="fa fa-check"></i>Explore Detailed results</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1b---is-specifying-the-gmt-file-important"><i class="fa fa-check"></i>Exercise 1b - Is specifying the gmt file important?</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1c---create-em-from-results-using-baderlab-genesets"><i class="fa fa-check"></i>Exercise 1c - create EM from results using Baderlab genesets</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1d-optional---investigate-individual-pathways-in-genemania-or-string"><i class="fa fa-check"></i>Exercise 1d (optional) - investigate individual pathways in GeneMANIA or String</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#genemania"><i class="fa fa-check"></i>GeneMANIA</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#string"><i class="fa fa-check"></i>String</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#bonus---automation.-2"><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lab-gsea-visualization"><i class="fa fa-check"></i>Lab: GSEA Visualization</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-4"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#data-4"><i class="fa fa-check"></i>Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#enrichmentmap-1"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-1---gsea-output-and-enrichmentmap"><i class="fa fa-check"></i>Exercise 1 - GSEA output and EnrichmentMap</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-1-1"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-2-1"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-3"><i class="fa fa-check"></i>Step 3</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-4"><i class="fa fa-check"></i>Step 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-2---post-analysis-add-drug-target-gene-sets-to-the-network"><i class="fa fa-check"></i>Exercise 2 - Post analysis (add drug target gene-sets to the network)</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-5"><i class="fa fa-check"></i>Step 5</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-3---autoannotate-the-network"><i class="fa fa-check"></i>Exercise 3 - Autoannotate the Network</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-6"><i class="fa fa-check"></i>Step 6</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercise-4-optional---explore-results-in-genemania-or-string"><i class="fa fa-check"></i>Exercise 4 (Optional) - Explore results in GeneMANIA or STRING</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-7"><i class="fa fa-check"></i>Step 7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#bonus---automation.-3"><i class="fa fa-check"></i>Bonus - Automation.</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#automation"><i class="fa fa-check"></i>Module 3 Lab: (Bonus) Automation</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#goal-of-the-exercise-5"><i class="fa fa-check"></i>Goal of the exercise:</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#set-up---option-1---install-rrstudio"><i class="fa fa-check"></i>Set Up - Option 1 - Install R/Rstudio</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#set-up---option-2---docker-image-with-rrstudio"><i class="fa fa-check"></i>Set Up - Option 2 - Docker image with R/Rstudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#what-is-docker"><i class="fa fa-check"></i>What is docker?</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#docker---basic-term-definition"><i class="fa fa-check"></i>Docker - Basic term definition</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#container"><i class="fa fa-check"></i>Container</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#image"><i class="fa fa-check"></i>Image</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#docker-volumes"><i class="fa fa-check"></i>Docker Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#r_docker"><i class="fa fa-check"></i>Install Docker</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#macos-linux"><i class="fa fa-check"></i>MacOS / Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#create-your-first-notebook-using-docker"><i class="fa fa-check"></i>Create your first notebook using Docker</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#start-coding"><i class="fa fa-check"></i>Start coding!</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#start-using-automation"><i class="fa fa-check"></i>Start using automation</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#running-example-notebooks-in-local-rstudio"><i class="fa fa-check"></i>Running example notebooks in local RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-1---launch-rstudio"><i class="fa fa-check"></i>Step 1 - launch RStudio</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-2---create-a-new-project"><i class="fa fa-check"></i>Step 2 - create a new project</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-3---open-example-rnotebook"><i class="fa fa-check"></i>Step 3 - Open example RNotebook</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#step-4---step-through-notebook-to-run-the-analysis"><i class="fa fa-check"></i>Step 4 - Step through notebook to run the analysis</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#additional-resources"><i class="fa fa-check"></i>Additional resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html"><i class="fa fa-check"></i>Module 4</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#lecture-3"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#lab-1"><i class="fa fa-check"></i>Lab</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#goal-of-this-practical-lab"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#data-download-the-following-files-on-your-computer-before-starting-the-practical-lab."><i class="fa fa-check"></i>Data: download the following files on your computer before starting the practical lab.</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#exercise-1-use-the-reactome-functional-interaction-fi-network"><i class="fa fa-check"></i>Exercise 1: Use the Reactome Functional Interaction (FI) Network</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#question-1-describe-the-size-and-composition-of-the-network"><i class="fa fa-check"></i>Question 1: Describe the size and composition of the network?</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#question-2-after-clustering-how-many-modules-are-there"><i class="fa fa-check"></i>Question 2: After clustering, how many modules are there?</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#query-information-about-the-interaction-between-2-genes"><i class="fa fa-check"></i>Query information about the interaction between 2 genes:</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#question-3-what-are-the-most-significant-pathways-in-each-module"><i class="fa fa-check"></i>Question 3: What are the most significant pathways in each module?</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#set-the-size-of-the-nodes-proportional-to-the-mutation-frequencies-in-each-cancer"><i class="fa fa-check"></i>Set the size of the nodes proportional to the mutation frequencies in each cancer</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#play-around-with-the-styles-change-transparency-and-colors"><i class="fa fa-check"></i>Play around with the styles: change transparency and colors</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#create-a-pie-chart"><i class="fa fa-check"></i>Create a pie chart</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#create-a-subnetwork"><i class="fa fa-check"></i>Create a subnetwork</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#fetch-cancer-drugs-on-the-created-subnetwork"><i class="fa fa-check"></i>Fetch Cancer drugs on the created subnetwork</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#save-the-network-as-an-image-for-publication"><i class="fa fa-check"></i>Save the network as an image for publication</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#exercise-2a-explore-reactome-pathways"><i class="fa fa-check"></i>Exercise 2a: Explore Reactome Pathways</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#exercise-2b-pathway-enrichment-analysis-using-a-simple-gene-list"><i class="fa fa-check"></i>Exercise 2b: Pathway enrichment analysis using a simple gene list</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#question-1-what-are-the-most-significant-biological-pathways-based-on-the-fdr"><i class="fa fa-check"></i>Question 1: What are the most significant biological pathways based on the FDR?</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#answer-to-question-1"><i class="fa fa-check"></i>Answer to Question 1</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#exercise-2c-pathway-based-analysis-using-a-rank-gene-list-gsea"><i class="fa fa-check"></i>Exercise 2c: Pathway-based analysis using a rank gene list (GSEA)</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#automation-for-advanced-users"><i class="fa fa-check"></i>Automation ( for advanced users)</a></li>
+<li class="chapter" data-level="" data-path="module-4.html"><a href="module-4.html#reference-guide-bonus-exercises"><i class="fa fa-check"></i>Reference guide /bonus exercises:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html"><i class="fa fa-check"></i>Module 5</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lecture-4"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lab-genemania-cytoscape-version"><i class="fa fa-check"></i>Lab: GeneMANIA (Cytoscape version)</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#goal-of-this-practical-lab-1"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1-searching-genemania-with-single-gene"><i class="fa fa-check"></i>EXERCISE 1: Searching GeneMANIA with single gene</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#answers"><i class="fa fa-check"></i>ANSWERS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2-searching-genemania-with-gene-list"><i class="fa fa-check"></i>EXERCISE 2: Searching GeneMANIA with gene list</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3-searching-genemania-with-mixed-gene-list"><i class="fa fa-check"></i>EXERCISE 3: Searching GeneMANIA with mixed gene list</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#genemania-definitions"><i class="fa fa-check"></i>GeneMANIA DEFINITIONS:</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-4-optional-discover-the-stringapp"><i class="fa fa-check"></i>EXERCISE 4 (OPTIONAL): Discover the stringApp</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#more-string-information-and-tutorials"><i class="fa fa-check"></i>More STRING information and tutorials:</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#lab-genemania-web-version"><i class="fa fa-check"></i>Lab (GeneMANIA web version)</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#goal-of-this-practical-lab-2"><i class="fa fa-check"></i>Goal of this practical lab</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 1: QUESTIONS AND STEPS TO FOLLOW</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1-answers-detailed-explanation-and-screenshots"><i class="fa fa-check"></i>EXERCISE 1 ANSWERS: DETAILED EXPLANATION AND SCREENSHOTS</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---steps-1-4"><i class="fa fa-check"></i>EXERCISE 1 - STEPS 1-4</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-5"><i class="fa fa-check"></i>EXERCISE 1 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-6"><i class="fa fa-check"></i>EXERCISE 1 - STEP 6</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-7"><i class="fa fa-check"></i>Exercise 1 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-8"><i class="fa fa-check"></i>Exercise 1 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-9"><i class="fa fa-check"></i>Exercise 1 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-10-layouts"><i class="fa fa-check"></i>Exercise 1 - STEP 10 (layouts)</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-1---step-11-save-an-image"><i class="fa fa-check"></i>Exercise 1 - STEP 11 (save an image)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 2: QUESTIONS AND STEPS TO FOLLOW</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2-answers-detailed-steps-and-screenshots"><i class="fa fa-check"></i>EXERCISE 2 ANSWERS: DETAILED STEPS AND SCREENSHOTS</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---steps-1-to-4"><i class="fa fa-check"></i>Exercise 2 - STEPS 1 to 4</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-5"><i class="fa fa-check"></i>Exercise 2 - STEP 5</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-6."><i class="fa fa-check"></i>Exercise 2 - STEP 6.</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-7"><i class="fa fa-check"></i>Exercise 2 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-8"><i class="fa fa-check"></i>Exercise 2 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-9"><i class="fa fa-check"></i>Exercise 2 - STEP 9</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-10"><i class="fa fa-check"></i>Exercise 2 - STEP 10</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-11"><i class="fa fa-check"></i>Exercise 2 - STEP 11</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-12"><i class="fa fa-check"></i>Exercise 2 - STEP 12</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-2---step-13."><i class="fa fa-check"></i>Exercise 2 - STEP 13.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3-questions-and-steps-to-follow"><i class="fa fa-check"></i>EXERCISE 3: QUESTIONS AND STEPS TO FOLLOW</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3-more-details-and-screenshots"><i class="fa fa-check"></i>Exercise 3: MORE DETAILS AND SCREENSHOTS</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---steps-1---3"><i class="fa fa-check"></i>Exercise 3 - STEPS 1 - 3</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---step-4-step5"><i class="fa fa-check"></i>Exercise 3 - STEP 4/ STEP5</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---steps-6"><i class="fa fa-check"></i>Exercise 3 - STEPS 6</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---step-7"><i class="fa fa-check"></i>Exercise 3 - STEP 7</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---step-8"><i class="fa fa-check"></i>Exercise 3 - STEP 8</a></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#exercise-3---step-9"><i class="fa fa-check"></i>Exercise 3 - STEP 9</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5.html"><a href="module-5.html#some-definitions"><i class="fa fa-check"></i>SOME DEFINITIONS:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html"><i class="fa fa-check"></i>Module 6</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lecture-5"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#scrna-lab-praticals"><i class="fa fa-check"></i>scRNA lab praticals</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-1-pmbc"><i class="fa fa-check"></i>Lab 1: PMBC</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#pmbc3k-seurat-pipeline"><i class="fa fa-check"></i>Pmbc3k Seurat Pipeline</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#load-libraries"><i class="fa fa-check"></i>load libraries</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#load-the-pbmc-dataset"><i class="fa fa-check"></i>Load the PBMC dataset</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#process-the-dataset"><i class="fa fa-check"></i>Process the dataset</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#assign-cell-type-identity-to-clusters"><i class="fa fa-check"></i>Assign cell type identity to clusters</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#find-differentially-expressed-features-cluster-biomarkers"><i class="fa fa-check"></i>Find differentially expressed features (cluster biomarkers)</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#create-gene-list-for-each-cluster-to-use-with-gprofiler"><i class="fa fa-check"></i>Create Gene list for each cluster to use with g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#tutorial_start"><i class="fa fa-check"></i>Data (gene lists for each cluster)</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#run-pathway-enrichment-analysis-using-gprofiler"><i class="fa fa-check"></i>Run pathway enrichment analysis using g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#create-an-enrichment-map-in-cytoscape"><i class="fa fa-check"></i>Create an enrichment map in Cytoscape</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#gsea-from-pseudobulk"><i class="fa fa-check"></i>GSEA from pseudobulk</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#pseudobulk-creation-differential-expression-and-rank-file"><i class="fa fa-check"></i>pseudobulk creation, differential expression and rank file</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#run-gsea"><i class="fa fa-check"></i>run GSEA:</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#create-an-enrichmentmap"><i class="fa fa-check"></i>Create an EnrichmentMap:</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-2-glioblastoma"><i class="fa fa-check"></i>Lab 2: Glioblastoma</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#goal"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#data-5"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#can-module8-exercise-1"><i class="fa fa-check"></i>Part 1 - run g:Profiler [OPTIONAL]</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-1---launch-gprofiler.-1"><i class="fa fa-check"></i>Step 1 - Launch g:Profiler.</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-2---input-query-1"><i class="fa fa-check"></i>Step 2 - input query</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-3---adjust-parameters.-1"><i class="fa fa-check"></i>Step 3 - Adjust parameters.</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-4---run-query-1"><i class="fa fa-check"></i>Step 4 - Run query</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-5---explore-the-results.-1"><i class="fa fa-check"></i>Step 5 - Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-6-expand-the-stats-tab-1"><i class="fa fa-check"></i>Step 6: Expand the stats tab</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-7-save-the-results-1"><i class="fa fa-check"></i>Step 7: Save the results</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-8-optional-but-recommended-1"><i class="fa fa-check"></i>Step 8 (Optional but recommended)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#exercise-2"><i class="fa fa-check"></i>Part 2 - Cytoscape/EnrichmentMap [OPTIONAL]</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#goal-of-the-exercise-6"><i class="fa fa-check"></i>Goal of the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#data-6"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#enrichmentmap-2"><i class="fa fa-check"></i>EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#description-of-this-exercise-1"><i class="fa fa-check"></i>Description of this exercise</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#start-the-exercise-3"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-1-2"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-2-2"><i class="fa fa-check"></i>Step 2</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-3-explore-detailed-results"><i class="fa fa-check"></i>Step 3: Explore Detailed results</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-4-optional-autoannotate-the-enrichment-map"><i class="fa fa-check"></i>Step 4 [OPTIONAL]: AutoAnnotate the enrichment map</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#exercise-3"><i class="fa fa-check"></i>Part 3 - Master map using multiple datasets</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#goal-1"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#data-7"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#start-the-exercise-4"><i class="fa fa-check"></i>Start the exercise</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-1-3"><i class="fa fa-check"></i>Step 1</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#step-2-3"><i class="fa fa-check"></i>Step 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-3-cellphonedb"><i class="fa fa-check"></i>Lab 3: cellPhoneDB</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#presentation"><i class="fa fa-check"></i>Presentation</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#method"><i class="fa fa-check"></i>Method</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#examining-the-results"><i class="fa fa-check"></i>Examining the results</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#visualization-using-cytoscape"><i class="fa fa-check"></i>Visualization using Cytoscape</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#dataset-and-references"><i class="fa fa-check"></i>Dataset and references</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#dataset_prep"><i class="fa fa-check"></i>Dataset preprocessing and running CellPhoneDB</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#lab-4-nest"><i class="fa fa-check"></i>Lab 4: NEST</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#nest-neural-network-on-spatial-transcriptomics"><i class="fa fa-check"></i>NEST (NEural network on Spatial Transcriptomics)</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#how-to-run-nest"><i class="fa fa-check"></i>How to run NEST</a></li>
+<li class="chapter" data-level="" data-path="module-6.html"><a href="module-6.html#practical-lab-pancreatic-ductal-adenocarcinoma-pdac"><i class="fa fa-check"></i>Practical lab : Pancreatic Ductal Adenocarcinoma (PDAC)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html"><i class="fa fa-check"></i>Module 7</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#lecture-slides"><i class="fa fa-check"></i>Lecture slides</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#lab-integrated-assignment"><i class="fa fa-check"></i>Lab: Integrated Assignment</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#goal-2"><i class="fa fa-check"></i>Goal</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#dataset-1"><i class="fa fa-check"></i>DATASET 1</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#background-1"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#data-processing"><i class="fa fa-check"></i>Data processing</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-1-run-gprofiler"><i class="fa fa-check"></i>PART 1: run g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-2-save-as-generic-enrichment-map-output-be"><i class="fa fa-check"></i>PART 2: save as Generic Enrichment Map output (BE)</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-3-save-as-generic-enrichment-map-output-ne"><i class="fa fa-check"></i>PART 3: save as Generic Enrichment Map output (NE)</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-4-create-an-enrichment-map"><i class="fa fa-check"></i>PART 4: create an enrichment map</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#answers-gprofiler"><i class="fa fa-check"></i>Answers g:Profiler</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-5-gsea-run-and-create-an-enrichment-map"><i class="fa fa-check"></i>PART 5: GSEA (run and create an enrichment map)</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-6-iregulon"><i class="fa fa-check"></i>PART 6: iRegulon</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#dataset-2"><i class="fa fa-check"></i>DATASET 2</a></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-1-reactomefi"><i class="fa fa-check"></i>PART 1: ReactomeFI</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#answers-reactome-fi"><i class="fa fa-check"></i>Answers REACTOME FI</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#part-2-genemania"><i class="fa fa-check"></i>PART 2: GeneMANIA</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#answers-genemania"><i class="fa fa-check"></i>Answers GeneMANIA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-7.html"><a href="module-7.html#integrated-assignment-bonus---automation"><i class="fa fa-check"></i>Integrated Assignment Bonus - Automation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html"><i class="fa fa-check"></i>Module 8</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#lecture-6"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#practical-lab-1-chip_seq-data---great-and-meme-chip"><i class="fa fa-check"></i>Practical lab 1: chIP_seq data - GREAT and MEME-chIP</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#practical-lab-2-gene-list---iregulon-and-enrichrenrichmentmap"><i class="fa fa-check"></i>Practical lab 2: gene list - iREgulon and enrichr/EnrichmentMap</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#additional-slides-about-the-tools-segway-and-behst-presented-during-the-lecture"><i class="fa fa-check"></i>Additional slides about the tools Segway and BEHST presented during the lecture</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#optional-module-8-lab-1-gene-regulation-and-motif-analysis-practical-lab-chip-seq"><i class="fa fa-check"></i>Optional Module 8 Lab 1: Gene Regulation and Motif Analysis Practical Lab /chIP-seq</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#dataset-used-during-this-practical-lab"><i class="fa fa-check"></i>Dataset used during this practical lab</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-1---run-pathway-analysis-using-great"><i class="fa fa-check"></i>Exercise 1 - Run pathway analysis using GREAT</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#perform-pathway-enrichment"><i class="fa fa-check"></i>Perform pathway enrichment</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#explore-the-results."><i class="fa fa-check"></i>Explore the results.</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#perform-pathway-enrichment---proximal-approach"><i class="fa fa-check"></i>Perform pathway enrichment - Proximal approach</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#explore-the-results.---proximal-analysis"><i class="fa fa-check"></i>Explore the results. - proximal analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-2---build-an-enrichment-map-to-visualize-great-results"><i class="fa fa-check"></i>Exercise 2 - Build an enrichment map to visualize GREAT results</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-3-optional-practice-building-enrichment-maps-and-auto-annotation"><i class="fa fa-check"></i>Exercise 3 (optional): Practice building enrichment maps and auto-annotation</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#optional-exercise-3a-autoannotate-the-enrichment-map"><i class="fa fa-check"></i>Optional exercise 3a: AutoAnnotate the enrichment map:</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#optional-exercise-3b-repeat-the-process-of-building-an-enrichment-map-using-the-proximal-data-proximal_gobp_greatexportall.tsv."><i class="fa fa-check"></i>Optional exercise 3b: Repeat the process of building an enrichment map using the proximal data (Proximal_GOBP_greatExportAll.tsv).</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#optional-exercise-3c-repeat-the-process-by-building-both-the-proximal-and-distal-enrichment-maps-at-the-same-time."><i class="fa fa-check"></i>Optional exercise 3c: Repeat the process by building both the Proximal and Distal enrichment maps at the same time.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-4-add-runx1-targets-and-runx1-ko-genes-on-the-distal-enrichment-map."><i class="fa fa-check"></i>Exercise 4: Add RUNX1 targets and RUNX1 KO genes on the distal enrichment map.</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#step-4a-post-analysis"><i class="fa fa-check"></i>step 4a: post analysis:</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#step-4b-optional-change-the-edge-style-of-the-signature-gene-sets"><i class="fa fa-check"></i>Step 4b Optional: Change the edge style of the signature gene-sets:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-5-learning-how-to-run-meme-chip-from-the-meme-suite-httpsmeme-suite.orgmemetoolsmeme-chip"><i class="fa fa-check"></i>Exercise 5: Learning how to run MEME-chip from the MEME suite (https://meme-suite.org/meme/tools/meme-chip)</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#format-the-data"><i class="fa fa-check"></i>Format the Data</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-5a-download-sequences-from-.bed-coordinates"><i class="fa fa-check"></i>Exercise 5a: Download sequences from .bed coordinates</a></li>
+<li class="chapter" data-level="" data-path="module-8.html"><a href="module-8.html#exercise-5b-run-meme-chip"><i class="fa fa-check"></i>Exercise 5b: Run MEME-chIP</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+<center>
+<a href="https://genomecanada.ca/"><img src="img/sponsors/genomecanada.png" height="55" style="display:inline-block;"  style="padding-bottom: 20px" alt="Genome Canada logo.">
+<a href="https://www.ontariogenomics.ca/"><img src="img/sponsors/ontariogenomics.png" height="55" style="display:inline-block;" style="padding-bottom: 20px;" alt="Ontario Genomics logo.">
+<br><br>
+<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=35% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo."><br>
+<a href="https://computationalgenomics.ca/"><img src="img/sponsors/c3g-logo.png" width=90% style="padding-bottom: 20px" alt="Canadian Centre for Computational Genomics logo."></a><br>
+<a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=90% style="padding-bottom: 20px" alt="HPC4Health logo."></a>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pathway and Network Analysis 2024</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="module-6" class="section level1 hasAnchor">
+<h1>Module 6<a href="module-6.html#module-6" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lecture-5" class="section level2 hasAnchor">
+<h2>Lecture<a href="module-6.html#lecture-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/5zEwCCpHbEA?si=e3X9OnBHoiUFYhSj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<iframe src="https://drive.google.com/file/d/1YVWyqf9VAJ5HWhRgirtY0Lz0voQpGYcm/preview" width="640" height="480" allow="autoplay">
+</iframe>
+</div>
+<div id="scrna-lab-praticals" class="section level2 hasAnchor">
+<h2>scRNA lab praticals<a href="module-6.html#scrna-lab-praticals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>scRNA-lab1_PBMC</p>
+<ul>
+<li><p>This lab starts from scRNA data from peripheral blood mononuclear cells.</p></li>
+<li><p>The cells from similar cell types were grouped into clusters.</p></li>
+<li><p>We extracted the gene lists corresponding to each cluster and run pathway analysis on it using g:Profiler.</p></li>
+<li><p>We also created pseudobulk from the data, ran GSEA and created an enrichment map.</p></li>
+</ul>
+<p>scRNAlab2_Glioblastoma</p>
+<ul>
+<li><p>Similar to lab1, we extracted gene lists from scRNA clustering from glioblastoma data.</p></li>
+<li><p>We created a mastermap by uploading in EnrichmentMap the pathway enrichment results for all the cluster gene lists.</p></li>
+</ul>
+<p>scRNAlab_CellPhoneDB</p>
+<ul>
+<li>Similar to lab1 , we start from scRNA data from peripheral blood mononuclear cells and we are going to study the cell-cell communication between different cell types using CellPhoneDB.</li>
+</ul>
+<p>scRNAlab_NEST</p>
+<ul>
+<li>In this lab, we are exploring cell-cell communication in spatial trancriptomic of a pancreatic cancer (PDAC) tissue section using the tool NEST.</li>
+</ul>
+</div>
+<div id="lab-1-pmbc" class="section level2 hasAnchor">
+<h2>Lab 1: PMBC<a href="module-6.html#lab-1-pmbc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As an example of applying pathway and network analysis using single cell RNASeq, we are using the <a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial.html">Seurat tutorial</a> as starting point. This dataset consists of Peripheral Blood Mononuclear Cells (PBMC) and is a freely available dataset from 10X Genomics. There are 2,700 single cells that have been sequenced on the Illumina NextSeq 500 (<a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial.html" class="uri">https://satijalab.org/seurat/articles/pbmc3k_tutorial.html</a>).</p>
+</div>
+<div id="pmbc3k-seurat-pipeline" class="section level2 hasAnchor">
+<h2>Pmbc3k Seurat Pipeline<a href="module-6.html#pmbc3k-seurat-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-note">
+<p>
+The R code below was used to generate the gene lists used in the
+downstream analysis. It is for your reference.
+</p>
+<p>
+<strong>YOU DON’T NEED TO RUN THIS CODE FOR THE PRACTICAL
+LAB.</strong>
+</p>
+<p>
+<strong>ALL NECESSARY FILES ARE PROVIDED IN THE DATA SECTION
+BELOW.</strong>
+</p>
+</div>
+<hr />
+<p><strong>Start of R code example</strong> - <a href="module-6.html#tutorial_start">Jump to Tutorial start</a></p>
+</div>
+<div id="load-libraries" class="section level2 hasAnchor">
+<h2>load libraries<a href="module-6.html#load-libraries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="module-6.html#cb7-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a href="module-6.html#cb7-2" tabindex="-1"></a><span class="fu">library</span>(Seurat)</span>
+<span id="cb7-3"><a href="module-6.html#cb7-3" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div>
+</div>
+<div id="load-the-pbmc-dataset" class="section level2 hasAnchor">
+<h2>Load the PBMC dataset<a href="module-6.html#load-the-pbmc-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="module-6.html#cb8-1" tabindex="-1"></a>pbmc.data <span class="ot">&lt;-</span> <span class="fu">Read10X</span>(<span class="at">data.dir =</span> </span>
+<span id="cb8-2"><a href="module-6.html#cb8-2" tabindex="-1"></a>                       <span class="st">&quot;../data/pbmc3k/filtered_gene_bc_matrices/hg19/&quot;</span>)</span>
+<span id="cb8-3"><a href="module-6.html#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="module-6.html#cb8-4" tabindex="-1"></a><span class="co"># Initialize the Seurat object with the raw (non-normalized data).</span></span>
+<span id="cb8-5"><a href="module-6.html#cb8-5" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">CreateSeuratObject</span>(<span class="at">counts =</span> pbmc.data, <span class="at">project =</span> <span class="st">&quot;pbmc3k&quot;</span>, </span>
+<span id="cb8-6"><a href="module-6.html#cb8-6" tabindex="-1"></a>                                <span class="at">min.cells =</span> <span class="dv">3</span>, <span class="at">min.features =</span> <span class="dv">200</span>)</span>
+<span id="cb8-7"><a href="module-6.html#cb8-7" tabindex="-1"></a>pbmc</span></code></pre></div>
+</div>
+<div id="process-the-dataset" class="section level2 hasAnchor">
+<h2>Process the dataset<a href="module-6.html#process-the-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="tip">
+<p>
+This is basic processing steps for the purpose of this practical lab.
+Please look at external tutorials to process scRNA. For example,
+pre-processing can include methods to remove doublets and ambient RNA.
+This is out of scope for this meeting.
+</p>
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="module-6.html#cb9-1" tabindex="-1"></a>pbmc[[<span class="st">&quot;percent.mt&quot;</span>]] <span class="ot">&lt;-</span> <span class="fu">PercentageFeatureSet</span>(pbmc, <span class="at">pattern =</span> <span class="st">&quot;^MT-&quot;</span>)</span>
+<span id="cb9-2"><a href="module-6.html#cb9-2" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">NormalizeData</span>(pbmc, <span class="at">normalization.method =</span> <span class="st">&quot;LogNormalize&quot;</span>, </span>
+<span id="cb9-3"><a href="module-6.html#cb9-3" tabindex="-1"></a>                      <span class="at">scale.factor =</span> <span class="dv">10000</span>)</span>
+<span id="cb9-4"><a href="module-6.html#cb9-4" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">NormalizeData</span>(pbmc)</span>
+<span id="cb9-5"><a href="module-6.html#cb9-5" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">FindVariableFeatures</span>(pbmc, <span class="at">selection.method =</span> <span class="st">&quot;vst&quot;</span>, </span>
+<span id="cb9-6"><a href="module-6.html#cb9-6" tabindex="-1"></a>                             <span class="at">nfeatures =</span> <span class="dv">2000</span>)</span>
+<span id="cb9-7"><a href="module-6.html#cb9-7" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="module-6.html#cb9-8" tabindex="-1"></a>all.genes <span class="ot">&lt;-</span> <span class="fu">rownames</span>(pbmc)</span>
+<span id="cb9-9"><a href="module-6.html#cb9-9" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">ScaleData</span>(pbmc, <span class="at">features =</span> all.genes)</span>
+<span id="cb9-10"><a href="module-6.html#cb9-10" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">RunPCA</span>(pbmc, <span class="at">features =</span> <span class="fu">VariableFeatures</span>(<span class="at">object =</span> pbmc))</span>
+<span id="cb9-11"><a href="module-6.html#cb9-11" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">FindNeighbors</span>(pbmc, <span class="at">dims =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb9-12"><a href="module-6.html#cb9-12" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">FindClusters</span>(pbmc, <span class="at">resolution =</span> <span class="fl">0.5</span>)</span>
+<span id="cb9-13"><a href="module-6.html#cb9-13" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">RunUMAP</span>(pbmc, <span class="at">dims =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb9-14"><a href="module-6.html#cb9-14" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="module-6.html#cb9-15" tabindex="-1"></a><span class="fu">DimPlot</span>(pbmc, <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>)</span></code></pre></div>
+<p><img src="scRNAlab/images/scRNAlab1.png" alt="generate rank" width="75%" /></p>
+</div>
+<div id="assign-cell-type-identity-to-clusters" class="section level2 hasAnchor">
+<h2>Assign cell type identity to clusters<a href="module-6.html#assign-cell-type-identity-to-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For this dataset, we use canonical markers to match clusters to known cell types:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="module-6.html#cb10-1" tabindex="-1"></a>new.cluster.ids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Naive CD4 T&quot;</span>, <span class="st">&quot;CD14+ Mono&quot;</span>, </span>
+<span id="cb10-2"><a href="module-6.html#cb10-2" tabindex="-1"></a>                     <span class="st">&quot;Memory CD4 T&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;CD8 T&quot;</span>, </span>
+<span id="cb10-3"><a href="module-6.html#cb10-3" tabindex="-1"></a>                      <span class="st">&quot;FCGR3A+ Mono&quot;</span>,<span class="st">&quot;NK&quot;</span>, <span class="st">&quot;DC&quot;</span>, <span class="st">&quot;Platelet&quot;</span>)</span>
+<span id="cb10-4"><a href="module-6.html#cb10-4" tabindex="-1"></a><span class="fu">names</span>(new.cluster.ids) <span class="ot">&lt;-</span> <span class="fu">levels</span>(pbmc)</span>
+<span id="cb10-5"><a href="module-6.html#cb10-5" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">RenameIdents</span>(pbmc, new.cluster.ids)</span>
+<span id="cb10-6"><a href="module-6.html#cb10-6" tabindex="-1"></a><span class="fu">DimPlot</span>(pbmc, <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">pt.size =</span> <span class="fl">0.5</span>) </span>
+<span id="cb10-7"><a href="module-6.html#cb10-7" tabindex="-1"></a>                                                  <span class="sc">+</span> <span class="fu">NoLegend</span>()</span></code></pre></div>
+<p><img src="scRNAlab/images/scRNAlab2.png" alt="generate rank" width="75%" /></p>
+</div>
+<div id="find-differentially-expressed-features-cluster-biomarkers" class="section level2 hasAnchor">
+<h2>Find differentially expressed features (cluster biomarkers)<a href="module-6.html#find-differentially-expressed-features-cluster-biomarkers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Find markers for every cluster compared to the remaining cells and report only the genes with positive scores, ie. genes specific to the cluster and not the rest of the cells. The list of genes specific to each cluster will be used in the downstream analysis.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="module-6.html#cb11-1" tabindex="-1"></a><span class="co">#Use the FindAllMarkers seurat function to find all the genes </span></span>
+<span id="cb11-2"><a href="module-6.html#cb11-2" tabindex="-1"></a><span class="co">#associated with each cluster</span></span>
+<span id="cb11-3"><a href="module-6.html#cb11-3" tabindex="-1"></a>pbmc.markers <span class="ot">&lt;-</span> <span class="fu">FindAllMarkers</span>(pbmc, <span class="at">only.pos =</span> <span class="cn">TRUE</span>, <span class="at">min.pct =</span> <span class="fl">0.25</span>, </span>
+<span id="cb11-4"><a href="module-6.html#cb11-4" tabindex="-1"></a>                                              <span class="at">logfc.threshold =</span> <span class="fl">0.25</span>)</span>
+<span id="cb11-5"><a href="module-6.html#cb11-5" tabindex="-1"></a>pbmc.markers <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="module-6.html#cb11-6" tabindex="-1"></a>    <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="module-6.html#cb11-7" tabindex="-1"></a>    <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">2</span>, <span class="at">order_by =</span> avg_log2FC)</span>
+<span id="cb11-8"><a href="module-6.html#cb11-8" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="module-6.html#cb11-9" tabindex="-1"></a><span class="co">#plot graphs for a subset of the genes    </span></span>
+<span id="cb11-10"><a href="module-6.html#cb11-10" tabindex="-1"></a><span class="fu">FeaturePlot</span>(pbmc, <span class="at">features =</span> <span class="fu">c</span>(<span class="st">&quot;MS4A1&quot;</span>, <span class="st">&quot;GNLY&quot;</span>, <span class="st">&quot;CD3E&quot;</span>, </span>
+<span id="cb11-11"><a href="module-6.html#cb11-11" tabindex="-1"></a>                  <span class="st">&quot;CD14&quot;</span>, <span class="st">&quot;FCER1A&quot;</span>, <span class="st">&quot;FCGR3A&quot;</span>, <span class="st">&quot;LYZ&quot;</span>, <span class="st">&quot;PPBP&quot;</span>,<span class="st">&quot;CD8A&quot;</span>))</span>
+<span id="cb11-12"><a href="module-6.html#cb11-12" tabindex="-1"></a>    </span>
+<span id="cb11-13"><a href="module-6.html#cb11-13" tabindex="-1"></a><span class="fu">write.csv</span>(pbmc.markers, <span class="st">&quot;pbmc.markers.csv&quot;</span>)</span></code></pre></div>
+<p><img src="scRNAlab/images/scRNAlab3.png" alt="generate rank" width="75%" /></p>
+</div>
+<div id="create-gene-list-for-each-cluster-to-use-with-gprofiler" class="section level2 hasAnchor">
+<h2>Create Gene list for each cluster to use with g:Profiler<a href="module-6.html#create-gene-list-for-each-cluster-to-use-with-gprofiler" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we have the list of genes that are specific to each cluster, it would be useful to perform pathway analysis on each list. It could provide a deeper understanding on each cluster. In some cases, it might help to adjust the labels associated with the clusters using marker genes.</p>
+<p>In order to do that, we have extracted each cluster gene list from the <a href="./scRNAlab/data/Pancancer_pbmc.markers.csv">pbmc.markers.csv</a> file.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="module-6.html#cb12-1" tabindex="-1"></a><span class="co">#modify the names of some of the clusters to get rid of spaces and symbols</span></span>
+<span id="cb12-2"><a href="module-6.html#cb12-2" tabindex="-1"></a>pbmc.markers<span class="sc">$</span>cluster <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&quot;Naive CD4 T&quot;</span>, <span class="st">&quot;Naive_CD4_T&quot;</span>, </span>
+<span id="cb12-3"><a href="module-6.html#cb12-3" tabindex="-1"></a>                            pbmc.markers<span class="sc">$</span>cluster)</span>
+<span id="cb12-4"><a href="module-6.html#cb12-4" tabindex="-1"></a>pbmc.markers<span class="sc">$</span>cluster <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&quot;CD14</span><span class="sc">\\</span><span class="st">+ Mono&quot;</span>, <span class="st">&quot;CD14pMono&quot;</span>, </span>
+<span id="cb12-5"><a href="module-6.html#cb12-5" tabindex="-1"></a>                            pbmc.markers<span class="sc">$</span>cluster)</span>
+<span id="cb12-6"><a href="module-6.html#cb12-6" tabindex="-1"></a>pbmc.markers<span class="sc">$</span>cluster <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&quot;Memory CD4 T&quot;</span>, <span class="st">&quot;Memory_CD4_T&quot;</span>, </span>
+<span id="cb12-7"><a href="module-6.html#cb12-7" tabindex="-1"></a>                            pbmc.markers<span class="sc">$</span>cluster)</span>
+<span id="cb12-8"><a href="module-6.html#cb12-8" tabindex="-1"></a>pbmc.markers<span class="sc">$</span>cluster <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&quot;CD8 T&quot;</span>, <span class="st">&quot;CD8_T&quot;</span>, pbmc.markers<span class="sc">$</span>cluster)</span>
+<span id="cb12-9"><a href="module-6.html#cb12-9" tabindex="-1"></a>pbmc.markers<span class="sc">$</span>cluster <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">&quot;FCGR3A</span><span class="sc">\\</span><span class="st">+ Mono&quot;</span>, <span class="st">&quot;FCGR3Ap_Mono&quot;</span>, </span>
+<span id="cb12-10"><a href="module-6.html#cb12-10" tabindex="-1"></a>                            pbmc.markers<span class="sc">$</span>cluster)</span>
+<span id="cb12-11"><a href="module-6.html#cb12-11" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="module-6.html#cb12-12" tabindex="-1"></a><span class="co">#get the set of unique cluster names</span></span>
+<span id="cb12-13"><a href="module-6.html#cb12-13" tabindex="-1"></a>cluster_list <span class="ot">=</span> <span class="fu">unique</span>(pbmc.markers<span class="sc">$</span>cluster)</span>
+<span id="cb12-14"><a href="module-6.html#cb12-14" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="module-6.html#cb12-15" tabindex="-1"></a><span class="co">#go through each cluster and create a file of its associated genes. </span></span>
+<span id="cb12-16"><a href="module-6.html#cb12-16" tabindex="-1"></a><span class="co"># output the genes associated with each cluster into a file named by the </span></span>
+<span id="cb12-17"><a href="module-6.html#cb12-17" tabindex="-1"></a><span class="co"># cluster name</span></span>
+<span id="cb12-18"><a href="module-6.html#cb12-18" tabindex="-1"></a><span class="cf">for</span> (a <span class="cf">in</span> cluster_list){</span>
+<span id="cb12-19"><a href="module-6.html#cb12-19" tabindex="-1"></a>  <span class="fu">print</span>(a)</span>
+<span id="cb12-20"><a href="module-6.html#cb12-20" tabindex="-1"></a>  genelist <span class="ot">=</span> pbmc.markers<span class="sc">$</span>gene[<span class="fu">which</span>( pbmc.markers<span class="sc">$</span>cluster <span class="sc">==</span> a)]</span>
+<span id="cb12-21"><a href="module-6.html#cb12-21" tabindex="-1"></a>  <span class="fu">print</span>(genelist)</span>
+<span id="cb12-22"><a href="module-6.html#cb12-22" tabindex="-1"></a>  <span class="fu">write.table</span>(genelist, <span class="fu">paste0</span>(a, <span class="st">&quot;.txt&quot;</span>), <span class="at">sep=</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">col.names =</span> F, </span>
+<span id="cb12-23"><a href="module-6.html#cb12-23" tabindex="-1"></a>                                              <span class="at">row.names =</span> F, <span class="at">quote=</span>F)</span>
+<span id="cb12-24"><a href="module-6.html#cb12-24" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>End of R code example</strong></p>
+<hr />
+</div>
+<div id="tutorial_start" class="section level2 hasAnchor">
+<h2>Data (gene lists for each cluster)<a href="module-6.html#tutorial_start" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><a href="./scRNAlab/data/Naive_CD4_T.txt">Naive_CD4_T.txt</a></li>
+<li><a href="./scRNAlab/data/CD14pMono.txt">CD14pMono.txt</a></li>
+<li><a href="./scRNAlab/data/Memory_CD4_T.txt">Memory_CD4_T.txt</a></li>
+<li><a href="./scRNAlab/data/B.txt">B.txt</a></li>
+<li><a href="./scRNAlab/data/CD8_T.txt">CD8_T.txt</a></li>
+<li><a href="./scRNAlab/data/FCGR3Ap_Mono.txt">FCGR3Ap_Mono.txt</a></li>
+<li><a href="./scRNAlab/data/NK.txt">NK.txt</a></li>
+<li><a href="./scRNAlab/data/DC.txt">DC.txt</a></li>
+<li><a href="./scRNAlab/data/Platelet.txt">Platelet.txt</a></li>
+</ul>
+</div>
+<div id="run-pathway-enrichment-analysis-using-gprofiler" class="section level2 hasAnchor">
+<h2>Run pathway enrichment analysis using g:Profiler<a href="module-6.html#run-pathway-enrichment-analysis-using-gprofiler" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For this practical lab, we will use the platelet gene list to enriched pathways and processes using g:Profiler.</p>
+<ol style="list-style-type: decimal">
+<li>Open the g:Profiler website at <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> in your web browser.</li>
+<li>Open the file (<a href="./scRNAlab/data/Platelet.txt">Platelet.txt</a>) in a simple text editor such as Notepad or Textedit. Select and copy the list of genes.</li>
+<li>Paste the gene list into the Query field in top-left corner of the g:Profiler interface.</li>
+<li>Click on the <em>Advanced options</em> tab to expand it.</li>
+<li>Set <em>Significance threshold</em> to “Benjamini-Hochberg FDR”</li>
+<li>Select 0.05</li>
+<li>Click on the <em>Data sources</em> tab to expand it:</li>
+<li>UnSelect all gene-set databases by clicking the “clear all” button.</li>
+<li>In the <em>Gene Ontology</em> category, check <em>GO Biological Process</em> and <em>No electronic GO annotations</em>.</li>
+<li>In the <em>biological pathways</em> category, check <em>Reactome</em> and check <em>WikiPathways</em>.</li>
+<li>Click on the <em>Run query</em> button to run g:Profiler. <br><img src="scRNAlab/images/scRNAlab4.png" alt="generate rank" width="75%" /></li>
+<li>Save the results<br>
+<ul>
+<li>In the <em>Detailed Results</em> panel, select “GEM” .</li>
+<li>keep the minimum term size set to 10</li>
+<li>set maximum term size to 500</li>
+<li>This will save the results in a text file in the “Generic Enrichment Map” format that we will use to visualize in Cytoscape.<br><img src="scRNAlab/images/scRNAlab5.png" alt="generate rank" width="75%" /></li>
+</ul></li>
+<li>Download the pathway database files.<br>
+<ul>
+<li>Go to the top of the page and expand the “Data sources” tab. Click on the ‘combined name.gmt’ link located at bottom of this tab. It will download a file named <em>combined name.gmt</em> containing a pathway database gmt file with all the available sources.</li>
+</ul></li>
+<li>Rename the file to <a href="./scRNAlab/data/gProfiler_platelet.txt">gProfiler_platelet.txt</a></li>
+</ol>
+</div>
+<div id="create-an-enrichment-map-in-cytoscape" class="section level2 hasAnchor">
+<h2>Create an enrichment map in Cytoscape<a href="module-6.html#create-an-enrichment-map-in-cytoscape" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Open Cytoscape</li>
+<li>Go to <strong>Apps</strong> -&gt; <strong>EnrichmentMap</strong></li>
+<li>Select the EnrichmentMap and click on the + sign to open the app.<br><img src="scRNAlab/images/scRNAlab6a.png" alt="generate rank" width="75%" /></li>
+<li>Drag and drop the g:Profiler file (<a href="./scRNAlab/data/gProfiler_platelet.txt">gProfiler_platelet.txt</a>) and the gmt file (<a href="./scRNAlab/data/gprofiler_full_hsapiens.name.gmt">gprofiler_full_hsapiens.name.gmt</a>)</li>
+<li>Set <strong>FDR q-value cutoff</strong> to 0.001</li>
+<li>Click on <strong>Build</strong><br><img src="scRNAlab/images/scRNAlab6.png" alt="generate rank" width="75%" /></li>
+<li>An enrichment map is created:<br><img src="scRNAlab/images/scRNAlab7a.png" alt="generate rank" width="75%" /></li>
+<li>For clarity, show annotations for the clustes in the enrichment map.</li>
+<li>Find the Autoannotate and AutoAnnotate Display panels on the left and right side panels, respectively,</li>
+<li>Unhide the shapes and labels to more clearly see the groupings. Adjust settings to your liking.<br><img src="scRNAlab/images/scRNAlab8a.png" alt="generate rank" width="100%" /></li>
+</ol>
+<div class="rmd-note">
+<p>
+The boxes <strong>Palette</strong>, <strong>Scale Font by cluster
+size</strong> and <strong>Word Wrap</strong> have been selected. The
+clusters have been moved around for clarity.
+</p>
+</div>
+</div>
+<div id="gsea-from-pseudobulk" class="section level2 hasAnchor">
+<h2>GSEA from pseudobulk<a href="module-6.html#gsea-from-pseudobulk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pseudobulk-creation-differential-expression-and-rank-file" class="section level3 hasAnchor">
+<h3>pseudobulk creation, differential expression and rank file<a href="module-6.html#pseudobulk-creation-differential-expression-and-rank-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We also can create pseudobulk data from the scRNA data by summing all cells into defined groups. We used the clusters to group the cells and we calculate differential expression using edgeR. We compare the CD4 cells (Naive CD4 T and Memory CD4 T) and the monocytic cells (CD14+ Mono and “FCGR3A+ Mono) .</p>
+<p>As shown in <a href="#gsea_mod3">module 3</a>, in order to perform pathway analysis,we prepare a rank file, run GSEA and create an enrichment map in Cytoscape.</p>
+<ul>
+<li>Data:
+<ul>
+<li>rank file: <a href="./scRNAlab/data/CD4vsMono.rnk">CD4vsMono.rnk</a></li>
+<li>gmt file: <a href="./Module2/gsea/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="run-gsea" class="section level2 hasAnchor">
+<h2>run GSEA:<a href="module-6.html#run-gsea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Open GSEA</li>
+<li>Select <strong>Load Data</strong></li>
+<li>Drag and Drop the rank <a href="./scRNAlab/data/CD4vsMono.rnk">CD4vsMono.rnk</a> and gmt * <a href="./Module2/gsea/data/Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt">Human_GOBP_AllPathways_noPFOCR_no_GO_iea_June_01_2024_symbol.gmt</a> files.</li>
+<li>Click on <strong>Load these files</strong></li>
+<li>Click on <strong>Run GSEAPreranked</strong></li>
+<li>In <strong>Gene sets database</strong>, click on the 3 dots, select <strong>Local GMX/GMT</strong> , select the gmt file, click on OK.</li>
+<li>Set the <strong>Number of permutations</strong> to 100</li>
+<li>Select the rank file: CD4vsMono.rnk</li>
+<li>Expand <strong>Basic Fields</strong></li>
+<li>In the field <strong>Collapse/Remap to gene symbols</strong>, select <strong>No_Collapse</strong></li>
+<li>Add an analysis name of your choice</li>
+<li>Set <strong>Max size</strong> to 200 and <strong>Min size</strong> to 10.</li>
+<li>Click on <strong>Run</strong><br><img src="scRNAlab/images/scRNAlab9.png" alt="generate rank" width="100%" /></li>
+</ol>
+<div class="rmd-tip">
+<p>
+Use 2000 permutations and MAX_Size to 1000 for your own analysis. You
+can decide to further reduce MAX_Size to 500 or 200.
+</p>
+</div>
+</div>
+<div id="create-an-enrichmentmap" class="section level2 hasAnchor">
+<h2>Create an EnrichmentMap:<a href="module-6.html#create-an-enrichmentmap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Open Cytoscape</li>
+<li>Go to <strong>Apps</strong> -&gt; <strong>EnrichmentMap</strong></li>
+<li>Select the EnrichmentMap tab, click on the + sign. A <strong>Create Enrichment Map</strong> windows pops up.</li>
+<li>Drag and drop the GSEA folder in the <strong>Data Sets</strong> window. It automatically populates the fields.</li>
+<li>Set the <strong>FDR q-value cutoff</strong> to 0.01</li>
+<li>Click on <strong>Build</strong><br><img src="scRNAlab/images/scRNAlab10.png" alt="generate rank" width="100%" /></li>
+</ol>
+<ul>
+<li>The enrichment map is now created. The red nodes are pathways enriched in genes up-regulated in CD4 cells when compared to the monocytic cells. The blue nodes are pathways enriched in genes up-regulated in monocytic cells.<br><img src="scRNAlab/images/scRNAlab11.png" alt="generate rank" width="100%" /></li>
+</ul>
+<p>See code below for your reference ( pseudobulk, differential expression and rank file).</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="module-6.html#cb13-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb13-2"><a href="module-6.html#cb13-2" tabindex="-1"></a><span class="fu">library</span>(Seurat)</span>
+<span id="cb13-3"><a href="module-6.html#cb13-3" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb13-4"><a href="module-6.html#cb13-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-5"><a href="module-6.html#cb13-5" tabindex="-1"></a><span class="fu">library</span>(AUCell)</span>
+<span id="cb13-6"><a href="module-6.html#cb13-6" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb13-7"><a href="module-6.html#cb13-7" tabindex="-1"></a><span class="fu">library</span>(scuttle)</span>
+<span id="cb13-8"><a href="module-6.html#cb13-8" tabindex="-1"></a><span class="fu">library</span>(SingleCellExperiment)</span>
+<span id="cb13-9"><a href="module-6.html#cb13-9" tabindex="-1"></a><span class="fu">library</span>(edgeR)</span>
+<span id="cb13-10"><a href="module-6.html#cb13-10" tabindex="-1"></a><span class="fu">library</span>(affy)</span>
+<span id="cb13-11"><a href="module-6.html#cb13-11" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="module-6.html#cb13-12" tabindex="-1"></a><span class="fu">names</span>(new.cluster.ids) <span class="ot">&lt;-</span> <span class="fu">levels</span>(pbmc)</span>
+<span id="cb13-13"><a href="module-6.html#cb13-13" tabindex="-1"></a>pbmc <span class="ot">&lt;-</span> <span class="fu">RenameIdents</span>(pbmc, new.cluster.ids)</span>
+<span id="cb13-14"><a href="module-6.html#cb13-14" tabindex="-1"></a>counts <span class="ot">&lt;-</span> pbmc<span class="sc">@</span>assays<span class="sc">$</span>RNA<span class="sc">@</span>counts </span>
+<span id="cb13-15"><a href="module-6.html#cb13-15" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> pbmc<span class="sc">@</span>meta.data</span>
+<span id="cb13-16"><a href="module-6.html#cb13-16" tabindex="-1"></a>sce <span class="ot">&lt;-</span> <span class="fu">SingleCellExperiment</span>(<span class="at">assays =</span> <span class="fu">list</span>(<span class="at">counts =</span> counts), <span class="at">colData =</span> metadata)</span>
+<span id="cb13-17"><a href="module-6.html#cb13-17" tabindex="-1"></a>sum_by <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;seurat_clusters&quot;</span>)</span>
+<span id="cb13-18"><a href="module-6.html#cb13-18" tabindex="-1"></a>summed <span class="ot">&lt;-</span> scuttle<span class="sc">::</span><span class="fu">aggregateAcrossCells</span>(sce, <span class="at">id=</span><span class="fu">colData</span>(sce)[,sum_by])</span>
+<span id="cb13-19"><a href="module-6.html#cb13-19" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">assay</span>(summed, <span class="st">&quot;counts&quot;</span>) </span>
+<span id="cb13-20"><a href="module-6.html#cb13-20" tabindex="-1"></a><span class="fu">colnames</span>(raw) <span class="ot">=</span>   <span class="fu">c</span>(<span class="st">&quot;Naive_CD4_T&quot;</span>, <span class="st">&quot;CD14p_Mono&quot;</span>, <span class="st">&quot;Memory_CD4_T&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;CD8_T&quot;</span>, </span>
+<span id="cb13-21"><a href="module-6.html#cb13-21" tabindex="-1"></a>                    <span class="st">&quot;FCGR3Ap_Mono&quot;</span>,<span class="st">&quot;NK&quot;</span>, <span class="st">&quot;DC&quot;</span>, <span class="st">&quot;Platelet&quot;</span>)</span>
+<span id="cb13-22"><a href="module-6.html#cb13-22" tabindex="-1"></a><span class="fu">saveRDS</span>(raw, <span class="st">&quot;raw.rds&quot;</span>)</span>
+<span id="cb13-23"><a href="module-6.html#cb13-23" tabindex="-1"></a></span>
+<span id="cb13-24"><a href="module-6.html#cb13-24" tabindex="-1"></a>count_mx <span class="ot">=</span> <span class="fu">as.matrix</span>(raw)</span>
+<span id="cb13-25"><a href="module-6.html#cb13-25" tabindex="-1"></a>myGroups <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;CD4&quot;</span>,<span class="st">&quot;Mono&quot;</span> ,<span class="st">&quot;CD4&quot;</span>,<span class="st">&quot;B&quot;</span> , <span class="st">&quot;CD8_T&quot;</span>,<span class="st">&quot;Mono&quot;</span>,<span class="st">&quot;NK&quot;</span>, <span class="st">&quot;DC&quot;</span>,<span class="st">&quot;Platelet&quot;</span> )</span>
+<span id="cb13-26"><a href="module-6.html#cb13-26" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">DGEList</span>(<span class="at">counts=</span>count_mx,<span class="at">group=</span><span class="fu">factor</span>(myGroups))</span>
+<span id="cb13-27"><a href="module-6.html#cb13-27" tabindex="-1"></a>keep <span class="ot">&lt;-</span> <span class="fu">filterByExpr</span>(y)</span>
+<span id="cb13-28"><a href="module-6.html#cb13-28" tabindex="-1"></a>y <span class="ot">&lt;-</span> y[keep,keep.lib.sizes<span class="ot">=</span><span class="cn">FALSE</span>]</span>
+<span id="cb13-29"><a href="module-6.html#cb13-29" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">calcNormFactors</span>(y)</span>
+<span id="cb13-30"><a href="module-6.html#cb13-30" tabindex="-1"></a>design <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span><span class="dv">0</span> <span class="sc">+</span> myGroups )</span>
+<span id="cb13-31"><a href="module-6.html#cb13-31" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">estimateDisp</span>(y,design)</span>
+<span id="cb13-32"><a href="module-6.html#cb13-32" tabindex="-1"></a>my.contrasts <span class="ot">&lt;-</span> <span class="fu">makeContrasts</span>(<span class="at">CD4vsMono=</span>myGroupsCD4<span class="sc">-</span>myGroupsMono, </span>
+<span id="cb13-33"><a href="module-6.html#cb13-33" tabindex="-1"></a>                              <span class="at">levels =</span> design )</span>
+<span id="cb13-34"><a href="module-6.html#cb13-34" tabindex="-1"></a>mycontrast <span class="ot">=</span> <span class="st">&quot;CD4vsMono&quot;</span></span>
+<span id="cb13-35"><a href="module-6.html#cb13-35" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glmQLFit</span>(y,design)</span>
+<span id="cb13-36"><a href="module-6.html#cb13-36" tabindex="-1"></a>qlf <span class="ot">&lt;-</span> <span class="fu">glmQLFTest</span>(fit,<span class="at">coef=</span><span class="dv">2</span>, <span class="at">contrast =</span> my.contrasts[])</span>
+<span id="cb13-37"><a href="module-6.html#cb13-37" tabindex="-1"></a>table2 <span class="ot">=</span> <span class="fu">topTags</span>(qlf, <span class="at">n =</span> <span class="fu">nrow</span>(y))</span>
+<span id="cb13-38"><a href="module-6.html#cb13-38" tabindex="-1"></a>table2 <span class="ot">=</span> table2<span class="sc">$</span>table</span>
+<span id="cb13-39"><a href="module-6.html#cb13-39" tabindex="-1"></a>table2<span class="sc">$</span>score <span class="ot">=</span>  <span class="fu">sign</span>(table2<span class="sc">$</span>logFC) <span class="sc">*</span> <span class="sc">-</span><span class="fu">log10</span>(table2<span class="sc">$</span>PValue)</span>
+<span id="cb13-40"><a href="module-6.html#cb13-40" tabindex="-1"></a>myrank <span class="ot">=</span> <span class="fu">cbind.data.frame</span>(<span class="fu">rownames</span>(table2), table2<span class="sc">$</span>score)</span>
+<span id="cb13-41"><a href="module-6.html#cb13-41" tabindex="-1"></a><span class="fu">colnames</span>(myrank) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;gene&quot;</span>, <span class="st">&quot;score&quot;</span>)</span>
+<span id="cb13-42"><a href="module-6.html#cb13-42" tabindex="-1"></a>myrank <span class="ot">=</span> myrank[ <span class="fu">order</span>(myrank<span class="sc">$</span>score, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
+<span id="cb13-43"><a href="module-6.html#cb13-43" tabindex="-1"></a><span class="fu">write.table</span>(myrank, <span class="fu">paste0</span>(mycontrast, <span class="st">&quot;.rnk&quot;</span>), <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb13-44"><a href="module-6.html#cb13-44" tabindex="-1"></a>            <span class="at">col.names =</span> <span class="cn">FALSE</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="rmd-tip">
+<p>
+Some methods like AddModuleScore or AUCell do pathway enrichment
+analysis of each of cells and the enrichment results are usually display
+on the UMAP using a color code. It involves R coding and is out of the
+scope for this workshop.
+</p>
+</div>
+</div>
+<div id="lab-2-glioblastoma" class="section level2 hasAnchor">
+<h2>Lab 2: Glioblastoma<a href="module-6.html#lab-2-glioblastoma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This lab uses scRNA from brain cancer (glioblastoma). The scRNA shows the heterogeneity of the sample, with varying cell types originating from cancer tissues and other cell types like immune cells. We will perform Over-Representation Analysis (ORA) using the gene list of each cluster type in <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> to uncover the function of each cluster.</p>
+<div id="goal" class="section level3 hasAnchor">
+<h3>Goal<a href="module-6.html#goal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The goal is to show how to build a <strong>master enrichment map</strong> from the results of scRNA. The scRNA is composed of different cell types. The cells are clustered, and annotated to different cell types which can be visualized as a UMAP, 2 dimensional plot. Pathways enrichment is run on the gene lists from each cluster followed by the creation of a single enrichment map containing all the results.</p>
+<p>Note: This lab also shows the use of a custom background set in g:Profiler.</p>
+</div>
+<div id="data-5" class="section level3 hasAnchor">
+<h3>Data<a href="module-6.html#data-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>High-quality single-cell suspensions were generated by dissociating biopsied tissues in accutase and DNase fron patientGBM tumors. Library preparation was carried out as per the 10X Genomics Chromium single-cell protocol using the v2 chemistry reagent kit and sequencing was run on an Illumina 2500.</p>
+</div>
+<div id="overview" class="section level3 hasAnchor">
+<h3>Overview<a href="module-6.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The practical lab contains 3 parts. The first part uses <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> to perform gene-set enrichment analysis. The second part uses Cytoscape and EnrichmentMap to help interpret the results created in part 1. The third part is the one that we are going to practise during the lab and it consists of uploading the pathway results for each cluster on a same enrichment map.</p>
+</div>
+</div>
+<div id="can-module8-exercise-1" class="section level2 hasAnchor">
+<h2>Part 1 - run g:Profiler [OPTIONAL]<a href="module-6.html#can-module8-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>g:Profiler requires a list of genes, one per line, in a text file or spreadsheet,
+ready to copy and paste into a web page: for this, we use genes identified in the glioblastoma scRNA dataset (Richards et al, Nat Cancer, 2021). 14 cell clusters (0 to 14) were identified.</p>
+<p><img src="./Can_Module8/images/scRNA1.png" alt="workflow" width="100%" /></p>
+<p>The 14 clusters were further further classified into 5 cell types using specific gene markers.</p>
+<p><img src="./Can_Module8/images/scRNA2.png" alt="workflow" width="100%" /></p>
+<p>The gene lists for each cluster were obtained from differential gene expression (DGE) analyses comparing cells from each cluster vs. the rest of the cells using Seurat’s function ‘FindAllMarkers(…, only.pos=T, min.pct = 0, return.thresh = 1, logfc.threshold = 0)’. For each cluster, the top 250 genes with FDR value equal or less than 0.05 were retrieved. All genes present in at least 1 cluster will be used as background (16066 genes) for the pathway enrichment analysis.</p>
+<p><img src="./Can_Module8/images/scRNA2a.png" alt="workflow" width="100%" /></p>
+<p>DGE: Table (top genes of cluster 3 versus all clusters)
+<img src="./Can_Module8/images/scRNA2b.png" alt="workflow" width="100%" /></p>
+<p>link to file: <a href="./Can_Module8/data/Richards_NatCancer_2021_DGE_GlobalClustering_SCT_wilcox.tsv.bz2">Richards_NatCancer_2021_DGE_GlobalClustering_SCT_wilcox.tsv.bz2</a></p>
+<p>For this part of the lab, our goal is to copy and paste the list of genes into g:Profiler, adjust some parameters (e.g selecting the pathway databases), run the query and explore the results.</p>
+<p>g:Profiler performs a gene-set enrichment analysis using a hypergeometric test (Fisher’s exact test). The Gene Ontology Biological Process, Reactome and Wiki pathways are going to be used as pathway databases. The results are displayed as a table or downloadable as an Generic Enrichment Map (GEM) output file.</p>
+<p>Before starting this exercise, download the required files:</p>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in a folder on your computer : for example create a
+pathway_analysis folder and save all the files needed for this module in
+this directory.
+</p>
+</div>
+<ul>
+<li><a href="./Can_Module8/data/cluster3.txt">cluster3.txt</a></li>
+<li><a href="./Can_Module8/data/background.txt">background.txt</a></li>
+</ul>
+<p>We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.</p>
+<div id="step-1---launch-gprofiler.-1" class="section level3 hasAnchor">
+<h3>Step 1 - Launch g:Profiler.<a href="module-6.html#step-1---launch-gprofiler.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Open the g:Profiler website at <a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a> in your web browser.</p>
+</div>
+<div id="step-2---input-query-1" class="section level3 hasAnchor">
+<h3>Step 2 - input query<a href="module-6.html#step-2---input-query-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Paste the gene list (<a href="./Can_Module8/data/cluster3.txt">cluster3.txt</a>) into the Query field in top-left corner of the screen.</p>
+<p><img src="./Can_Module8/images/gp1.png" /></p>
+<div class="rmd-note">
+<p>
+The gene list can be space-separated or one per line.<br> The
+organism for the analysis, Homo sapiens, is selected by default.<br> The
+input list can contain a mix of gene and protein IDs, symbols and
+accession numbers.<br> Duplicated and unrecognized IDs will be removed
+automatically, and ambiguous symbols can be refined in an interactive
+dialogue after submitting the query.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+Open the file in a simple text editor such as Notepad or Textedit to
+copy the list of genes. <br> Or right click on the file name above and
+select <strong>Open link in new tab</strong>
+</p>
+</div>
+</div>
+<div id="step-3---adjust-parameters.-1" class="section level3 hasAnchor">
+<h3>Step 3 - Adjust parameters.<a href="module-6.html#step-3---adjust-parameters.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>3a. Click on the <em>Advanced options</em> tab (black rectangle) to expand it.</p>
+<ul>
+<li><p>Upload the custom background: Set <em>Statistical domain scope</em> to <em>Custom</em> and <em>Upload</em> the <a href="./Can_Module8/data/background.txt">background.txt</a> text file.</p></li>
+<li><p>Set <em>Significance threshold</em> to “Benjamini-Hochberg FDR”</p></li>
+<li><p><em>User threshold</em> - select 0.05 if you want g:Profiler to return only pathways that are significant (FDR &lt; 0.05).</p></li>
+</ul>
+<p align="center">
+<img src="./Can_Module8/images/gp2.png" alt="workflow" width="100%" />
+</p>
+<p>3b. Click on the <em>Data sources</em> tab (black rectangle) to expand it.</p>
+<ul>
+<li>UnSelect all gene-set databases by clicking the “clear all” button.</li>
+<li>In the <em>Gene Ontology</em> category, check <em>GO Biological Process</em> and <em>No electronic GO annotations</em>.</li>
+</ul>
+<div class="rmd-note">
+<p>
+<em>No electronic GO annotations</em> option will discard less
+reliable GO annotations (inferred from electronic annotations (IEAs))
+that are not manually reviewed.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+If g:Profiler does not return any results: uncheck the <em>No
+electronic GO annotation</em> option to expand annotations used in the
+test.
+</p>
+</div>
+<ul>
+<li>In the <em>biological pathways</em> category, check <em>Reactome</em> and <em>WikiPathways</em>.</li>
+</ul>
+<p align="center">
+<img src="./Can_Module8/images/gp3.png" alt="workflow" width="100%" />
+</p>
+</div>
+<div id="step-4---run-query-1" class="section level3 hasAnchor">
+<h3>Step 4 - Run query<a href="module-6.html#step-4---run-query-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Click on the <em>Run query</em> button to run g:Profiler.</p>
+<p>Scroll down page to see results.</p>
+<div class="rmd-tip">
+<p>
+If after clicking on <em>Run query</em> button the analysis completes
+but there is the following message above results file - <em>Select the
+Ensembl ID with the most GO annotations (all)</em>. For each ambiguous
+gene select its correct mapping. Ambiguous mapping is often caused by
+multiple ensembl ids for a given gene and are easy to resolve as a user.
+To choose the correct mapping, check the option that has the correct
+gene name and/or then that has the most GO annotations. Rerun query.
+</p>
+</div>
+</div>
+<div id="step-5---explore-the-results.-1" class="section level3 hasAnchor">
+<h3>Step 5 - Explore the results.<a href="module-6.html#step-5---explore-the-results.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Step 5a:</p>
+<ul>
+<li>After the query has run, the results are displayed at the bottom of the page, below the input parameters.</li>
+<li>By default, the “Results” tab is selected. A global graph displays gene-sets that passed the significance threshold of 0.05 for the 3 gene-set databases that we have selected, GO Biological Process(<a href="GO:BP" class="uri">GO:BP</a>) and Reactome(REAC) and Wikipathways(WP). Numbers in parentheses are indicating the number of gene-sets that passed the threshold (0 gene-sets passed the 0.05 threshold for Reactome).</li>
+</ul>
+<p><img src="./Can_Module8/images/gp5.png" alt="workflow" width="100%" /></p>
+<p>Step5b:</p>
+<ul>
+<li>Click on “Detailed Results” to view the results in more depth. Two tables are displayed, one for each of the data sources selected. (If more than 2 data sources are selected there will be additional tables for each datasource) Each row of the table contains:
+<ul>
+<li><strong>Term name</strong> - gene-set name</li>
+<li><strong>Term ID</strong> - gene-est identifier</li>
+<li><strong>Padj</strong> - FDR value</li>
+<li><strong>-log10(Padj)</strong> - enrichment score calculated using the formula -log10(padj)</li>
+<li>variable number of gene columns (One for each gene in the query set) - If the gene is present in the current gene-set its cell is colored. For any data source besides GO the cell is colored black if the gene is found in the gene-set. For the GO data source cells are colored according to the annotation evidence code. Expand the legend tab for detailed coloring mapping of GO evidence codes.</li>
+</ul></li>
+<li>Above the <a href="GO:BP" class="uri">GO:BP</a> result table, locate the slide bar that enables to select for the minimum and maximum number of genes in the tested gene-sets (Term size).</li>
+<li>Change the maximum <em>Term size</em> from 10000 to <strong>500</strong> and change the minimum <em>Term size</em> to <strong>10</strong> and observe the results in the detailed stats panel:</li>
+</ul>
+<p><img src="./Can_Module8/images/gp8a.png" alt="workflow" width="100%" /></p>
+<ul>
+<li>Without filtering term size, the top terms were GO terms containing that could contain 4000 or 5000 genes and that were located high in the GO hierarchy (parent term).</li>
+<li>With filtering the maximum term size to 500, the top list contains pathways of larger interpretative values. However, please note that the adjusted pvalues was calculated using all gene-sets without size filtering.</li>
+</ul>
+<p>The first table displays the gene-sets significantly enriched at FDR 0.05 for the <a href="GO:BP" class="uri">GO:BP</a> database.The second table displays the results corresponding to the Reactome database and the third table displays the results corresponding to the Wikipathways database.</p>
+<div class="rmd-note">
+<p>
+You might get slighlty different results as the ones presented here
+because of the g:Profiler updated the pathway database.
+</p>
+</div>
+<div class="rmd-tip">
+<p>
+g:Profiler archived databases can be found using this link:
+<a href="https://biit.cs.ut.ee/gprofiler/page/archives" class="uri">https://biit.cs.ut.ee/gprofiler/page/archives</a>.
+</p>
+</div>
+</div>
+<div id="step-6-expand-the-stats-tab-1" class="section level3 hasAnchor">
+<h3>Step 6: Expand the stats tab<a href="module-6.html#step-6-expand-the-stats-tab-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Expand the <em>stats</em> tab by clicking on the double arrow located at the right of the tab.</p>
+<p align="center">
+<img src="./Can_Module8/images/gp7a.png" alt="workflow" width="75%" />
+</p>
+<p>It displays the gene set size (T), the size of our gene list (Q) , the number of genes that overlap between our gene list and the tested gene-set (TnQ) as well as the number of genes in the background (U).</p>
+</div>
+<div id="step-7-save-the-results-1" class="section level3 hasAnchor">
+<h3>Step 7: Save the results<a href="module-6.html#step-7-save-the-results-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>7a. In the <em>Detailed Results</em> panel, select “GEM” . It will save the results in a text file in the “Generic Enrichment Map” format that we will use to visualize using Cytoscape.</p>
+<ul>
+<li>Click on the GEM button. A file is downloaded on your computer. (change the name to Cluster3.gem.txt)</li>
+</ul>
+<p>7b: Open the file that you saved using Microsoft Office Excel or in an equivalent software.</p>
+<p>Observe the results included in this file:</p>
+<ol style="list-style-type: decimal">
+<li>Name of each gene-set</li>
+<li>Description of each gene-set</li>
+<li>significance of the overlap (pvalue)</li>
+<li>significance of the overlap (adjusted pvalue/qvalue)</li>
+<li>Phenotype</li>
+<li>Genes included in each gene-set</li>
+</ol>
+<div class="rmd-question">
+<p>
+Which term has the best corrected p-value? <br> Which genes in our
+list are included in this term? <br> Observe that same genes can be
+present in several lines (pathways are related when they contain a lof
+of genes in common).
+</p>
+</div>
+<div class="rmd-note">
+<p>
+The table is formatted for the input into Cytoscape EnrichmentMap. It
+is called the <a
+href="https://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#generic-results-files"><em>generic
+format</em></a>. The p-value and FDR columns contain identical values
+because g:Profiler directly outputs the FDR (= corrected p-value)
+meaning that the p-value column is already the FDR. Phenotype 1 means
+that each pathway will be represented by red nodes on the enrichment map
+(presented during next module).
+</p>
+</div>
+<p><img src="./Can_Module8/images/gp15a.png" alt="workflow" width="100%" /></p>
+<p>The terms <em>myelin</em> and <em>axon ensheathment</em> are the most significant gene-sets (=the lowest FDR value). Many gene-sets from the top of this list are related to each other and have genes in common.</p>
+<p><img src="./Can_Module8/images/gp15b.png" alt="workflow" width="50%" /></p>
+<hr />
+</div>
+<div id="step-8-optional-but-recommended-1" class="section level3 hasAnchor">
+<h3>Step 8 (Optional but recommended)<a href="module-6.html#step-8-optional-but-recommended-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>8a. Download the pathway database files.</p>
+<ul>
+<li>Go to the top of the page and expand the “Data sources” tab. Click on the ‘combined name.gmt’ link located at bottom of this tab. It will download a file named <em>combined name.gmt</em> containing a pathway database gmt file with all the available sources.</li>
+</ul>
+<p align="center">
+<img src="./Can_Module8/images/gp12.png" alt="workflow" width="60%" />
+</p>
+<div class="rmd-note">
+<p>
+you will be using this optional gprofiler_full_hsapiens.name.gmt file
+in Cytoscape EnrichmentMap.
+</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="exercise-2" class="section level2 hasAnchor">
+<h2>Part 2 - Cytoscape/EnrichmentMap [OPTIONAL]<a href="module-6.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="goal-of-the-exercise-6" class="section level3 hasAnchor">
+<h3>Goal of the exercise<a href="module-6.html#goal-of-the-exercise-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Create an enrichment map and navigate through the network</strong></p>
+<p>During this exercise, you will learn how to create an enrichment map from gene-set enrichment results. The enrichment results chosen for this exercise are generated using g:Profiler but an enrichment map can be created directly from output from <a href="http://software.broadinstitute.org/gsea/index.jsp">GSEA</a>,
+<a href="https://biit.cs.ut.ee/gprofiler/gost">g:Profiler</a>,
+<a href="http://great.stanford.edu/public/html/">GREAT</a>,
+<a href="http://apps.cytoscape.org/apps/bingo">BinGo</a>, <a href="https://amp.pharm.mssm.edu/Enrichr/">Enrichr</a> or alternately from any gene-set tool using the generic enrichment results format.</p>
+</div>
+<div id="data-6" class="section level3 hasAnchor">
+<h3>Data<a href="module-6.html#data-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The data used in this exercise is pathway enrichment result from the list of genes that we found in cluster 3 in <a href="module-6.html#can-module8-exercise-1">part 1</a>.
+Pathway enrichment analysis has been run using g:Profiler and the results have been downloaded as a GEM format.</p>
+</div>
+<div id="enrichmentmap-2" class="section level3 hasAnchor">
+<h3>EnrichmentMap<a href="module-6.html#enrichmentmap-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>A circle (node) is a gene-set (pathway) enriched in genes that we used as input in g:Profiler (frequently mutated genes).</p></li>
+<li><p>edges (lines) represent genes in common between 2 pathways (nodes).</p></li>
+<li><p>A cluster of nodes represent overlapping and related pathways and may represent a common biological process.</p></li>
+<li><p>Clicking on a node will display the genes included in each pathway.</p></li>
+</ul>
+</div>
+<div id="description-of-this-exercise-1" class="section level3 hasAnchor">
+<h3>Description of this exercise<a href="module-6.html#description-of-this-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We run and saved g:Profiler result.
+An enrichment map represents the result of enrichment analysis as a network where significantly enriched gene-sets that share a lot of genes in common will form identifiable clusters. The visualization of the results as these biological themes will ease the interpretation of the results.</p>
+<p>The goal of this exercise is to learn how to:</p>
+<ol style="list-style-type: decimal">
+<li>upload g:Profiler results into Cytoscape EnrichmentMap to create a map.</li>
+<li>learn how to navigate through Cytoscape EnrichmentMap and interpret the results.</li>
+</ol>
+</div>
+<div id="start-the-exercise-3" class="section level3 hasAnchor">
+<h3>Start the exercise<a href="module-6.html#start-the-exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Two files are needed for this exercise:</p>
+<ol style="list-style-type: decimal">
+<li>Enrichment result: <a href="./Can_Module8/data/Cluster3_noEIA_gProfiler.gem.txt">Cluster3_noEIA_gProfiler.gem.txt</a></li>
+</ol>
+<ul>
+<li>In g:Profiler, the parameters that we used to generate this file were:
+<ul>
+<li>GO_BP no electronic annotation,</li>
+<li>Reactome,</li>
+<li>Wikipathways</li>
+<li>Benjamini-HochBerg FDR 0.05</li>
+<li>gene-set size from 10 to 500
+Note: this file is similar to the one that you have created in exercise 1. Use this link to follow exercise 2.</li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Pathway database 1 (.gmt):<a href="./Can_Module8/data/gprofiler_full_hsapiens.name.gmt">gprofiler_full_hsapiens.name.gmt</a></li>
+</ol>
+<div class="rmd-datadownload">
+<p>
+Right click on link below and select “Save Link As…”.
+</p>
+<p>
+Place it in the corresponding module directory of your
+pathway_analysis folder on your computer.
+</p>
+</div>
+</div>
+<div id="step-1-2" class="section level3 hasAnchor">
+<h3>Step 1<a href="module-6.html#step-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Launch Cytoscape and open the EnrichmentMap App</p>
+<p>1a. Double click on Cytoscape icon</p>
+<p>1b. Open EnrichmentMap App</p>
+<ul>
+<li><p>In the Cytoscape top menu bar:</p></li>
+<li><p>Click on Apps -&gt; EnrichmentMap</p></li>
+</ul>
+<p align="center">
+<img src="./Can_Module8/images/EM1.png" alt="workflow" width="60%" />
+</p>
+<ul>
+<li>A ‘Create Enrichment Map’ window is now opened.</li>
+</ul>
+</div>
+<div id="step-2-2" class="section level3 hasAnchor">
+<h3>Step 2<a href="module-6.html#step-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create an enrichment map from 1 dataset and with a gmt file.</p>
+<p>2a. In the ‘Create Enrichment Map’ window, drag and drop the enrichment file <a href="./Can_Module8/data/Cluster3_noEIA_gProfiler.gem.txt">Cluster3_noEIA_gProfiler.gem.txt</a>.
+Tip: if drag and drop does not work, you can click ‘…’ next to enrichments and upload the file. The analysis type needs to be set to generic/gprofiler.</p>
+<p><img src="./Can_Module8/images/gem0.png" alt="workflow" width="100%" /></p>
+<p>2b. On the right side, go to the <em>GMT</em> field, click on the 3 radio button (…) and locate the file gprofiler_full_hsapiens.name.gmt that you have saved on your computer to upload it.</p>
+<p>2c. Locate the <em>FDR q-value cutoff</em> field and set the value to 0.01</p>
+<p>2d. Click on <em>Build</em>.</p>
+<p><img src="./Can_Module8/images/gem1.png" alt="workflow" width="100%" /></p>
+<ul>
+<li>a status bar should pop up showing progress of the Enrichment map build.</li>
+</ul>
+<p align="center">
+<img src="./Can_Module8/images/gp16.png" alt="workflow" width="60%"/>
+</p>
+</div>
+<div id="step-3-explore-detailed-results" class="section level3 hasAnchor">
+<h3>Step 3: Explore Detailed results<a href="module-6.html#step-3-explore-detailed-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>In the Cytoscape menu bar, select ‘View” and ’Show Graphic Details’ to display node labels.</li>
+</ul>
+<div class="rmd-caution">
+<p>
+Make sure you have unselected “Publication Ready” in the
+EnrichmentMap control panel.
+</p>
+</div>
+<ul>
+<li><p>Zoom in to be able to read the labels and navigate the network using the bird eye view (blue rectangle).</p></li>
+<li><p>Select a node and visualize the <em>Table Panel</em></p>
+<ul>
+<li>Click on a node; Click on Dummy column. Genes with a green box are genes in the Cluster3 gene list and the selected pathway.</li>
+</ul></li>
+</ul>
+</div>
+<div id="step-4-optional-autoannotate-the-enrichment-map" class="section level3 hasAnchor">
+<h3>Step 4 [OPTIONAL]: AutoAnnotate the enrichment map<a href="module-6.html#step-4-optional-autoannotate-the-enrichment-map" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>move the the nodes and clusters apart of each other by selecting them and moving them around.</p></li>
+<li><p>In the Cytoscape menu bar, select Apps –&gt; AutoAnnotate –&gt; New Annotation Set…</p></li>
+<li><p>An “AutoAnnotate: Create Annotation Set” window opens. In “Advanced” tab, check “Create singleton clusters” and click on “Create Annotations”.</p></li>
+</ul>
+<p><img src="./Can_Module8/images/EM2.png" alt="workflow" width="60%"/></p>
+<p>Tips for formatting:</p>
+<ul>
+<li>In the <em>AutoAnnotate Display</em> window located on the right side, uncheck <em>Scale font by cluster size</em> and check <em>Word Wrap</em>.</li>
+</ul>
+<p><img src="./Can_Module8/images/EM3.png" alt="workflow" width="60%"/></p>
+<p>Tip: if you are having difficulty separating nodes/clusters, you can hold shift and click and drag a square around a nodes of interest to highlight them, then move them all at once.</p>
+<div class="rmd-caution">
+<p>
+SAVE YOUR CYTOSCAPE SESSION (.cys) FILE !
+</p>
+</div>
+</div>
+</div>
+<div id="exercise-3" class="section level2 hasAnchor">
+<h2>Part 3 - Master map using multiple datasets<a href="module-6.html#exercise-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="goal-1" class="section level3 hasAnchor">
+<h3>Goal<a href="module-6.html#goal-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Create an enrichment map and navigate through the network</strong></p>
+<p>During this lab, you will learn how to create an enrichment map from multiple gene-set enrichment results generated using g:Profiler.</p>
+</div>
+<div id="data-7" class="section level3 hasAnchor">
+<h3>Data<a href="module-6.html#data-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>The data used in this exercise is the enrichment results from the list of genes of clusters that we found in clusters 0, 1, 3, 4, 5, 7, and 10 from the single cell RNAseq data.</p></li>
+<li><p>Pathway enrichment analysis has been run using g:Profiler and the results have been downloaded as a GEM format.</p></li>
+<li><p>The gene lists were obtained from differential gene expression analyses comparing cells from each cluster vs. the rest of the cells using Seurat’s function ‘FindAllMarkers(…, only.pos=T, min.pct = 0, return.thresh = 1, logfc.threshold = 0)’. For each cluster, the top 250 genes with FDR value equal or less than 0.05 were retrieved.</p></li>
+<li><p>In g:Profiler, the parameters that we used to generate this file were:</p></li>
+<li><p>GO_BP no electronic annotation,</p></li>
+<li><p>Reactome,</p></li>
+<li><p>Wikipathways</p></li>
+<li><p>Benjamini-HochBerg FDR 0.05</p></li>
+<li><p>gene-set size from 10 to 500</p></li>
+<li><p>Top 50 pathways were selected for further analysis.</p></li>
+</ul>
+</div>
+<div id="start-the-exercise-4" class="section level3 hasAnchor">
+<h3>Start the exercise<a href="module-6.html#start-the-exercise-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download the files needed for this exercise on your computer:</p>
+<ul>
+<li><a href="./Can_Module8/data/Cluster0_gProfiler50.gem.txt">Cluster0_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster1_gProfiler50.gem.txt">Cluster1_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster3_gProfiler50.gem.txt">Cluster3_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster4_gProfiler50.gem.txt">Cluster4_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster5_gProfiler50.gem.txt">Cluster5_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster7_gProfiler50.gem.txt">Cluster7_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster10_gProfiler50.gem.txt">Cluster10_gProfiler50.gem.txt</a></li>
+</ul>
+<p>Launch Cytoscape and open the EnrichmentMap App</p>
+</div>
+<div id="step-1-3" class="section level3 hasAnchor">
+<h3>Step 1<a href="module-6.html#step-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>1a. Open Cytoscape.</p>
+<p>1b. Open EnrichmentMap App:</p>
+<ul>
+<li><p>In the Cytoscape top menu bar:</p></li>
+<li><p>Click on Apps -&gt; EnrichmentMap</p></li>
+</ul>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb3_1.png" alt="workflow" width="90%" />
+</p>
+<ul>
+<li>A ‘Create Enrichment Map’ window is now opened.</li>
+</ul>
+</div>
+<div id="step-2-3" class="section level3 hasAnchor">
+<h3>Step 2<a href="module-6.html#step-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create an enrichment map from multiple datasets.</p>
+<p>2a. In the ‘Create Enrichment Map’ window, drag and drop the enrichment files</p>
+<ul>
+<li><a href="./Can_Module8/data/Cluster0_gProfiler50.gem.txt">Cluster0_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster1_gProfiler50.gem.txt">Cluster1_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster3_gProfiler50.gem.txt">Cluster3_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster4_gProfiler50.gem.txt">Cluster4_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster5_gProfiler50.gem.txt">Cluster5_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster7_gProfiler50.gem.txt">Cluster7_gProfiler50.gem.txt</a></li>
+<li><a href="./Can_Module8/data/Cluster10_gProfiler50.gem.txt">Cluster10_gProfiler50.gem.txt</a></li>
+</ul>
+<p>2b. Locate the <em>FDR q-value cutoff</em> field and set the value to 0.01</p>
+<p>2c. Click on <em>Build</em>.</p>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb3_2.png" alt="workflow" width="90%" />
+</p>
+<ul>
+<li><p>A status bar should pop up showing progress of the Enrichment map build.</p></li>
+<li><p>Click “ok” on the 2 next messages:</p></li>
+</ul>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb3_3.png" alt="workflow" width="70%" />
+</p>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb3_4.png" alt="workflow" width="70%" />
+</p>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb3_5.png" alt="workflow" width="90%" />
+</p>
+<p>2d. Once the map is build, locate the EnrichmentMap tab on the right and set <em>Chart Data</em> to <em>Color by Data Set</em>.</p>
+<div class="rmd-tip">
+<p>
+Tip: You can also check “publication ready” to remove node
+labels.
+</p>
+</div>
+<p>2e. Change the color of each data set so it corresponds to the single cell RNAseq UPMAP plot
+* Locate the EnrichmentMap tab on the right and click on <em>Change colors…</em></p>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb3_6.png" alt="workflow" width="90%" />
+</p>
+<ul>
+<li>Adjust the colors so it corresponds approximately to the single cell RNAseq UMAP plot (see top of the document for reference).</li>
+</ul>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb3_8.png" alt="workflow" width="40%" />
+</p>
+<ul>
+<li>Go to the AutoAnnotate tab on the right and uncheck “Hide labels” and “Hide shapes”.</li>
+</ul>
+<p>It will make visible the AutoAnnotate ellipses and automatic labels. You can further adjust the style of these annotations.</p>
+<p>At that step, the layout is not optimal and the ellipses are overlapping.
+It is possible to click on the annotations on the left bar to select all nodes of a cluster and move the annotations.</p>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb_3_6_2.png" alt="workflow" width="90%" />
+</p>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb3_6_1.png" alt="workflow" width="30%" />
+</p>
+<div class="rmd-tip">
+<p>
+To get a layout that is not overlapping, you can do: - Go the
+AutoAnnotate tab on the right.
+</p>
+<ul>
+<li>
+<p>
+Click on “Layout…” and select “Layout Clusters to Minimize
+Overlap”
+</p>
+</li>
+<li>
+<p>
+Play with the “Scale” slidebar to get the clusters closer
+together.
+</p>
+</li>
+<li>
+<p>
+Finish by adjusting manually.
+</p>
+</li>
+</ul>
+</div>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb_3_6_3.png" alt="workflow" width="100%" />
+</p>
+<ul>
+<li><strong>Final Map</strong>:</li>
+</ul>
+<p align="center">
+<img src="scRNAlab/scRNA_glioblastoma/images/gb3_7.png" alt="workflow" width="90%" />
+</p>
+<ul>
+<li><p><strong>Legend</strong>:</p>
+<p align="center">
+<p><img src="scRNAlab/scRNA_glioblastoma/images/gb3_8.png" alt="workflow" width="40%" /></p>
+</p></li>
+<li><p><strong>Clusters</strong>:</p></li>
+<li><p>0: macrophage</p></li>
+<li><p>1: malignant</p></li>
+<li><p>3: macrophage</p></li>
+<li><p>4: oligodendrocyte</p></li>
+<li><p>5: undefined</p></li>
+<li><p>7: T cell</p></li>
+<li><p>10: undefined</p></li>
+</ul>
+<p>The master map can help to identify functions related to interesting clusters in the data like the “undefined” cluster. It also can highlight similarities between clusters.</p>
+<div class="rmd-caution">
+<p>
+SAVE YOUR CYTOSCAPE SESSION (.cys) FILE !
+</p>
+</div>
+<ul>
+<li><p><strong>Cytoscape file: </strong></p></li>
+<li><p><a href="./Can_Module8/data/scRNAgprofiler.cys">scRNAgprofiler.cys</a></p></li>
+</ul>
+</div>
+</div>
+<div id="lab-3-cellphonedb" class="section level2 hasAnchor">
+<h2>Lab 3: cellPhoneDB<a href="module-6.html#lab-3-cellphonedb" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>Learning objectives</strong>: learn how to take the result of CellPhoneDB and build a Cytoscape network.</li>
+</ul>
+<div id="presentation" class="section level3 hasAnchor">
+<h3>Presentation<a href="module-6.html#presentation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>CellPhoneDB is a repository of ligands, receptors and their interactions. CellPhoneDB database takes into account the subunit architecture of both ligands and receptors, representing heteromeric complexes accurately. A statistical framework is integrated that predicts enriched cellular interactions between two cell types from single-cell transcriptomics data</p></li>
+<li><p>CellPhoneDB database: public resources to annotate receptors and ligands, as well as manual curation of specific families of proteins involved in cell–cell communication</p></li>
+<li><p>possibility of using own list of ligand–receptor interactions</p></li>
+</ol>
+</div>
+<div id="method" class="section level3 hasAnchor">
+<h3>Method<a href="module-6.html#method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>CellPhoneDB input data consist of a scRNA-seq counts file and cell-type annotation.</p></li>
+<li><p>Enriched receptor–ligand interactions between two cell types are derived on the basis of expression of a receptor by one cell type and a ligand by another cell type. The member of the complex with the minimum average expression is considered for the subsequent statistical analysis.</p></li>
+<li><p>A null distribution of the mean of the average ligand and receptor expression in the interacting clusters is generated by randomly permuting the cluster labels of all cells.</p></li>
+<li><p>The p value for the likelihood of cell-type specificity of a given receptor–ligand complex is calculated on the basis of the proportion of the means that are as high as or higher than the actual mean (=empirical pvalue).</p></li>
+<li><p>Ligand–receptor pairs are ranked on the basis of their total number of significant p values across the cell populations.</p></li>
+</ol>
+<p><strong>Summary of the steps</strong>:</p>
+<p>The dataset consists of ~25k peripheral blood mononuclear cell (PBMCs) from 8 pooled lupus patients, each before and after IFN-β stimulation.</p>
+<ul>
+<li><p><strong>Preparing the scRNA using your method of choice</strong>:
+Standard preprocessing consists of filtering out bad quality cells, normalizing, clustering and annotating the cells. In this case, the cells are different types of blood cells and they were annotated using specific cell markers for these different cell types.</p></li>
+<li><p><strong>Let’s explore the UMAP</strong>:
+<img src="scRNAlab/CPDB_lab/images/cphb_01.png" alt="EM" width="700" /></p></li>
+</ul>
+<p>UMAP (Uniform Manifold Approximation and Projection) is frequently used in scRNA to display the data in 2 dimensions. The UMAP on the right displays all the cells that are clustered based on cell types. It helps visualizing groups of cells that are close together. The colors on the UMAP represent clusters of cells that were annotated into distinct blood cell types.
+The UMAP on the left shows that the cells are coming from different samples: untreated PBMC cells and cells treated with interferon beta (IFN-β). For this exercise, we are only examinig the cells that are IFN-β stimulation (labelled as stim the above UMAP).</p>
+<p>The scRNA data is available from the Jupyter notebook but are also here in case it is needed: <a href="./scRNAlab/CPDB_lab/data/scRNA_25PBMC.h5ad">scRNA_25PBMC.h5ad</a></p>
+</div>
+<div id="examining-the-results" class="section level3 hasAnchor">
+<h3>Examining the results<a href="module-6.html#examining-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this case study, we filtered the results to include only interactions where the source are the CD8 T cells sending communication signals to CD4 T and NK cells. We retained significant results with p-value less than 0.05. The choice to include just CD4 and NK cells only was an arbitrary threshold for this lab that was based on the observation of robust ligand signals for the CD8 T cells. In real life, we suggest that you look at all the possible significant interactions in each pair of cells and also consider the biological question under investigation.</p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_03.png" alt="EM" width="850" /></p>
+<ul>
+<li>each row contains a ligand-receptor pair with a different combination of source and target for each row.</li>
+<li><em>lr_means</em> : (ligand-receptor means) is the average of ligand and receptor expression means.</li>
+<li><em>pvalue</em> : indicates if this mean is far away from the mean of the null distribution.</li>
+<li><em>lrs_to_keep</em> : indicates rows (ligand-receptor pairs) to keep based on the pvalue</li>
+<li><em>props</em> : represents the proportion of cells that express the entity</li>
+</ul>
+</div>
+<div id="visualization-using-cytoscape" class="section level3 hasAnchor">
+<h3>Visualization using Cytoscape<a href="module-6.html#visualization-using-cytoscape" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A network is aimed to ease the visualization of relationships between entities.
+We will construct a directed network using the ligands from the CD8 T cells as source nodes and the detected receptors from CD4 T cells and NK cells as target nodes. The ligand and receptor entities will be represented as nodes on the network and we will color the nodes based on the cell types.
+The edge width will be proportional to the lr_means which represents the average of ligand and receptor mean expression and which is our measure of interaction strength.</p>
+<p>To create this network, we don’t need any particular Cytoscape app. We will upload the CellPhoneDB result table as a custom network.</p>
+<p><strong>STEPS TO FOLLOW</strong>:</p>
+<div class="rmd-datadownload">
+<p>
+The filtered result from the Liana method can be found here: <a
+href="./scRNAlab/CPDB_lab/data/cellphoneDB_source_CD8_target_CD4_NK_p_0_05.csv">cellphoneDB_source_CD8_target_CD4_NK_p_0_05.csv</a>
+Please download the file as you need it to create the network.
+</p>
+</div>
+<ul>
+<li>Open Cytoscape.</li>
+<li>Go to the menu bar –&gt; File –&gt; Import –&gt; Network from File …</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_01.png" alt="EM" width="400" /></p>
+<ul>
+<li><p>Select the file ‘cellphoneDB_source_CD8_target_CD4_NK_p_0_05.csv’ and click on ‘open’.</p></li>
+<li><p>An ‘Import from Network table’ opens.</p></li>
+<li><p>Set ‘ligand’ as source node.</p></li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_02.png" alt="EM" width="400" /></p>
+<ul>
+<li>Set ‘receptor’ as target node.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_03.png" alt="EM" width="400" /></p>
+<ul>
+<li>Set source and target as ‘Source Node Attribute’.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_04.png" alt="EM" width="400" /></p>
+<ul>
+<li><p>Click on ‘OK’.</p></li>
+<li><p>The network is created with the default style.</p></li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_05.png" alt="EM" width="400" /></p>
+<ul>
+<li>Go to the ‘Style’ tab and change ‘Style’ from ‘Default’ to ‘Directed’.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_06.png" alt="EM" width="400" /></p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_07.png" alt="EM" width="400" /></p>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_09.png" alt="EM" width="400" /></p>
+<ul>
+<li><p><strong>Adjust the node style</strong>.</p></li>
+<li><p>Go to the ‘Style’ tab and make sure that the ‘Node’ tab is selected.</p></li>
+<li><p>Adjust the ‘Fill Color’:</p>
+<ol style="list-style-type: decimal">
+<li>Click on “Fill Color”.</li>
+<li>Click on the down arrow.</li>
+<li>Set ‘Column’ to ‘target’.</li>
+<li>Set ‘Mapping Type’ to “Discrete Mapping’ and click on the blanck space and on the”…” to set a color.</li>
+</ol></li>
+<li><p>Set ‘Label Font Size’ to ‘16’.</p></li>
+<li><p>Set ‘Size’ to ‘60’.</p></li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_08.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Adjust the edge style</strong>.</li>
+<li>Go to the ‘Style’ tab and make sure that the ‘Edge’ tab is selected.</li>
+<li>Set “Label” to “lr_means”.</li>
+<li>Set “Width” to “lr_means”.</li>
+<li>Set “Width” - “Mapping type” to ‘Continuous Mapping’</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_10.png" alt="EM" width="400" /></p>
+<ul>
+<li>Double click on the chart that shows up to adjust the parameters.<br />
+</li>
+<li>Adjust minimum width to 5 adn maximum width to 15 -</li>
+<li>Click on the top arrow and then set the edge width to 5. Press enter to register the change.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_11a.png" alt="EM" width="400" /></p>
+<ul>
+<li>Click on the top right arrow and then set the edge width to 15. Press enter to register the change.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_11b.png" alt="EM" width="400" /></p>
+<ul>
+<li>Here is the resulting network:</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_12.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Align the nodes</strong> so that the ligands from the CD8 cells are in the middle and the receptors from NK and CD4 cells on the left and right side.</li>
+<li>You can do it manually. Alternatively, you can use the layout tools.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_16.png" alt="EM" width="250" /></p>
+<ul>
+<li>Select the nodes of interest, go to the ‘layout tools’ and click on a align or distribute option.</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_13.png" alt="EM" width="400" /></p>
+<ul>
+<li><strong>Add annotation</strong>:
+<ul>
+<li>Right click on a blank space and add an annotation.
+<img src="scRNAlab/CPDB_lab/images/cpdb_n_14.png" alt="EM" width="400" /></li>
+</ul></li>
+<li>Here is the final result:</li>
+</ul>
+<p><img src="scRNAlab/CPDB_lab/images/cpdb_n_15.png" alt="EM" width="400" /></p>
+<ul>
+<li>Do not forget to <strong>save your</strong> session. You can also export the network as an image.</li>
+</ul>
+</div>
+<div id="dataset-and-references" class="section level3 hasAnchor">
+<h3>Dataset and references<a href="module-6.html#dataset-and-references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Reference paper</strong>: Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. <a href="https://www.nature.com/articles/nbt.4042">Kang et al. Nat Biotechnol. 2018 Jan;36(1):89-94.</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/29227470/">PMID: 29227470</a></p>
+<p>References used to build the Jupyter notebook and run CellPhoneDB:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://pypi.org/project/cellphonedb/" class="uri">https://pypi.org/project/cellphonedb/</a></p></li>
+<li><p><a href="https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt" class="uri">https://cellphonedb.readthedocs.io/en/latest/RESULTS-DOCUMENTATION.html#p-value-pvalues-txt-mean-means-txt-significant-mean-significant-means-txt-and-relevant-interactions-relevant-interactions-txt</a></p></li>
+<li><p><a href="https://github.com/ventolab/CellphoneDB" class="uri">https://github.com/ventolab/CellphoneDB</a></p></li>
+<li><p><a href="https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html" class="uri">https://www.sc-best-practices.org/mechanisms/cell_cell_communication.html</a></p></li>
+<li><p><a href="https://zktuong.github.io/ktplots/articles/vignette.html" class="uri">https://zktuong.github.io/ktplots/articles/vignette.html</a></p></li>
+</ol>
+</div>
+<div id="dataset_prep" class="section level3 hasAnchor">
+<h3>Dataset preprocessing and running CellPhoneDB<a href="module-6.html#dataset_prep" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="rmd-warning">
+<p>
+Do not run during practical lab. This is for your information
+only.
+</p>
+</div>
+<p>CellPhoneDB is a python package. Running CellPhoneDB is out of score for this lab but the annotated code is included in totality in this Jupyter notebook and is available for download using these links :</p>
+<p><a href="./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.pdf">CellPhoneDB_jupyter_notebook.pdf</a></p>
+<p><a href="./scRNAlab/CPDB_lab/data/CellPhoneDB_jupyter_notebook.ipynb">CellPhoneDB_jupyter_notebook.ipynb</a></p>
+<p>Some installation instructions are placed at the top of the document.</p>
+<ul>
+<li><strong>Running CellPhoneDB</strong>:
+The provided Jupyter notebook contains 2 methods to run CellPhoneDB.
+The first method is to run CellPhoneDB using the Liana package. This method is simple and allows for the comparison with other cell-cell communication tools also included in the Liana package. (See part 1 of the notebook).
+The second approach is to run it directly from the CellPhoneDB package. It offers the advantage to choose the version of the ligand-receptor database and to run it from 3 offered methods: basic, statistical and DEG-based. This is part 2 of the notebook.</li>
+</ul>
+<p>Please consult the CellPhoneDB webpage and gihub links provided at the top of the document as they contain detailed information and tutorials.</p>
+</div>
+</div>
+<div id="lab-4-nest" class="section level2 hasAnchor">
+<h2>Lab 4: NEST<a href="module-6.html#lab-4-nest" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmd-note">
+<p>
+The presentation and processing of spatial transcriptomics is out of
+scope for this lab. Please refer to the <a
+href="https://bioinformatics.ca/workshops-all/2024-introductory-spatial-omics-analysis-toronto-on/">CBW
+Spatial Transcriptomics workshop</a> or to this <a
+href="https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01075-1">review
+article</a> or <a
+href="https://nature.com/articles/s41576-021-00370-8">this one</a> for
+additional information.
+</p>
+</div>
+<p>This lab uses examples from the <a href="https://www.10xgenomics.com/products/spatial-gene-expression">10X Visium technology</a></p>
+<p><img src="scRNAlab/NEST_figures/nest00.png" alt="EM" width="500" /></p>
+<div id="nest-neural-network-on-spatial-transcriptomics" class="section level3 hasAnchor">
+<h3>NEST (NEural network on Spatial Transcriptomics)<a href="module-6.html#nest-neural-network-on-spatial-transcriptomics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://www.biorxiv.org/content/10.1101/2024.03.19.585796v1">NEST reference paper (bioRXIv)</a>: Spatially-mapped cell-cell communication patterns using a deep learning-based attention mechanism:</p>
+<ol style="list-style-type: decimal">
+<li><p>Cells can communicate in 3 ways through direct contact, local chemical signaling or long-distance hormonal signaling. Paracrine signaling acts on nearby cells, endocrine signaling uses the circulatory system to transport ligands, and autocrine signaling acts on the signaling cells.</p></li>
+<li><p>Cell-cell communication (CCC) between neighbouring cells occur via soluble signals. Cells utilize a system of surface-bound protein receptors and ligand pairs to communicate. The ligand from Cell A (source) will bind to the receptor of Cell B (target). It will trigger a signaling cascade that helps Cell B to adapt to its environment. <br></p>
+<p align="center">
+<p><img src="scRNAlab/NEST_figures/nest01.png" alt="EM" width="200" /></p>
+</p></li>
+<li><p>Spatial transcriptomics offers an advantage for studying cell-cell communication as it preserves cellular neighborhoods and tissue microenvironments. <br></p>
+<p align="center">
+<p><img src="scRNAlab/NEST_figures/nest02.png" alt="EM" width="500" /></p>
+</p></li>
+<li><p>The goal of NEST is to predict probable cell cell communication interactions using a deep learning approach. It uses ligand-receptor pairs information and NEST goal is to discover re-occuring CCC patterns in the data.</p></li>
+<li><p>It uses a graph attention network (GAT) paired with an unsupervised contrastive learning approach to decipher patterns of communication while retaining the strength of each signal. It then uses Depth first Search (DFS) to define subgraphs to be retained after filtering the top edges using the attention score from GAT.</p></li>
+</ol>
+The final knowledge-graph (=network) is composed of cells (or spots) that are represented as vertices (nodes) and edges which represent different types of neighborhood relations (cell cell communication interaction).<br>
+<p align="center">
+<img src="scRNAlab/NEST_figures/nest03.png" alt="EM" width="400" />
+</p>
+<ul>
+<li><p>Input data:
+<img src="scRNAlab/NEST_figures/nest1.png" alt="EM" width="750" />
+NEST needs two types of information as input data:</p>
+<ul>
+<li>The first is the transcriptomics data with the spatial information from our biological sample (left side) and is composed of a feature matrix containing the gene expression raw counts and the postion matrix of the cells or spots.</li>
+<li>The second is a database of all known ligand-receptor pairs. This database is precomputed by NEST.</li>
+</ul></li>
+<li><p>Step1:
+<img src="scRNAlab/NEST_figures/nest2.png" alt="EM" width="750" />
+The first step is preprocessing step which includes filtering cells/spots and quantile normalization.</p></li>
+<li><p>Step2:
+Two important pieces information are collected:</p>
+<ul>
+<li>The physical distance between all cells are collected and if 2 cells are close to each other, they are linked by an edge in the resulting network.</li>
+<li>the presence of ligand-receptor interaction for each pair of cells. The graph (network)connects all cells that are physically close and this edge stores the ligand-receptor information between the 2 cells.</li>
+</ul></li>
+<li><p>Step3:
+<img src="scRNAlab/NEST_figures/nest3.png" alt="EM" width="750" />
+The third step involves the deep learning step that will output the final graph. The final graph retains only the edges that pass a certain threshold of the attention score. Top 20 edges are retained by default. This graph is then divided into subgraphs by the DFS algorithm. The subgraphs are represented by different colors and can be interpreted as regions of cells that are communicating a lot.</p></li>
+<li><p>Step4:
+<img src="scRNAlab/NEST_figures/nest4.png" alt="EM" width="750" /></p></li>
+</ul>
+<p>The last step is the visualization of the results of the final graph with all the ligand-receptor pairs that are the most probable cell cell communication interactions in the data under study. This is the step that we are going to explore in the lab using the NEST-interactive tool.</p>
+<p>On the left, we see the reconstruction of the tumor section (Visium output)), the squares represent tumor cells and open circles represent stromal cells and the arrows represent the communication between the cells (ligand-receptor pairs). The different colors represent the subgraphs from the final graph of step 2.
+On the right, we see the histogram representing the top 20% ligand-receptor pairs that are the most represented in this dataset and evaluated by NEST and the colors are related to the subgraphs.</p>
+</div>
+<div id="how-to-run-nest" class="section level3 hasAnchor">
+<h3>How to run NEST<a href="module-6.html#how-to-run-nest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="rmd-caution">
+<p>
+<strong>NOTICE!</strong>
+</p>
+<p>
+<strong>Do not run this part during the workshop.</strong>
+</p>
+<p>
+NEST requires a graphical processing unit (GPU) to run and it is best
+to run it on a supercomputer (cluster). Running time and memory usage
+depend on the input data size.
+</p>
+<p>
+NEST was run with 79,795 edges (each representing a ligand-receptor
+pair) and 1,406 vertices (each representing a Visium spot), and took 5
+hours with 2.44 GB memory for each run. NEST is typically run 5
+times.
+</p>
+<p>
+Below is the information to be able to run NEST on your own after the
+workshop. This information is taken from the <a
+href="https://github.com/schwartzlab-methods/NEST">NEST github
+page</a>.
+</p>
+</div>
+<p>NEST is written in the python language.</p>
+<p>NEST is available as a <a href="https://docs.sylabs.io/guides/2.6/user-guide/introduction.html">Singularity image</a>. Similar to Docker, it enables easy usage of NEST without set up of required environment and python packages. Furthermore, Singularity is usually installed on supercomputer/cluster system.</p>
+<p>Steps that you would follow to run NEST:</p>
+<ul>
+<li><strong>Step1</strong>:
+<ul>
+<li>Login to your cluster system and create a folder that will store all NEST input and output data.</li>
+<li>Check that Singularity is installed on the cluster; check that cluster node is connected to internet</li>
+<li>pull the NEST singularity image</li>
+<li>all instructions are listed here: <a href="https://github.com/schwartzlab-methods/NEST/blob/main/vignette/running_NEST_singularity_container.md" class="uri">https://github.com/schwartzlab-methods/NEST/blob/main/vignette/running_NEST_singularity_container.md</a></li>
+</ul></li>
+</ul>
+<pre><code>mkdir nest_container 
+cd nest_container
+singularity pull nest_image.sif library://fatema/collection/nest_image.sif:latest
+
+#First time running NEST, go to NEST directory and run:
+sudo bash setup.sh</code></pre>
+<ul>
+<li><p><strong>Step2</strong>: prepare your input data.
+NEST takes 2 inputs:</p>
+<ul>
+<li><p><a href="https://github.com/schwartzlab-methods/NEST/blob/main/database/NEST_database.csv">ligand-receptor database</a>: The default database provided by the model is a combination of the CellChat and NicheNET databases, totaling 12,605 ligand-receptor pairs. You can upload your own custom database if you are working with a different model organism.</p></li>
+<li><p>a spatial transcriptomic data set containing:</p></li>
+<li><p>the spatial data that contains the image and the spot localization</p></li>
+<li><p>the feature matrix that contains the gene expression in each spot (in h5 format)</p></li>
+</ul></li>
+</ul>
+<p><img src="scRNAlab/NEST_figures/data01.png" alt="EM" width="300" /><br />
+<img src="scRNAlab/NEST_figures/data02.png" alt="EM" width="350" /><br />
+<img src="scRNAlab/NEST_figures/data03.png" alt="EM" width="350" /></p>
+<div class="rmd-tip">
+<p>
+NEST requires the position matrix (tissue_position_list.tsv) and the
+feature matrix file. If you are working with Visium 10x, you can simply
+give the path to the space ranger output folder to run NEST. If you are
+working with other technologies, you can simply look at the format of
+the position and feature matrices and use this format as NEST input with
+your own data.
+</p>
+</div>
+<ul>
+<li><strong>Step3</strong>: running NEST</li>
+</ul>
+<p>Preprocess</p>
+<pre><code>nest preprocess --data_name=&#39;V1_Human_Lymph_Node_spatial&#39; --data_from=&#39;data/V1_Human_Lymph_Node_spatial/&#39;</code></pre>
+<p>Train the model</p>
+<pre><code>nohup nest run --data_name=&#39;V1_Human_Lymph_Node_spatial&#39; --num_epoch 80000 --model_name=&#39;NEST_V1_Human_Lymph_Node_spatial&#39; --run_id=1 &gt; output_human_lymph_node_run1.log &amp;
+nohup nest run  --data_name=&#39;V1_Human_Lymph_Node_spatial&#39; --num_epoch 80000 --model_name=&#39;NEST_V1_Human_Lymph_Node_spatial&#39; --run_id=2 &gt; output_human_lymph_node_run2.log &amp;
+nohup nest run  --data_name=&#39;V1_Human_Lymph_Node_spatial&#39; --num_epoch 80000 --model_name=&#39;NEST_V1_Human_Lymph_Node_spatial&#39; --run_id=3 &gt; output_human_lymph_node_run3.log &amp;
+nohup nest run  --data_name=&#39;V1_Human_Lymph_Node_spatial&#39; --num_epoch 80000 --model_name=&#39;NEST_V1_Human_Lymph_Node_spatial&#39; --run_id=4 &gt; output_human_lymph_node_run4.log &amp;
+nohup nest run  --data_name=&#39;V1_Human_Lymph_Node_spatial&#39; --num_epoch 80000 --model_name=&#39;NEST_V1_Human_Lymph_Node_spatial&#39; --run_id=5 &gt; output_human_lymph_node_run5.log &amp;</code></pre>
+<p>Postprocess the model output</p>
+<pre><code>nest postprocess --data_name=&#39;V1_Human_Lymph_Node_spatial&#39; --model_name=&#39;NEST_V1_Human_Lymph_Node_spatial&#39; --total_runs=5 </code></pre>
+<div class="rmd-caution">
+<p>
+Please follow the <a
+href="https://github.com/schwartzlab-methods/NEST/tree/main">NEST github
+page</a> for complete instructions and vignette to run NEST
+</p>
+</div>
+<div class="rmd-note">
+<p>
+We are going to visualize the result using NEST-interactive but
+please note that a command line for visualization is also available in
+NEST:
+</p>
+<p>
+nest visualize –data_name=‘V1_Human_Lymph_Node_spatial’
+–model_name=‘NEST_V1_Human_Lymph_Node_spatial’
+</p>
+</div>
+</div>
+<div id="practical-lab-pancreatic-ductal-adenocarcinoma-pdac" class="section level3 hasAnchor">
+<h3>Practical lab : Pancreatic Ductal Adenocarcinoma (PDAC)<a href="module-6.html#practical-lab-pancreatic-ductal-adenocarcinoma-pdac" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>PRESENTATION OF THE DATA</strong>:</li>
+</ul>
+<p>For this practical, we are working with PDAC and a tissue from a patient, PDAC_64630 , measured by Visium 10X.
+PDAC is recognized as a highly aggressive disease. There is immense transcriptional diversity defining discrete “Classical” and “Basal” subtypes.
+A PDAC tumor microenvironment is heterogeneous and consists of tumor, stromal and immune cells.</p>
+<p><img src="scRNAlab/NEST_figures/PDAC01.png" alt="EM" width="750" /></p>
+<p>On these images, we can see the tissue section with the H&amp;E stain on the left and we can see the Visium output on the right. The tumor regions were labelled classical (blue) and basal (red) based on some gene markers. In the middle of the tissue section, regions of stroma are colored in grey.</p>
+<p><strong>Goal and learning objective</strong>:
+- Learn how to run NEST-interactive and how to make biological inferences from the cell cell communication graph coming from the NEST output.
+- We will explore cell cell communication subgraphs that are localized to different regions of the tissue section: stroma, classical or basal regions.
+- We will explore some specific ligand-receptor pairs.</p>
+<ul>
+<li><strong>LAUNCH THE DOCKER</strong>:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>Open docker desktop (If docker is already running you can find the docker icon in your task bar. Right click on the icon and select “Go to Dashboard”).</p></li>
+<li><p>We are going to run the Docker image that you have installed during the <a href="https://docs.google.com/forms/d/13P-_9JbV5BGVUPznoiy6jmVWQ9Qw6-lH_dC7h_juN48/edit">prework</a> .</p></li>
+<li><p>Open a terminal window and type the command below to launch NEST interactive:</p></li>
+</ol>
+<pre><code>docker run -p 8080:8080 -p 8000:8000 risserlin/nest_docker:pancreatic</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Open a web browser and go to <a href="http://localhost:8080/HTML%20file/NEST-vis.html" class="uri">http://localhost:8080/HTML%20file/NEST-vis.html</a></li>
+</ol>
+<p>Adjust the window size or zoom out if necessary.</p>
+<p><img src="scRNAlab/NEST_figures/NEST_interactive01.png" alt="EM" width="750" /></p>
+<p>We see the Visium output of the tumor section on the left. The grey circles represent the tumor spots and the squares represent the stroma spots.
+Only the top 1300 edges which are the top ligand-receptor pairs based on the association score are shown.
+The different colors of the graph represent the different subgraphs computed by the last step of NEST ((DFS). Each subgraph groups cells that are communicating a lot together.</p>
+<p>On the right, the histogram represents the frequency of each ligand-receptor pair on the graph. A ligand-receptor can be present in different subgraphs (represented by different colors).</p>
+<ul>
+<li><strong>STEPS TO FOLLOW</strong>:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Change color by <strong>vertex type</strong>: tumor - red.
+- Select ‘Vertex Type’ to ‘tumor’ and change the color to red. Click on ‘Change’.</li>
+</ol>
+<p><img src="scRNAlab/NEST_figures/NEST_interactive02.png" alt="EM" width="750" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Click on the <strong>first signal on the histogram plot</strong>. What is the first signal? Look at the literature to interpret the condition.</li>
+</ol>
+<p><img src="scRNAlab/NEST_figures/NEST_interactive03.png" alt="EM" width="750" /></p>
+<p>Answer: –The first signal is FN1. Fibronectin (FN1) is considered one of the main extracellular matrix constituents of pancreatic tumor stroma. High stromal FN1 expression associated with more aggressive tumors in patients with resected PDAC. Likewise, the cell membrane receptor Ribosomal Protein SA (RPSA) regulates pancreatic cancer cell migration.
+– so anticipate what is happening.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p><strong>Reset</strong>. (Click on the ‘Reset’ button)</p></li>
+<li><p>See which <strong>components cover a particular cancer region</strong>. Let’s pick component 10 (Cyan color).</p></li>
+</ol>
+<ul>
+<li>In the ‘Change Colour’ box, select ‘Component’, enter 10 and pick the cyan color. Click on ‘Change’.</li>
+</ul>
+<p><img src="scRNAlab/NEST_figures/NEST_interactive04.png" alt="EM" width="750" /></p>
+<ul>
+<li>What is remarkable is that this CCC subgraph colocalizes with the Classical subtype.</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Now, let’s see which CCCs are happening there in component 10.</li>
+</ol>
+<ul>
+<li>We go to the histogram plot and click on the histogram which has the same color as component 10. Let’s pick the first most abundant CCC: PLXNB2-MET (most abundant because a bigger proportion of this CCC is associated with component 10).</li>
+</ul>
+<p><img src="scRNAlab/NEST_figures/NEST_interactive04_2.png" alt="EM" width="750" /></p>
+<p>If we click on this histogram, it will show the regions where only that CCC is happening. And we see that it is happening only at that particular location. It aligns with Classical subtype of the PDAC cancer. That means, PLXNB2-MET may be a potential biomarker CCC for this subtype.
+→ Next step for your research starting from this hypothesis: navigate further studies, e.g., comparing across multiple samples to see if PLXNB2-MET is also found in other samples in the Classical region.</p>
+<ol start="6" style="list-style-type: decimal">
+<li><p><strong>Reset</strong>. (Click on the ‘Reset’ button)</p></li>
+<li><p><strong>Pick another cancer region</strong> - Component 4. To focus on this, let us change the color ‘by component’.</p></li>
+</ol>
+<ul>
+<li>In the “Change Colour” box, select ‘Component’, enter 4 and pick the cyan color. Click on ‘Change’.</li>
+</ul>
+<p><img src="scRNAlab/NEST_figures/NEST_interactive05.png" alt="EM" width="750" /></p>
+<p>It colocalizes to another classical region of the tissue section but it will contain different ligand-receptor interactions.</p>
+<ul>
+<li>Go to the histogram plot. Pick a CCC that happens only in Component 4 - even if it is low - APOE-SDC1. Select that histogram and look at the spatial location. It is happening only in this particular region.</li>
+</ul>
+<p><img src="scRNAlab/NEST_figures/NEST_interactive06.png" alt="EM" width="750" /></p>
+<div class="rmd-tip">
+<p>
+Since this interaction pair is in low amount, to gain more
+confidence, we could have increases the number of top CCC edges - 5000
+(sliding bar on top) and repeat the process.
+</p>
+</div>
+<ul>
+<li>Increase the number of edges. Wait until NEST_interactive finishes. In this step, NEST is recalculating the subgraphs.</li>
+</ul>
+<p><img src="scRNAlab/NEST_figures/NEST_interactive07.png" alt="EM" width="750" /></p>
+<ul>
+<li>In the ‘Gene/Connection search’ search box, look for and select ‘APOE-SDC1’</li>
+</ul>
+<p><img src="scRNAlab/NEST_figures/NEST_interactive08.png" alt="EM" width="750" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/bioinformaticsdotca/PNA_2024/blob/main/060-module-6.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
